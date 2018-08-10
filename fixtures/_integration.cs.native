@@ -1,0 +1,4 @@
+{
+   Encoding: "utf8",
+   content: "// A Hello World! program in C#.\nusing System;\nnamespace HelloWorld\n{\n    class Hello \n    {\n        static void Main() \n        {\n            Console.WriteLine(\"Hello World!\");\n\n            // Keep the console window open in debug mode.\n            Console.WriteLine(\"Press any key to exit.\");\n            Console.ReadKey();\n        }\n    }\n}\n",
+}

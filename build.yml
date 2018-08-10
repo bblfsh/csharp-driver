@@ -1,0 +1,20 @@
+sdk: '2'
+go-runtime:
+  version: '1.10'
+native:
+  image: 'microsoft/dotnet:2.1-runtime'
+  static:
+  - path: 'native.sh'
+    dest: 'native'
+  build:
+    image: 'microsoft/dotnet:2.1-sdk'
+    deps:
+    run:
+    - 'dotnet publish -c Release -o out'
+    artifacts:
+    - path: '/native/out/native.dll'
+      dest: 'native.dll'
+    - path: '/native/out/native.runtimeconfig.json'
+      dest: 'native.runtimeconfig.json'
+  test:
+    run:
