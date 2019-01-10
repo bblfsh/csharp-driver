@@ -75,7 +75,32 @@ namespace native
                 }
             }).ToList();
 
+            properties.Add(new JsonProperty()
+            {
+                PropertyName = "@type",
+                PropertyType = typeof(string),
+                Readable = true,
+                Writable = false,
+                ValueProvider = new StringValueProvider(type.Name)
+            });
+
             return properties;
+        }
+    }
+
+    public class StringValueProvider : IValueProvider {
+        string value;
+        public StringValueProvider(string v)
+        {
+            value = v;
+        }
+        public Object GetValue(Object target)
+        {
+            return value;
+        }
+        public void SetValue(Object target, Object value)
+        {
+            // do nothing
         }
     }
 }
