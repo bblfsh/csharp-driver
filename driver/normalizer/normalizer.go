@@ -16,6 +16,47 @@ var Normalize = Transformers([][]Transformer{
 
 // Preprocessors is a block of AST preprocessing rules rules.
 var Preprocessors = []Mapping{
+	// replace "IsEmpty" with "Length: 0" in spans
+	Map(
+		Part("_", Obj{
+			uast.KeyType: String("TextSpan"),
+			"IsEmpty":    AnyNode(nil),
+		}),
+		Part("_", Obj{
+			uast.KeyType: String("TextSpan"),
+			"Length":     Int(0),
+		}),
+	),
+
+	// restore "Start" if it was removed as a default value
+	Map(
+		Check(
+			Not(Has{
+				"Start": AnyNode(nil),
+			}),
+			Obj{
+				uast.KeyType: String("TextSpan"),
+				"Length":     Var("length"),
+				"End":        Var("end"),
+			},
+		),
+		Obj{
+			uast.KeyType: String("TextSpan"),
+			"Start":      Int(0),
+			"Length":     Var("length"),
+			"End":        Var("end"),
+		},
+	),
+
+	// remove SpanStart
+	Map(
+		// TODO(dennwc): add it as a custom position field?
+		Part("_", Obj{
+			"SpanStart": AnyNode(nil),
+		}),
+		Part("_", Obj{}),
+	),
+
 	Map(
 		Part("_", Obj{
 			"FullSpan": Obj{
@@ -24,9 +65,8 @@ var Preprocessors = []Mapping{
 				"Start":      Var("start"),
 				"End":        Var("end"),
 			},
-			// TODO(dennwc): add those as a custom position fields?
-			"Span":      AnyNode(nil),
-			"SpanStart": AnyNode(nil),
+			// TODO(dennwc): add it as a custom position field?
+			"Span": AnyNode(nil),
 		}),
 		Part("_", Obj{
 			// remap to temporary keys and let ObjectToNode to pick them up
