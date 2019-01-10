@@ -1,7 +1,9 @@
 using System;
+using System.Linq;
 using System.Collections.Generic;
 
 using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 
@@ -28,6 +30,7 @@ namespace native
                 PreserveReferencesHandling = PreserveReferencesHandling.None,
                 ReferenceLoopHandling = ReferenceLoopHandling.Ignore,
                 DefaultValueHandling = DefaultValueHandling.Ignore,
+                ContractResolver = new ASTContractResolver(),
             };
 
             string line;
@@ -52,6 +55,27 @@ namespace native
             SyntaxTree tree = CSharpSyntaxTree.ParseText(source);
             var cstree = (CSharpSyntaxTree)tree;
             return cstree.GetRoot();
+        }
+    }
+
+    public class ASTContractResolver : DefaultContractResolver
+    {
+        protected override IList<JsonProperty> CreateProperties(Type type, MemberSerialization memberSerialization)
+        {
+            IList<JsonProperty> properties = base.CreateProperties(type, memberSerialization);
+
+            properties = properties.Where((p) => {
+                switch (p.PropertyName)
+                {
+                case "Language":
+                case "SyntaxTree":
+                    return false;
+                default:
+                    return true;
+                }
+            }).ToList();
+
+            return properties;
         }
     }
 }
