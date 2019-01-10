@@ -13,7 +13,7 @@ native:
     - 'dotnet publish -c Release -o out'
     artifacts:
     - path: '/native/out/*.dll'
-      dest: './'
+      dest: ''
     - path: '/native/out/native.runtimeconfig.json'
       dest: 'native.runtimeconfig.json'
   test:

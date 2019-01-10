@@ -5,7 +5,6 @@
          IsEmpty: true,
          Start: 344,
       },
-      Language: "C#",
       LeadingTrivia: [],
       RawKind: 8496,
       Span: {
@@ -14,19 +13,6 @@
          Start: 344,
       },
       SpanStart: 344,
-      SyntaxTree: {
-         FilePath: "",
-         HasCompilationUnitRoot: true,
-         Length: 344,
-         Options: {
-            DocumentationMode: 1,
-            Errors: [],
-            Features: {},
-            Language: "C#",
-            LanguageVersion: 7,
-            PreprocessorSymbolNames: [],
-         },
-      },
       Text: "",
       TrailingTrivia: [],
       Value: "",
@@ -37,7 +23,6 @@
       Length: 344,
    },
    HasLeadingTrivia: true,
-   Language: "C#",
    Members: [
       {
          CloseBraceToken: {
@@ -47,7 +32,6 @@
                Start: 342,
             },
             HasTrailingTrivia: true,
-            Language: "C#",
             LeadingTrivia: [],
             RawKind: 8206,
             Span: {
@@ -56,19 +40,6 @@
                Start: 342,
             },
             SpanStart: 342,
-            SyntaxTree: {
-               FilePath: "",
-               HasCompilationUnitRoot: true,
-               Length: 344,
-               Options: {
-                  DocumentationMode: 1,
-                  Errors: [],
-                  Features: {},
-                  Language: "C#",
-                  LanguageVersion: 7,
-                  PreprocessorSymbolNames: [],
-               },
-            },
             Text: "}",
             TrailingTrivia: [
                {
@@ -77,7 +48,6 @@
                      Length: 1,
                      Start: 343,
                   },
-                  Language: "C#",
                   RawKind: 8539,
                   Span: {
                      End: 344,
@@ -85,19 +55,6 @@
                      Start: 343,
                   },
                   SpanStart: 343,
-                  SyntaxTree: {
-                     FilePath: "",
-                     HasCompilationUnitRoot: true,
-                     Length: 344,
-                     Options: {
-                        DocumentationMode: 1,
-                        Errors: [],
-                        Features: {},
-                        Language: "C#",
-                        LanguageVersion: 7,
-                        PreprocessorSymbolNames: [],
-                     },
-                  },
                },
             ],
             Value: "}",
@@ -109,7 +66,6 @@
             Start: 47,
          },
          HasTrailingTrivia: true,
-         Language: "C#",
          Members: [
             {
                CloseBraceToken: {
@@ -120,7 +76,6 @@
                   },
                   HasLeadingTrivia: true,
                   HasTrailingTrivia: true,
-                  Language: "C#",
                   LeadingTrivia: [
                      {
                         FullSpan: {
@@ -128,7 +83,6 @@
                            Length: 4,
                            Start: 336,
                         },
-                        Language: "C#",
                         RawKind: 8540,
                         Span: {
                            End: 340,
@@ -136,19 +90,6 @@
                            Start: 336,
                         },
                         SpanStart: 336,
-                        SyntaxTree: {
-                           FilePath: "",
-                           HasCompilationUnitRoot: true,
-                           Length: 344,
-                           Options: {
-                              DocumentationMode: 1,
-                              Errors: [],
-                              Features: {},
-                              Language: "C#",
-                              LanguageVersion: 7,
-                              PreprocessorSymbolNames: [],
-                           },
-                        },
                      },
                   ],
                   RawKind: 8206,
@@ -158,19 +99,6 @@
                      Start: 340,
                   },
                   SpanStart: 340,
-                  SyntaxTree: {
-                     FilePath: "",
-                     HasCompilationUnitRoot: true,
-                     Length: 344,
-                     Options: {
-                        DocumentationMode: 1,
-                        Errors: [],
-                        Features: {},
-                        Language: "C#",
-                        LanguageVersion: 7,
-                        PreprocessorSymbolNames: [],
-                     },
-                  },
                   Text: "}",
                   TrailingTrivia: [
                      {
@@ -179,7 +107,6 @@
                            Length: 1,
                            Start: 341,
                         },
-                        Language: "C#",
                         RawKind: 8539,
                         Span: {
                            End: 342,
@@ -187,19 +114,6 @@
                            Start: 341,
                         },
                         SpanStart: 341,
-                        SyntaxTree: {
-                           FilePath: "",
-                           HasCompilationUnitRoot: true,
-                           Length: 344,
-                           Options: {
-                              DocumentationMode: 1,
-                              Errors: [],
-                              Features: {},
-                              Language: "C#",
-                              LanguageVersion: 7,
-                              PreprocessorSymbolNames: [],
-                           },
-                        },
                      },
                   ],
                   Value: "}",
@@ -219,7 +133,6 @@
                      Start: 80,
                   },
                   HasTrailingTrivia: true,
-                  Language: "C#",
                   LeadingTrivia: [],
                   RawKind: 8508,
                   Span: {
@@ -228,19 +141,6 @@
                      Start: 80,
                   },
                   SpanStart: 80,
-                  SyntaxTree: {
-                     FilePath: "",
-                     HasCompilationUnitRoot: true,
-                     Length: 344,
-                     Options: {
-                        DocumentationMode: 1,
-                        Errors: [],
-                        Features: {},
-                        Language: "C#",
-                        LanguageVersion: 7,
-                        PreprocessorSymbolNames: [],
-                     },
-                  },
                   Text: "Hello",
                   TrailingTrivia: [
                      {
@@ -249,7 +149,6 @@
                            Length: 1,
                            Start: 85,
                         },
-                        Language: "C#",
                         RawKind: 8540,
                         Span: {
                            End: 86,
@@ -257,19 +156,6 @@
                            Start: 85,
                         },
                         SpanStart: 85,
-                        SyntaxTree: {
-                           FilePath: "",
-                           HasCompilationUnitRoot: true,
-                           Length: 344,
-                           Options: {
-                              DocumentationMode: 1,
-                              Errors: [],
-                              Features: {},
-                              Language: "C#",
-                              LanguageVersion: 7,
-                              PreprocessorSymbolNames: [],
-                           },
-                        },
                      },
                      {
                         FullSpan: {
@@ -277,7 +163,6 @@
                            Length: 1,
                            Start: 86,
                         },
-                        Language: "C#",
                         RawKind: 8539,
                         Span: {
                            End: 87,
@@ -285,19 +170,6 @@
                            Start: 86,
                         },
                         SpanStart: 86,
-                        SyntaxTree: {
-                           FilePath: "",
-                           HasCompilationUnitRoot: true,
-                           Length: 344,
-                           Options: {
-                              DocumentationMode: 1,
-                              Errors: [],
-                              Features: {},
-                              Language: "C#",
-                              LanguageVersion: 7,
-                              PreprocessorSymbolNames: [],
-                           },
-                        },
                      },
                   ],
                   Value: "Hello",
@@ -311,7 +183,6 @@
                   },
                   HasLeadingTrivia: true,
                   HasTrailingTrivia: true,
-                  Language: "C#",
                   LeadingTrivia: [
                      {
                         FullSpan: {
@@ -319,7 +190,6 @@
                            Length: 4,
                            Start: 70,
                         },
-                        Language: "C#",
                         RawKind: 8540,
                         Span: {
                            End: 74,
@@ -327,19 +197,6 @@
                            Start: 70,
                         },
                         SpanStart: 70,
-                        SyntaxTree: {
-                           FilePath: "",
-                           HasCompilationUnitRoot: true,
-                           Length: 344,
-                           Options: {
-                              DocumentationMode: 1,
-                              Errors: [],
-                              Features: {},
-                              Language: "C#",
-                              LanguageVersion: 7,
-                              PreprocessorSymbolNames: [],
-                           },
-                        },
                      },
                   ],
                   RawKind: 8374,
@@ -349,19 +206,6 @@
                      Start: 74,
                   },
                   SpanStart: 74,
-                  SyntaxTree: {
-                     FilePath: "",
-                     HasCompilationUnitRoot: true,
-                     Length: 344,
-                     Options: {
-                        DocumentationMode: 1,
-                        Errors: [],
-                        Features: {},
-                        Language: "C#",
-                        LanguageVersion: 7,
-                        PreprocessorSymbolNames: [],
-                     },
-                  },
                   Text: "class",
                   TrailingTrivia: [
                      {
@@ -370,7 +214,6 @@
                            Length: 1,
                            Start: 79,
                         },
-                        Language: "C#",
                         RawKind: 8540,
                         Span: {
                            End: 80,
@@ -378,25 +221,11 @@
                            Start: 79,
                         },
                         SpanStart: 79,
-                        SyntaxTree: {
-                           FilePath: "",
-                           HasCompilationUnitRoot: true,
-                           Length: 344,
-                           Options: {
-                              DocumentationMode: 1,
-                              Errors: [],
-                              Features: {},
-                              Language: "C#",
-                              LanguageVersion: 7,
-                              PreprocessorSymbolNames: [],
-                           },
-                        },
                      },
                   ],
                   Value: "class",
                   ValueText: "class",
                },
-               Language: "C#",
                Members: [
                   {
                      Body: {
@@ -408,7 +237,6 @@
                            },
                            HasLeadingTrivia: true,
                            HasTrailingTrivia: true,
-                           Language: "C#",
                            LeadingTrivia: [
                               {
                                  FullSpan: {
@@ -416,7 +244,6 @@
                                     Length: 8,
                                     Start: 326,
                                  },
-                                 Language: "C#",
                                  RawKind: 8540,
                                  Span: {
                                     End: 334,
@@ -424,19 +251,6 @@
                                     Start: 326,
                                  },
                                  SpanStart: 326,
-                                 SyntaxTree: {
-                                    FilePath: "",
-                                    HasCompilationUnitRoot: true,
-                                    Length: 344,
-                                    Options: {
-                                       DocumentationMode: 1,
-                                       Errors: [],
-                                       Features: {},
-                                       Language: "C#",
-                                       LanguageVersion: 7,
-                                       PreprocessorSymbolNames: [],
-                                    },
-                                 },
                               },
                            ],
                            RawKind: 8206,
@@ -446,19 +260,6 @@
                               Start: 334,
                            },
                            SpanStart: 334,
-                           SyntaxTree: {
-                              FilePath: "",
-                              HasCompilationUnitRoot: true,
-                              Length: 344,
-                              Options: {
-                                 DocumentationMode: 1,
-                                 Errors: [],
-                                 Features: {},
-                                 Language: "C#",
-                                 LanguageVersion: 7,
-                                 PreprocessorSymbolNames: [],
-                              },
-                           },
                            Text: "}",
                            TrailingTrivia: [
                               {
@@ -467,7 +268,6 @@
                                     Length: 1,
                                     Start: 335,
                                  },
-                                 Language: "C#",
                                  RawKind: 8539,
                                  Span: {
                                     End: 336,
@@ -475,19 +275,6 @@
                                     Start: 335,
                                  },
                                  SpanStart: 335,
-                                 SyntaxTree: {
-                                    FilePath: "",
-                                    HasCompilationUnitRoot: true,
-                                    Length: 344,
-                                    Options: {
-                                       DocumentationMode: 1,
-                                       Errors: [],
-                                       Features: {},
-                                       Language: "C#",
-                                       LanguageVersion: 7,
-                                       PreprocessorSymbolNames: [],
-                                    },
-                                 },
                               },
                            ],
                            Value: "}",
@@ -500,7 +287,6 @@
                         },
                         HasLeadingTrivia: true,
                         HasTrailingTrivia: true,
-                        Language: "C#",
                         OpenBraceToken: {
                            FullSpan: {
                               End: 131,
@@ -509,7 +295,6 @@
                            },
                            HasLeadingTrivia: true,
                            HasTrailingTrivia: true,
-                           Language: "C#",
                            LeadingTrivia: [
                               {
                                  FullSpan: {
@@ -517,7 +302,6 @@
                                     Length: 8,
                                     Start: 121,
                                  },
-                                 Language: "C#",
                                  RawKind: 8540,
                                  Span: {
                                     End: 129,
@@ -525,19 +309,6 @@
                                     Start: 121,
                                  },
                                  SpanStart: 121,
-                                 SyntaxTree: {
-                                    FilePath: "",
-                                    HasCompilationUnitRoot: true,
-                                    Length: 344,
-                                    Options: {
-                                       DocumentationMode: 1,
-                                       Errors: [],
-                                       Features: {},
-                                       Language: "C#",
-                                       LanguageVersion: 7,
-                                       PreprocessorSymbolNames: [],
-                                    },
-                                 },
                               },
                            ],
                            RawKind: 8205,
@@ -547,19 +318,6 @@
                               Start: 129,
                            },
                            SpanStart: 129,
-                           SyntaxTree: {
-                              FilePath: "",
-                              HasCompilationUnitRoot: true,
-                              Length: 344,
-                              Options: {
-                                 DocumentationMode: 1,
-                                 Errors: [],
-                                 Features: {},
-                                 Language: "C#",
-                                 LanguageVersion: 7,
-                                 PreprocessorSymbolNames: [],
-                              },
-                           },
                            Text: "{",
                            TrailingTrivia: [
                               {
@@ -568,7 +326,6 @@
                                     Length: 1,
                                     Start: 130,
                                  },
-                                 Language: "C#",
                                  RawKind: 8539,
                                  Span: {
                                     End: 131,
@@ -576,19 +333,6 @@
                                     Start: 130,
                                  },
                                  SpanStart: 130,
-                                 SyntaxTree: {
-                                    FilePath: "",
-                                    HasCompilationUnitRoot: true,
-                                    Length: 344,
-                                    Options: {
-                                       DocumentationMode: 1,
-                                       Errors: [],
-                                       Features: {},
-                                       Language: "C#",
-                                       LanguageVersion: 7,
-                                       PreprocessorSymbolNames: [],
-                                    },
-                                 },
                               },
                            ],
                            Value: "{",
@@ -613,7 +357,6 @@
                                                 Length: 14,
                                                 Start: 161,
                                              },
-                                             Language: "C#",
                                              RawKind: 8750,
                                              Span: {
                                                 End: 175,
@@ -621,26 +364,12 @@
                                                 Start: 161,
                                              },
                                              SpanStart: 161,
-                                             SyntaxTree: {
-                                                FilePath: "",
-                                                HasCompilationUnitRoot: true,
-                                                Length: 344,
-                                                Options: {
-                                                   DocumentationMode: 1,
-                                                   Errors: [],
-                                                   Features: {},
-                                                   Language: "C#",
-                                                   LanguageVersion: 7,
-                                                   PreprocessorSymbolNames: [],
-                                                },
-                                             },
                                              Token: {
                                                 FullSpan: {
                                                    End: 175,
                                                    Length: 14,
                                                    Start: 161,
                                                 },
-                                                Language: "C#",
                                                 LeadingTrivia: [],
                                                 RawKind: 8511,
                                                 Span: {
@@ -649,19 +378,6 @@
                                                    Start: 161,
                                                 },
                                                 SpanStart: 161,
-                                                SyntaxTree: {
-                                                   FilePath: "",
-                                                   HasCompilationUnitRoot: true,
-                                                   Length: 344,
-                                                   Options: {
-                                                      DocumentationMode: 1,
-                                                      Errors: [],
-                                                      Features: {},
-                                                      Language: "C#",
-                                                      LanguageVersion: 7,
-                                                      PreprocessorSymbolNames: [],
-                                                   },
-                                                },
                                                 Text: "\"Hello World!\"",
                                                 TrailingTrivia: [],
                                                 Value: "Hello World!",
@@ -673,7 +389,6 @@
                                              Length: 14,
                                              Start: 161,
                                           },
-                                          Language: "C#",
                                           RawKind: 8638,
                                           Span: {
                                              End: 175,
@@ -681,19 +396,6 @@
                                              Start: 161,
                                           },
                                           SpanStart: 161,
-                                          SyntaxTree: {
-                                             FilePath: "",
-                                             HasCompilationUnitRoot: true,
-                                             Length: 344,
-                                             Options: {
-                                                DocumentationMode: 1,
-                                                Errors: [],
-                                                Features: {},
-                                                Language: "C#",
-                                                LanguageVersion: 7,
-                                                PreprocessorSymbolNames: [],
-                                             },
-                                          },
                                        },
                                     ],
                                     CloseParenToken: {
@@ -702,7 +404,6 @@
                                           Length: 1,
                                           Start: 175,
                                        },
-                                       Language: "C#",
                                        LeadingTrivia: [],
                                        RawKind: 8201,
                                        Span: {
@@ -711,19 +412,6 @@
                                           Start: 175,
                                        },
                                        SpanStart: 175,
-                                       SyntaxTree: {
-                                          FilePath: "",
-                                          HasCompilationUnitRoot: true,
-                                          Length: 344,
-                                          Options: {
-                                             DocumentationMode: 1,
-                                             Errors: [],
-                                             Features: {},
-                                             Language: "C#",
-                                             LanguageVersion: 7,
-                                             PreprocessorSymbolNames: [],
-                                          },
-                                       },
                                        Text: ")",
                                        TrailingTrivia: [],
                                        Value: ")",
@@ -734,14 +422,12 @@
                                        Length: 16,
                                        Start: 160,
                                     },
-                                    Language: "C#",
                                     OpenParenToken: {
                                        FullSpan: {
                                           End: 161,
                                           Length: 1,
                                           Start: 160,
                                        },
-                                       Language: "C#",
                                        LeadingTrivia: [],
                                        RawKind: 8200,
                                        Span: {
@@ -750,19 +436,6 @@
                                           Start: 160,
                                        },
                                        SpanStart: 160,
-                                       SyntaxTree: {
-                                          FilePath: "",
-                                          HasCompilationUnitRoot: true,
-                                          Length: 344,
-                                          Options: {
-                                             DocumentationMode: 1,
-                                             Errors: [],
-                                             Features: {},
-                                             Language: "C#",
-                                             LanguageVersion: 7,
-                                             PreprocessorSymbolNames: [],
-                                          },
-                                       },
                                        Text: "(",
                                        TrailingTrivia: [],
                                        Value: "(",
@@ -775,19 +448,6 @@
                                        Start: 160,
                                     },
                                     SpanStart: 160,
-                                    SyntaxTree: {
-                                       FilePath: "",
-                                       HasCompilationUnitRoot: true,
-                                       Length: 344,
-                                       Options: {
-                                          DocumentationMode: 1,
-                                          Errors: [],
-                                          Features: {},
-                                          Language: "C#",
-                                          LanguageVersion: 7,
-                                          PreprocessorSymbolNames: [],
-                                       },
-                                    },
                                  },
                                  Expression: {
                                     Expression: {
@@ -804,7 +464,6 @@
                                              Start: 131,
                                           },
                                           HasLeadingTrivia: true,
-                                          Language: "C#",
                                           LeadingTrivia: [
                                              {
                                                 FullSpan: {
@@ -812,7 +471,6 @@
                                                    Length: 12,
                                                    Start: 131,
                                                 },
-                                                Language: "C#",
                                                 RawKind: 8540,
                                                 Span: {
                                                    End: 143,
@@ -820,19 +478,6 @@
                                                    Start: 131,
                                                 },
                                                 SpanStart: 131,
-                                                SyntaxTree: {
-                                                   FilePath: "",
-                                                   HasCompilationUnitRoot: true,
-                                                   Length: 344,
-                                                   Options: {
-                                                      DocumentationMode: 1,
-                                                      Errors: [],
-                                                      Features: {},
-                                                      Language: "C#",
-                                                      LanguageVersion: 7,
-                                                      PreprocessorSymbolNames: [],
-                                                   },
-                                                },
                                              },
                                           ],
                                           RawKind: 8508,
@@ -842,25 +487,11 @@
                                              Start: 143,
                                           },
                                           SpanStart: 143,
-                                          SyntaxTree: {
-                                             FilePath: "",
-                                             HasCompilationUnitRoot: true,
-                                             Length: 344,
-                                             Options: {
-                                                DocumentationMode: 1,
-                                                Errors: [],
-                                                Features: {},
-                                                Language: "C#",
-                                                LanguageVersion: 7,
-                                                PreprocessorSymbolNames: [],
-                                             },
-                                          },
                                           Text: "Console",
                                           TrailingTrivia: [],
                                           Value: "Console",
                                           ValueText: "Console",
                                        },
-                                       Language: "C#",
                                        RawKind: 8616,
                                        Span: {
                                           End: 150,
@@ -868,19 +499,6 @@
                                           Start: 143,
                                        },
                                        SpanStart: 143,
-                                       SyntaxTree: {
-                                          FilePath: "",
-                                          HasCompilationUnitRoot: true,
-                                          Length: 344,
-                                          Options: {
-                                             DocumentationMode: 1,
-                                             Errors: [],
-                                             Features: {},
-                                             Language: "C#",
-                                             LanguageVersion: 7,
-                                             PreprocessorSymbolNames: [],
-                                          },
-                                       },
                                     },
                                     FullSpan: {
                                        End: 160,
@@ -888,7 +506,6 @@
                                        Start: 131,
                                     },
                                     HasLeadingTrivia: true,
-                                    Language: "C#",
                                     Name: {
                                        FullSpan: {
                                           End: 160,
@@ -901,7 +518,6 @@
                                              Length: 9,
                                              Start: 151,
                                           },
-                                          Language: "C#",
                                           LeadingTrivia: [],
                                           RawKind: 8508,
                                           Span: {
@@ -910,25 +526,11 @@
                                              Start: 151,
                                           },
                                           SpanStart: 151,
-                                          SyntaxTree: {
-                                             FilePath: "",
-                                             HasCompilationUnitRoot: true,
-                                             Length: 344,
-                                             Options: {
-                                                DocumentationMode: 1,
-                                                Errors: [],
-                                                Features: {},
-                                                Language: "C#",
-                                                LanguageVersion: 7,
-                                                PreprocessorSymbolNames: [],
-                                             },
-                                          },
                                           Text: "WriteLine",
                                           TrailingTrivia: [],
                                           Value: "WriteLine",
                                           ValueText: "WriteLine",
                                        },
-                                       Language: "C#",
                                        RawKind: 8616,
                                        Span: {
                                           End: 160,
@@ -936,19 +538,6 @@
                                           Start: 151,
                                        },
                                        SpanStart: 151,
-                                       SyntaxTree: {
-                                          FilePath: "",
-                                          HasCompilationUnitRoot: true,
-                                          Length: 344,
-                                          Options: {
-                                             DocumentationMode: 1,
-                                             Errors: [],
-                                             Features: {},
-                                             Language: "C#",
-                                             LanguageVersion: 7,
-                                             PreprocessorSymbolNames: [],
-                                          },
-                                       },
                                     },
                                     OperatorToken: {
                                        FullSpan: {
@@ -956,7 +545,6 @@
                                           Length: 1,
                                           Start: 150,
                                        },
-                                       Language: "C#",
                                        LeadingTrivia: [],
                                        RawKind: 8218,
                                        Span: {
@@ -965,19 +553,6 @@
                                           Start: 150,
                                        },
                                        SpanStart: 150,
-                                       SyntaxTree: {
-                                          FilePath: "",
-                                          HasCompilationUnitRoot: true,
-                                          Length: 344,
-                                          Options: {
-                                             DocumentationMode: 1,
-                                             Errors: [],
-                                             Features: {},
-                                             Language: "C#",
-                                             LanguageVersion: 7,
-                                             PreprocessorSymbolNames: [],
-                                          },
-                                       },
                                        Text: ".",
                                        TrailingTrivia: [],
                                        Value: ".",
@@ -990,19 +565,6 @@
                                        Start: 143,
                                     },
                                     SpanStart: 143,
-                                    SyntaxTree: {
-                                       FilePath: "",
-                                       HasCompilationUnitRoot: true,
-                                       Length: 344,
-                                       Options: {
-                                          DocumentationMode: 1,
-                                          Errors: [],
-                                          Features: {},
-                                          Language: "C#",
-                                          LanguageVersion: 7,
-                                          PreprocessorSymbolNames: [],
-                                       },
-                                    },
                                  },
                                  FullSpan: {
                                     End: 176,
@@ -1010,7 +572,6 @@
                                     Start: 131,
                                  },
                                  HasLeadingTrivia: true,
-                                 Language: "C#",
                                  RawKind: 8634,
                                  Span: {
                                     End: 176,
@@ -1018,19 +579,6 @@
                                     Start: 143,
                                  },
                                  SpanStart: 143,
-                                 SyntaxTree: {
-                                    FilePath: "",
-                                    HasCompilationUnitRoot: true,
-                                    Length: 344,
-                                    Options: {
-                                       DocumentationMode: 1,
-                                       Errors: [],
-                                       Features: {},
-                                       Language: "C#",
-                                       LanguageVersion: 7,
-                                       PreprocessorSymbolNames: [],
-                                    },
-                                 },
                               },
                               FullSpan: {
                                  End: 178,
@@ -1039,7 +587,6 @@
                               },
                               HasLeadingTrivia: true,
                               HasTrailingTrivia: true,
-                              Language: "C#",
                               RawKind: 8797,
                               SemicolonToken: {
                                  FullSpan: {
@@ -1048,7 +595,6 @@
                                     Start: 176,
                                  },
                                  HasTrailingTrivia: true,
-                                 Language: "C#",
                                  LeadingTrivia: [],
                                  RawKind: 8212,
                                  Span: {
@@ -1057,19 +603,6 @@
                                     Start: 176,
                                  },
                                  SpanStart: 176,
-                                 SyntaxTree: {
-                                    FilePath: "",
-                                    HasCompilationUnitRoot: true,
-                                    Length: 344,
-                                    Options: {
-                                       DocumentationMode: 1,
-                                       Errors: [],
-                                       Features: {},
-                                       Language: "C#",
-                                       LanguageVersion: 7,
-                                       PreprocessorSymbolNames: [],
-                                    },
-                                 },
                                  Text: ";",
                                  TrailingTrivia: [
                                     {
@@ -1078,7 +611,6 @@
                                           Length: 1,
                                           Start: 177,
                                        },
-                                       Language: "C#",
                                        RawKind: 8539,
                                        Span: {
                                           End: 178,
@@ -1086,19 +618,6 @@
                                           Start: 177,
                                        },
                                        SpanStart: 177,
-                                       SyntaxTree: {
-                                          FilePath: "",
-                                          HasCompilationUnitRoot: true,
-                                          Length: 344,
-                                          Options: {
-                                             DocumentationMode: 1,
-                                             Errors: [],
-                                             Features: {},
-                                             Language: "C#",
-                                             LanguageVersion: 7,
-                                             PreprocessorSymbolNames: [],
-                                          },
-                                       },
                                     },
                                  ],
                                  Value: ";",
@@ -1110,19 +629,6 @@
                                  Start: 143,
                               },
                               SpanStart: 143,
-                              SyntaxTree: {
-                                 FilePath: "",
-                                 HasCompilationUnitRoot: true,
-                                 Length: 344,
-                                 Options: {
-                                    DocumentationMode: 1,
-                                    Errors: [],
-                                    Features: {},
-                                    Language: "C#",
-                                    LanguageVersion: 7,
-                                    PreprocessorSymbolNames: [],
-                                 },
-                              },
                            },
                            {
                               Expression: {
@@ -1135,7 +641,6 @@
                                                 Length: 24,
                                                 Start: 268,
                                              },
-                                             Language: "C#",
                                              RawKind: 8750,
                                              Span: {
                                                 End: 292,
@@ -1143,26 +648,12 @@
                                                 Start: 268,
                                              },
                                              SpanStart: 268,
-                                             SyntaxTree: {
-                                                FilePath: "",
-                                                HasCompilationUnitRoot: true,
-                                                Length: 344,
-                                                Options: {
-                                                   DocumentationMode: 1,
-                                                   Errors: [],
-                                                   Features: {},
-                                                   Language: "C#",
-                                                   LanguageVersion: 7,
-                                                   PreprocessorSymbolNames: [],
-                                                },
-                                             },
                                              Token: {
                                                 FullSpan: {
                                                    End: 292,
                                                    Length: 24,
                                                    Start: 268,
                                                 },
-                                                Language: "C#",
                                                 LeadingTrivia: [],
                                                 RawKind: 8511,
                                                 Span: {
@@ -1171,19 +662,6 @@
                                                    Start: 268,
                                                 },
                                                 SpanStart: 268,
-                                                SyntaxTree: {
-                                                   FilePath: "",
-                                                   HasCompilationUnitRoot: true,
-                                                   Length: 344,
-                                                   Options: {
-                                                      DocumentationMode: 1,
-                                                      Errors: [],
-                                                      Features: {},
-                                                      Language: "C#",
-                                                      LanguageVersion: 7,
-                                                      PreprocessorSymbolNames: [],
-                                                   },
-                                                },
                                                 Text: "\"Press any key to exit.\"",
                                                 TrailingTrivia: [],
                                                 Value: "Press any key to exit.",
@@ -1195,7 +673,6 @@
                                              Length: 24,
                                              Start: 268,
                                           },
-                                          Language: "C#",
                                           RawKind: 8638,
                                           Span: {
                                              End: 292,
@@ -1203,19 +680,6 @@
                                              Start: 268,
                                           },
                                           SpanStart: 268,
-                                          SyntaxTree: {
-                                             FilePath: "",
-                                             HasCompilationUnitRoot: true,
-                                             Length: 344,
-                                             Options: {
-                                                DocumentationMode: 1,
-                                                Errors: [],
-                                                Features: {},
-                                                Language: "C#",
-                                                LanguageVersion: 7,
-                                                PreprocessorSymbolNames: [],
-                                             },
-                                          },
                                        },
                                     ],
                                     CloseParenToken: {
@@ -1224,7 +688,6 @@
                                           Length: 1,
                                           Start: 292,
                                        },
-                                       Language: "C#",
                                        LeadingTrivia: [],
                                        RawKind: 8201,
                                        Span: {
@@ -1233,19 +696,6 @@
                                           Start: 292,
                                        },
                                        SpanStart: 292,
-                                       SyntaxTree: {
-                                          FilePath: "",
-                                          HasCompilationUnitRoot: true,
-                                          Length: 344,
-                                          Options: {
-                                             DocumentationMode: 1,
-                                             Errors: [],
-                                             Features: {},
-                                             Language: "C#",
-                                             LanguageVersion: 7,
-                                             PreprocessorSymbolNames: [],
-                                          },
-                                       },
                                        Text: ")",
                                        TrailingTrivia: [],
                                        Value: ")",
@@ -1256,14 +706,12 @@
                                        Length: 26,
                                        Start: 267,
                                     },
-                                    Language: "C#",
                                     OpenParenToken: {
                                        FullSpan: {
                                           End: 268,
                                           Length: 1,
                                           Start: 267,
                                        },
-                                       Language: "C#",
                                        LeadingTrivia: [],
                                        RawKind: 8200,
                                        Span: {
@@ -1272,19 +720,6 @@
                                           Start: 267,
                                        },
                                        SpanStart: 267,
-                                       SyntaxTree: {
-                                          FilePath: "",
-                                          HasCompilationUnitRoot: true,
-                                          Length: 344,
-                                          Options: {
-                                             DocumentationMode: 1,
-                                             Errors: [],
-                                             Features: {},
-                                             Language: "C#",
-                                             LanguageVersion: 7,
-                                             PreprocessorSymbolNames: [],
-                                          },
-                                       },
                                        Text: "(",
                                        TrailingTrivia: [],
                                        Value: "(",
@@ -1297,19 +732,6 @@
                                        Start: 267,
                                     },
                                     SpanStart: 267,
-                                    SyntaxTree: {
-                                       FilePath: "",
-                                       HasCompilationUnitRoot: true,
-                                       Length: 344,
-                                       Options: {
-                                          DocumentationMode: 1,
-                                          Errors: [],
-                                          Features: {},
-                                          Language: "C#",
-                                          LanguageVersion: 7,
-                                          PreprocessorSymbolNames: [],
-                                       },
-                                    },
                                  },
                                  Expression: {
                                     Expression: {
@@ -1326,7 +748,6 @@
                                              Start: 178,
                                           },
                                           HasLeadingTrivia: true,
-                                          Language: "C#",
                                           LeadingTrivia: [
                                              {
                                                 FullSpan: {
@@ -1334,7 +755,6 @@
                                                    Length: 1,
                                                    Start: 178,
                                                 },
-                                                Language: "C#",
                                                 RawKind: 8539,
                                                 Span: {
                                                    End: 179,
@@ -1342,19 +762,6 @@
                                                    Start: 178,
                                                 },
                                                 SpanStart: 178,
-                                                SyntaxTree: {
-                                                   FilePath: "",
-                                                   HasCompilationUnitRoot: true,
-                                                   Length: 344,
-                                                   Options: {
-                                                      DocumentationMode: 1,
-                                                      Errors: [],
-                                                      Features: {},
-                                                      Language: "C#",
-                                                      LanguageVersion: 7,
-                                                      PreprocessorSymbolNames: [],
-                                                   },
-                                                },
                                              },
                                              {
                                                 FullSpan: {
@@ -1362,7 +769,6 @@
                                                    Length: 12,
                                                    Start: 179,
                                                 },
-                                                Language: "C#",
                                                 RawKind: 8540,
                                                 Span: {
                                                    End: 191,
@@ -1370,19 +776,6 @@
                                                    Start: 179,
                                                 },
                                                 SpanStart: 179,
-                                                SyntaxTree: {
-                                                   FilePath: "",
-                                                   HasCompilationUnitRoot: true,
-                                                   Length: 344,
-                                                   Options: {
-                                                      DocumentationMode: 1,
-                                                      Errors: [],
-                                                      Features: {},
-                                                      Language: "C#",
-                                                      LanguageVersion: 7,
-                                                      PreprocessorSymbolNames: [],
-                                                   },
-                                                },
                                              },
                                              {
                                                 FullSpan: {
@@ -1390,7 +783,6 @@
                                                    Length: 46,
                                                    Start: 191,
                                                 },
-                                                Language: "C#",
                                                 RawKind: 8541,
                                                 Span: {
                                                    End: 237,
@@ -1398,19 +790,6 @@
                                                    Start: 191,
                                                 },
                                                 SpanStart: 191,
-                                                SyntaxTree: {
-                                                   FilePath: "",
-                                                   HasCompilationUnitRoot: true,
-                                                   Length: 344,
-                                                   Options: {
-                                                      DocumentationMode: 1,
-                                                      Errors: [],
-                                                      Features: {},
-                                                      Language: "C#",
-                                                      LanguageVersion: 7,
-                                                      PreprocessorSymbolNames: [],
-                                                   },
-                                                },
                                              },
                                              {
                                                 FullSpan: {
@@ -1418,7 +797,6 @@
                                                    Length: 1,
                                                    Start: 237,
                                                 },
-                                                Language: "C#",
                                                 RawKind: 8539,
                                                 Span: {
                                                    End: 238,
@@ -1426,19 +804,6 @@
                                                    Start: 237,
                                                 },
                                                 SpanStart: 237,
-                                                SyntaxTree: {
-                                                   FilePath: "",
-                                                   HasCompilationUnitRoot: true,
-                                                   Length: 344,
-                                                   Options: {
-                                                      DocumentationMode: 1,
-                                                      Errors: [],
-                                                      Features: {},
-                                                      Language: "C#",
-                                                      LanguageVersion: 7,
-                                                      PreprocessorSymbolNames: [],
-                                                   },
-                                                },
                                              },
                                              {
                                                 FullSpan: {
@@ -1446,7 +811,6 @@
                                                    Length: 12,
                                                    Start: 238,
                                                 },
-                                                Language: "C#",
                                                 RawKind: 8540,
                                                 Span: {
                                                    End: 250,
@@ -1454,19 +818,6 @@
                                                    Start: 238,
                                                 },
                                                 SpanStart: 238,
-                                                SyntaxTree: {
-                                                   FilePath: "",
-                                                   HasCompilationUnitRoot: true,
-                                                   Length: 344,
-                                                   Options: {
-                                                      DocumentationMode: 1,
-                                                      Errors: [],
-                                                      Features: {},
-                                                      Language: "C#",
-                                                      LanguageVersion: 7,
-                                                      PreprocessorSymbolNames: [],
-                                                   },
-                                                },
                                              },
                                           ],
                                           RawKind: 8508,
@@ -1476,25 +827,11 @@
                                              Start: 250,
                                           },
                                           SpanStart: 250,
-                                          SyntaxTree: {
-                                             FilePath: "",
-                                             HasCompilationUnitRoot: true,
-                                             Length: 344,
-                                             Options: {
-                                                DocumentationMode: 1,
-                                                Errors: [],
-                                                Features: {},
-                                                Language: "C#",
-                                                LanguageVersion: 7,
-                                                PreprocessorSymbolNames: [],
-                                             },
-                                          },
                                           Text: "Console",
                                           TrailingTrivia: [],
                                           Value: "Console",
                                           ValueText: "Console",
                                        },
-                                       Language: "C#",
                                        RawKind: 8616,
                                        Span: {
                                           End: 257,
@@ -1502,19 +839,6 @@
                                           Start: 250,
                                        },
                                        SpanStart: 250,
-                                       SyntaxTree: {
-                                          FilePath: "",
-                                          HasCompilationUnitRoot: true,
-                                          Length: 344,
-                                          Options: {
-                                             DocumentationMode: 1,
-                                             Errors: [],
-                                             Features: {},
-                                             Language: "C#",
-                                             LanguageVersion: 7,
-                                             PreprocessorSymbolNames: [],
-                                          },
-                                       },
                                     },
                                     FullSpan: {
                                        End: 267,
@@ -1522,7 +846,6 @@
                                        Start: 178,
                                     },
                                     HasLeadingTrivia: true,
-                                    Language: "C#",
                                     Name: {
                                        FullSpan: {
                                           End: 267,
@@ -1535,7 +858,6 @@
                                              Length: 9,
                                              Start: 258,
                                           },
-                                          Language: "C#",
                                           LeadingTrivia: [],
                                           RawKind: 8508,
                                           Span: {
@@ -1544,25 +866,11 @@
                                              Start: 258,
                                           },
                                           SpanStart: 258,
-                                          SyntaxTree: {
-                                             FilePath: "",
-                                             HasCompilationUnitRoot: true,
-                                             Length: 344,
-                                             Options: {
-                                                DocumentationMode: 1,
-                                                Errors: [],
-                                                Features: {},
-                                                Language: "C#",
-                                                LanguageVersion: 7,
-                                                PreprocessorSymbolNames: [],
-                                             },
-                                          },
                                           Text: "WriteLine",
                                           TrailingTrivia: [],
                                           Value: "WriteLine",
                                           ValueText: "WriteLine",
                                        },
-                                       Language: "C#",
                                        RawKind: 8616,
                                        Span: {
                                           End: 267,
@@ -1570,19 +878,6 @@
                                           Start: 258,
                                        },
                                        SpanStart: 258,
-                                       SyntaxTree: {
-                                          FilePath: "",
-                                          HasCompilationUnitRoot: true,
-                                          Length: 344,
-                                          Options: {
-                                             DocumentationMode: 1,
-                                             Errors: [],
-                                             Features: {},
-                                             Language: "C#",
-                                             LanguageVersion: 7,
-                                             PreprocessorSymbolNames: [],
-                                          },
-                                       },
                                     },
                                     OperatorToken: {
                                        FullSpan: {
@@ -1590,7 +885,6 @@
                                           Length: 1,
                                           Start: 257,
                                        },
-                                       Language: "C#",
                                        LeadingTrivia: [],
                                        RawKind: 8218,
                                        Span: {
@@ -1599,19 +893,6 @@
                                           Start: 257,
                                        },
                                        SpanStart: 257,
-                                       SyntaxTree: {
-                                          FilePath: "",
-                                          HasCompilationUnitRoot: true,
-                                          Length: 344,
-                                          Options: {
-                                             DocumentationMode: 1,
-                                             Errors: [],
-                                             Features: {},
-                                             Language: "C#",
-                                             LanguageVersion: 7,
-                                             PreprocessorSymbolNames: [],
-                                          },
-                                       },
                                        Text: ".",
                                        TrailingTrivia: [],
                                        Value: ".",
@@ -1624,19 +905,6 @@
                                        Start: 250,
                                     },
                                     SpanStart: 250,
-                                    SyntaxTree: {
-                                       FilePath: "",
-                                       HasCompilationUnitRoot: true,
-                                       Length: 344,
-                                       Options: {
-                                          DocumentationMode: 1,
-                                          Errors: [],
-                                          Features: {},
-                                          Language: "C#",
-                                          LanguageVersion: 7,
-                                          PreprocessorSymbolNames: [],
-                                       },
-                                    },
                                  },
                                  FullSpan: {
                                     End: 293,
@@ -1644,7 +912,6 @@
                                     Start: 178,
                                  },
                                  HasLeadingTrivia: true,
-                                 Language: "C#",
                                  RawKind: 8634,
                                  Span: {
                                     End: 293,
@@ -1652,19 +919,6 @@
                                     Start: 250,
                                  },
                                  SpanStart: 250,
-                                 SyntaxTree: {
-                                    FilePath: "",
-                                    HasCompilationUnitRoot: true,
-                                    Length: 344,
-                                    Options: {
-                                       DocumentationMode: 1,
-                                       Errors: [],
-                                       Features: {},
-                                       Language: "C#",
-                                       LanguageVersion: 7,
-                                       PreprocessorSymbolNames: [],
-                                    },
-                                 },
                               },
                               FullSpan: {
                                  End: 295,
@@ -1673,7 +927,6 @@
                               },
                               HasLeadingTrivia: true,
                               HasTrailingTrivia: true,
-                              Language: "C#",
                               RawKind: 8797,
                               SemicolonToken: {
                                  FullSpan: {
@@ -1682,7 +935,6 @@
                                     Start: 293,
                                  },
                                  HasTrailingTrivia: true,
-                                 Language: "C#",
                                  LeadingTrivia: [],
                                  RawKind: 8212,
                                  Span: {
@@ -1691,19 +943,6 @@
                                     Start: 293,
                                  },
                                  SpanStart: 293,
-                                 SyntaxTree: {
-                                    FilePath: "",
-                                    HasCompilationUnitRoot: true,
-                                    Length: 344,
-                                    Options: {
-                                       DocumentationMode: 1,
-                                       Errors: [],
-                                       Features: {},
-                                       Language: "C#",
-                                       LanguageVersion: 7,
-                                       PreprocessorSymbolNames: [],
-                                    },
-                                 },
                                  Text: ";",
                                  TrailingTrivia: [
                                     {
@@ -1712,7 +951,6 @@
                                           Length: 1,
                                           Start: 294,
                                        },
-                                       Language: "C#",
                                        RawKind: 8539,
                                        Span: {
                                           End: 295,
@@ -1720,19 +958,6 @@
                                           Start: 294,
                                        },
                                        SpanStart: 294,
-                                       SyntaxTree: {
-                                          FilePath: "",
-                                          HasCompilationUnitRoot: true,
-                                          Length: 344,
-                                          Options: {
-                                             DocumentationMode: 1,
-                                             Errors: [],
-                                             Features: {},
-                                             Language: "C#",
-                                             LanguageVersion: 7,
-                                             PreprocessorSymbolNames: [],
-                                          },
-                                       },
                                     },
                                  ],
                                  Value: ";",
@@ -1744,19 +969,6 @@
                                  Start: 250,
                               },
                               SpanStart: 250,
-                              SyntaxTree: {
-                                 FilePath: "",
-                                 HasCompilationUnitRoot: true,
-                                 Length: 344,
-                                 Options: {
-                                    DocumentationMode: 1,
-                                    Errors: [],
-                                    Features: {},
-                                    Language: "C#",
-                                    LanguageVersion: 7,
-                                    PreprocessorSymbolNames: [],
-                                 },
-                              },
                            },
                            {
                               Expression: {
@@ -1767,7 +979,6 @@
                                           Length: 1,
                                           Start: 323,
                                        },
-                                       Language: "C#",
                                        LeadingTrivia: [],
                                        RawKind: 8201,
                                        Span: {
@@ -1776,19 +987,6 @@
                                           Start: 323,
                                        },
                                        SpanStart: 323,
-                                       SyntaxTree: {
-                                          FilePath: "",
-                                          HasCompilationUnitRoot: true,
-                                          Length: 344,
-                                          Options: {
-                                             DocumentationMode: 1,
-                                             Errors: [],
-                                             Features: {},
-                                             Language: "C#",
-                                             LanguageVersion: 7,
-                                             PreprocessorSymbolNames: [],
-                                          },
-                                       },
                                        Text: ")",
                                        TrailingTrivia: [],
                                        Value: ")",
@@ -1799,14 +997,12 @@
                                        Length: 2,
                                        Start: 322,
                                     },
-                                    Language: "C#",
                                     OpenParenToken: {
                                        FullSpan: {
                                           End: 323,
                                           Length: 1,
                                           Start: 322,
                                        },
-                                       Language: "C#",
                                        LeadingTrivia: [],
                                        RawKind: 8200,
                                        Span: {
@@ -1815,19 +1011,6 @@
                                           Start: 322,
                                        },
                                        SpanStart: 322,
-                                       SyntaxTree: {
-                                          FilePath: "",
-                                          HasCompilationUnitRoot: true,
-                                          Length: 344,
-                                          Options: {
-                                             DocumentationMode: 1,
-                                             Errors: [],
-                                             Features: {},
-                                             Language: "C#",
-                                             LanguageVersion: 7,
-                                             PreprocessorSymbolNames: [],
-                                          },
-                                       },
                                        Text: "(",
                                        TrailingTrivia: [],
                                        Value: "(",
@@ -1840,19 +1023,6 @@
                                        Start: 322,
                                     },
                                     SpanStart: 322,
-                                    SyntaxTree: {
-                                       FilePath: "",
-                                       HasCompilationUnitRoot: true,
-                                       Length: 344,
-                                       Options: {
-                                          DocumentationMode: 1,
-                                          Errors: [],
-                                          Features: {},
-                                          Language: "C#",
-                                          LanguageVersion: 7,
-                                          PreprocessorSymbolNames: [],
-                                       },
-                                    },
                                  },
                                  Expression: {
                                     Expression: {
@@ -1869,7 +1039,6 @@
                                              Start: 295,
                                           },
                                           HasLeadingTrivia: true,
-                                          Language: "C#",
                                           LeadingTrivia: [
                                              {
                                                 FullSpan: {
@@ -1877,7 +1046,6 @@
                                                    Length: 12,
                                                    Start: 295,
                                                 },
-                                                Language: "C#",
                                                 RawKind: 8540,
                                                 Span: {
                                                    End: 307,
@@ -1885,19 +1053,6 @@
                                                    Start: 295,
                                                 },
                                                 SpanStart: 295,
-                                                SyntaxTree: {
-                                                   FilePath: "",
-                                                   HasCompilationUnitRoot: true,
-                                                   Length: 344,
-                                                   Options: {
-                                                      DocumentationMode: 1,
-                                                      Errors: [],
-                                                      Features: {},
-                                                      Language: "C#",
-                                                      LanguageVersion: 7,
-                                                      PreprocessorSymbolNames: [],
-                                                   },
-                                                },
                                              },
                                           ],
                                           RawKind: 8508,
@@ -1907,25 +1062,11 @@
                                              Start: 307,
                                           },
                                           SpanStart: 307,
-                                          SyntaxTree: {
-                                             FilePath: "",
-                                             HasCompilationUnitRoot: true,
-                                             Length: 344,
-                                             Options: {
-                                                DocumentationMode: 1,
-                                                Errors: [],
-                                                Features: {},
-                                                Language: "C#",
-                                                LanguageVersion: 7,
-                                                PreprocessorSymbolNames: [],
-                                             },
-                                          },
                                           Text: "Console",
                                           TrailingTrivia: [],
                                           Value: "Console",
                                           ValueText: "Console",
                                        },
-                                       Language: "C#",
                                        RawKind: 8616,
                                        Span: {
                                           End: 314,
@@ -1933,19 +1074,6 @@
                                           Start: 307,
                                        },
                                        SpanStart: 307,
-                                       SyntaxTree: {
-                                          FilePath: "",
-                                          HasCompilationUnitRoot: true,
-                                          Length: 344,
-                                          Options: {
-                                             DocumentationMode: 1,
-                                             Errors: [],
-                                             Features: {},
-                                             Language: "C#",
-                                             LanguageVersion: 7,
-                                             PreprocessorSymbolNames: [],
-                                          },
-                                       },
                                     },
                                     FullSpan: {
                                        End: 322,
@@ -1953,7 +1081,6 @@
                                        Start: 295,
                                     },
                                     HasLeadingTrivia: true,
-                                    Language: "C#",
                                     Name: {
                                        FullSpan: {
                                           End: 322,
@@ -1966,7 +1093,6 @@
                                              Length: 7,
                                              Start: 315,
                                           },
-                                          Language: "C#",
                                           LeadingTrivia: [],
                                           RawKind: 8508,
                                           Span: {
@@ -1975,25 +1101,11 @@
                                              Start: 315,
                                           },
                                           SpanStart: 315,
-                                          SyntaxTree: {
-                                             FilePath: "",
-                                             HasCompilationUnitRoot: true,
-                                             Length: 344,
-                                             Options: {
-                                                DocumentationMode: 1,
-                                                Errors: [],
-                                                Features: {},
-                                                Language: "C#",
-                                                LanguageVersion: 7,
-                                                PreprocessorSymbolNames: [],
-                                             },
-                                          },
                                           Text: "ReadKey",
                                           TrailingTrivia: [],
                                           Value: "ReadKey",
                                           ValueText: "ReadKey",
                                        },
-                                       Language: "C#",
                                        RawKind: 8616,
                                        Span: {
                                           End: 322,
@@ -2001,19 +1113,6 @@
                                           Start: 315,
                                        },
                                        SpanStart: 315,
-                                       SyntaxTree: {
-                                          FilePath: "",
-                                          HasCompilationUnitRoot: true,
-                                          Length: 344,
-                                          Options: {
-                                             DocumentationMode: 1,
-                                             Errors: [],
-                                             Features: {},
-                                             Language: "C#",
-                                             LanguageVersion: 7,
-                                             PreprocessorSymbolNames: [],
-                                          },
-                                       },
                                     },
                                     OperatorToken: {
                                        FullSpan: {
@@ -2021,7 +1120,6 @@
                                           Length: 1,
                                           Start: 314,
                                        },
-                                       Language: "C#",
                                        LeadingTrivia: [],
                                        RawKind: 8218,
                                        Span: {
@@ -2030,19 +1128,6 @@
                                           Start: 314,
                                        },
                                        SpanStart: 314,
-                                       SyntaxTree: {
-                                          FilePath: "",
-                                          HasCompilationUnitRoot: true,
-                                          Length: 344,
-                                          Options: {
-                                             DocumentationMode: 1,
-                                             Errors: [],
-                                             Features: {},
-                                             Language: "C#",
-                                             LanguageVersion: 7,
-                                             PreprocessorSymbolNames: [],
-                                          },
-                                       },
                                        Text: ".",
                                        TrailingTrivia: [],
                                        Value: ".",
@@ -2055,19 +1140,6 @@
                                        Start: 307,
                                     },
                                     SpanStart: 307,
-                                    SyntaxTree: {
-                                       FilePath: "",
-                                       HasCompilationUnitRoot: true,
-                                       Length: 344,
-                                       Options: {
-                                          DocumentationMode: 1,
-                                          Errors: [],
-                                          Features: {},
-                                          Language: "C#",
-                                          LanguageVersion: 7,
-                                          PreprocessorSymbolNames: [],
-                                       },
-                                    },
                                  },
                                  FullSpan: {
                                     End: 324,
@@ -2075,7 +1147,6 @@
                                     Start: 295,
                                  },
                                  HasLeadingTrivia: true,
-                                 Language: "C#",
                                  RawKind: 8634,
                                  Span: {
                                     End: 324,
@@ -2083,19 +1154,6 @@
                                     Start: 307,
                                  },
                                  SpanStart: 307,
-                                 SyntaxTree: {
-                                    FilePath: "",
-                                    HasCompilationUnitRoot: true,
-                                    Length: 344,
-                                    Options: {
-                                       DocumentationMode: 1,
-                                       Errors: [],
-                                       Features: {},
-                                       Language: "C#",
-                                       LanguageVersion: 7,
-                                       PreprocessorSymbolNames: [],
-                                    },
-                                 },
                               },
                               FullSpan: {
                                  End: 326,
@@ -2104,7 +1162,6 @@
                               },
                               HasLeadingTrivia: true,
                               HasTrailingTrivia: true,
-                              Language: "C#",
                               RawKind: 8797,
                               SemicolonToken: {
                                  FullSpan: {
@@ -2113,7 +1170,6 @@
                                     Start: 324,
                                  },
                                  HasTrailingTrivia: true,
-                                 Language: "C#",
                                  LeadingTrivia: [],
                                  RawKind: 8212,
                                  Span: {
@@ -2122,19 +1178,6 @@
                                     Start: 324,
                                  },
                                  SpanStart: 324,
-                                 SyntaxTree: {
-                                    FilePath: "",
-                                    HasCompilationUnitRoot: true,
-                                    Length: 344,
-                                    Options: {
-                                       DocumentationMode: 1,
-                                       Errors: [],
-                                       Features: {},
-                                       Language: "C#",
-                                       LanguageVersion: 7,
-                                       PreprocessorSymbolNames: [],
-                                    },
-                                 },
                                  Text: ";",
                                  TrailingTrivia: [
                                     {
@@ -2143,7 +1186,6 @@
                                           Length: 1,
                                           Start: 325,
                                        },
-                                       Language: "C#",
                                        RawKind: 8539,
                                        Span: {
                                           End: 326,
@@ -2151,19 +1193,6 @@
                                           Start: 325,
                                        },
                                        SpanStart: 325,
-                                       SyntaxTree: {
-                                          FilePath: "",
-                                          HasCompilationUnitRoot: true,
-                                          Length: 344,
-                                          Options: {
-                                             DocumentationMode: 1,
-                                             Errors: [],
-                                             Features: {},
-                                             Language: "C#",
-                                             LanguageVersion: 7,
-                                             PreprocessorSymbolNames: [],
-                                          },
-                                       },
                                     },
                                  ],
                                  Value: ";",
@@ -2175,34 +1204,8 @@
                                  Start: 307,
                               },
                               SpanStart: 307,
-                              SyntaxTree: {
-                                 FilePath: "",
-                                 HasCompilationUnitRoot: true,
-                                 Length: 344,
-                                 Options: {
-                                    DocumentationMode: 1,
-                                    Errors: [],
-                                    Features: {},
-                                    Language: "C#",
-                                    LanguageVersion: 7,
-                                    PreprocessorSymbolNames: [],
-                                 },
-                              },
                            },
                         ],
-                        SyntaxTree: {
-                           FilePath: "",
-                           HasCompilationUnitRoot: true,
-                           Length: 344,
-                           Options: {
-                              DocumentationMode: 1,
-                              Errors: [],
-                              Features: {},
-                              Language: "C#",
-                              LanguageVersion: 7,
-                              PreprocessorSymbolNames: [],
-                           },
-                        },
                      },
                      FullSpan: {
                         End: 336,
@@ -2217,7 +1220,6 @@
                            Length: 4,
                            Start: 113,
                         },
-                        Language: "C#",
                         LeadingTrivia: [],
                         RawKind: 8508,
                         Span: {
@@ -2226,25 +1228,11 @@
                            Start: 113,
                         },
                         SpanStart: 113,
-                        SyntaxTree: {
-                           FilePath: "",
-                           HasCompilationUnitRoot: true,
-                           Length: 344,
-                           Options: {
-                              DocumentationMode: 1,
-                              Errors: [],
-                              Features: {},
-                              Language: "C#",
-                              LanguageVersion: 7,
-                              PreprocessorSymbolNames: [],
-                           },
-                        },
                         Text: "Main",
                         TrailingTrivia: [],
                         Value: "Main",
                         ValueText: "Main",
                      },
-                     Language: "C#",
                      Modifiers: [
                         {
                            FullSpan: {
@@ -2254,7 +1242,6 @@
                            },
                            HasLeadingTrivia: true,
                            HasTrailingTrivia: true,
-                           Language: "C#",
                            LeadingTrivia: [
                               {
                                  FullSpan: {
@@ -2262,7 +1249,6 @@
                                     Length: 8,
                                     Start: 93,
                                  },
-                                 Language: "C#",
                                  RawKind: 8540,
                                  Span: {
                                     End: 101,
@@ -2270,19 +1256,6 @@
                                     Start: 93,
                                  },
                                  SpanStart: 93,
-                                 SyntaxTree: {
-                                    FilePath: "",
-                                    HasCompilationUnitRoot: true,
-                                    Length: 344,
-                                    Options: {
-                                       DocumentationMode: 1,
-                                       Errors: [],
-                                       Features: {},
-                                       Language: "C#",
-                                       LanguageVersion: 7,
-                                       PreprocessorSymbolNames: [],
-                                    },
-                                 },
                               },
                            ],
                            RawKind: 8347,
@@ -2292,19 +1265,6 @@
                               Start: 101,
                            },
                            SpanStart: 101,
-                           SyntaxTree: {
-                              FilePath: "",
-                              HasCompilationUnitRoot: true,
-                              Length: 344,
-                              Options: {
-                                 DocumentationMode: 1,
-                                 Errors: [],
-                                 Features: {},
-                                 Language: "C#",
-                                 LanguageVersion: 7,
-                                 PreprocessorSymbolNames: [],
-                              },
-                           },
                            Text: "static",
                            TrailingTrivia: [
                               {
@@ -2313,7 +1273,6 @@
                                     Length: 1,
                                     Start: 107,
                                  },
-                                 Language: "C#",
                                  RawKind: 8540,
                                  Span: {
                                     End: 108,
@@ -2321,19 +1280,6 @@
                                     Start: 107,
                                  },
                                  SpanStart: 107,
-                                 SyntaxTree: {
-                                    FilePath: "",
-                                    HasCompilationUnitRoot: true,
-                                    Length: 344,
-                                    Options: {
-                                       DocumentationMode: 1,
-                                       Errors: [],
-                                       Features: {},
-                                       Language: "C#",
-                                       LanguageVersion: 7,
-                                       PreprocessorSymbolNames: [],
-                                    },
-                                 },
                               },
                            ],
                            Value: "static",
@@ -2348,7 +1294,6 @@
                               Start: 118,
                            },
                            HasTrailingTrivia: true,
-                           Language: "C#",
                            LeadingTrivia: [],
                            RawKind: 8201,
                            Span: {
@@ -2357,19 +1302,6 @@
                               Start: 118,
                            },
                            SpanStart: 118,
-                           SyntaxTree: {
-                              FilePath: "",
-                              HasCompilationUnitRoot: true,
-                              Length: 344,
-                              Options: {
-                                 DocumentationMode: 1,
-                                 Errors: [],
-                                 Features: {},
-                                 Language: "C#",
-                                 LanguageVersion: 7,
-                                 PreprocessorSymbolNames: [],
-                              },
-                           },
                            Text: ")",
                            TrailingTrivia: [
                               {
@@ -2378,7 +1310,6 @@
                                     Length: 1,
                                     Start: 119,
                                  },
-                                 Language: "C#",
                                  RawKind: 8540,
                                  Span: {
                                     End: 120,
@@ -2386,19 +1317,6 @@
                                     Start: 119,
                                  },
                                  SpanStart: 119,
-                                 SyntaxTree: {
-                                    FilePath: "",
-                                    HasCompilationUnitRoot: true,
-                                    Length: 344,
-                                    Options: {
-                                       DocumentationMode: 1,
-                                       Errors: [],
-                                       Features: {},
-                                       Language: "C#",
-                                       LanguageVersion: 7,
-                                       PreprocessorSymbolNames: [],
-                                    },
-                                 },
                               },
                               {
                                  FullSpan: {
@@ -2406,7 +1324,6 @@
                                     Length: 1,
                                     Start: 120,
                                  },
-                                 Language: "C#",
                                  RawKind: 8539,
                                  Span: {
                                     End: 121,
@@ -2414,19 +1331,6 @@
                                     Start: 120,
                                  },
                                  SpanStart: 120,
-                                 SyntaxTree: {
-                                    FilePath: "",
-                                    HasCompilationUnitRoot: true,
-                                    Length: 344,
-                                    Options: {
-                                       DocumentationMode: 1,
-                                       Errors: [],
-                                       Features: {},
-                                       Language: "C#",
-                                       LanguageVersion: 7,
-                                       PreprocessorSymbolNames: [],
-                                    },
-                                 },
                               },
                            ],
                            Value: ")",
@@ -2438,14 +1342,12 @@
                            Start: 117,
                         },
                         HasTrailingTrivia: true,
-                        Language: "C#",
                         OpenParenToken: {
                            FullSpan: {
                               End: 118,
                               Length: 1,
                               Start: 117,
                            },
-                           Language: "C#",
                            LeadingTrivia: [],
                            RawKind: 8200,
                            Span: {
@@ -2454,19 +1356,6 @@
                               Start: 117,
                            },
                            SpanStart: 117,
-                           SyntaxTree: {
-                              FilePath: "",
-                              HasCompilationUnitRoot: true,
-                              Length: 344,
-                              Options: {
-                                 DocumentationMode: 1,
-                                 Errors: [],
-                                 Features: {},
-                                 Language: "C#",
-                                 LanguageVersion: 7,
-                                 PreprocessorSymbolNames: [],
-                              },
-                           },
                            Text: "(",
                            TrailingTrivia: [],
                            Value: "(",
@@ -2479,19 +1368,6 @@
                            Start: 117,
                         },
                         SpanStart: 117,
-                        SyntaxTree: {
-                           FilePath: "",
-                           HasCompilationUnitRoot: true,
-                           Length: 344,
-                           Options: {
-                              DocumentationMode: 1,
-                              Errors: [],
-                              Features: {},
-                              Language: "C#",
-                              LanguageVersion: 7,
-                              PreprocessorSymbolNames: [],
-                           },
-                        },
                      },
                      RawKind: 8875,
                      ReturnType: {
@@ -2508,7 +1384,6 @@
                               Start: 108,
                            },
                            HasTrailingTrivia: true,
-                           Language: "C#",
                            LeadingTrivia: [],
                            RawKind: 8318,
                            Span: {
@@ -2517,19 +1392,6 @@
                               Start: 108,
                            },
                            SpanStart: 108,
-                           SyntaxTree: {
-                              FilePath: "",
-                              HasCompilationUnitRoot: true,
-                              Length: 344,
-                              Options: {
-                                 DocumentationMode: 1,
-                                 Errors: [],
-                                 Features: {},
-                                 Language: "C#",
-                                 LanguageVersion: 7,
-                                 PreprocessorSymbolNames: [],
-                              },
-                           },
                            Text: "void",
                            TrailingTrivia: [
                               {
@@ -2538,7 +1400,6 @@
                                     Length: 1,
                                     Start: 112,
                                  },
-                                 Language: "C#",
                                  RawKind: 8540,
                                  Span: {
                                     End: 113,
@@ -2546,25 +1407,11 @@
                                     Start: 112,
                                  },
                                  SpanStart: 112,
-                                 SyntaxTree: {
-                                    FilePath: "",
-                                    HasCompilationUnitRoot: true,
-                                    Length: 344,
-                                    Options: {
-                                       DocumentationMode: 1,
-                                       Errors: [],
-                                       Features: {},
-                                       Language: "C#",
-                                       LanguageVersion: 7,
-                                       PreprocessorSymbolNames: [],
-                                    },
-                                 },
                               },
                            ],
                            Value: "void",
                            ValueText: "void",
                         },
-                        Language: "C#",
                         RawKind: 8621,
                         Span: {
                            End: 112,
@@ -2572,19 +1419,6 @@
                            Start: 108,
                         },
                         SpanStart: 108,
-                        SyntaxTree: {
-                           FilePath: "",
-                           HasCompilationUnitRoot: true,
-                           Length: 344,
-                           Options: {
-                              DocumentationMode: 1,
-                              Errors: [],
-                              Features: {},
-                              Language: "C#",
-                              LanguageVersion: 7,
-                              PreprocessorSymbolNames: [],
-                           },
-                        },
                      },
                      Span: {
                         End: 335,
@@ -2592,19 +1426,6 @@
                         Start: 101,
                      },
                      SpanStart: 101,
-                     SyntaxTree: {
-                        FilePath: "",
-                        HasCompilationUnitRoot: true,
-                        Length: 344,
-                        Options: {
-                           DocumentationMode: 1,
-                           Errors: [],
-                           Features: {},
-                           Language: "C#",
-                           LanguageVersion: 7,
-                           PreprocessorSymbolNames: [],
-                        },
-                     },
                   },
                ],
                OpenBraceToken: {
@@ -2615,7 +1436,6 @@
                   },
                   HasLeadingTrivia: true,
                   HasTrailingTrivia: true,
-                  Language: "C#",
                   LeadingTrivia: [
                      {
                         FullSpan: {
@@ -2623,7 +1443,6 @@
                            Length: 4,
                            Start: 87,
                         },
-                        Language: "C#",
                         RawKind: 8540,
                         Span: {
                            End: 91,
@@ -2631,19 +1450,6 @@
                            Start: 87,
                         },
                         SpanStart: 87,
-                        SyntaxTree: {
-                           FilePath: "",
-                           HasCompilationUnitRoot: true,
-                           Length: 344,
-                           Options: {
-                              DocumentationMode: 1,
-                              Errors: [],
-                              Features: {},
-                              Language: "C#",
-                              LanguageVersion: 7,
-                              PreprocessorSymbolNames: [],
-                           },
-                        },
                      },
                   ],
                   RawKind: 8205,
@@ -2653,19 +1459,6 @@
                      Start: 91,
                   },
                   SpanStart: 91,
-                  SyntaxTree: {
-                     FilePath: "",
-                     HasCompilationUnitRoot: true,
-                     Length: 344,
-                     Options: {
-                        DocumentationMode: 1,
-                        Errors: [],
-                        Features: {},
-                        Language: "C#",
-                        LanguageVersion: 7,
-                        PreprocessorSymbolNames: [],
-                     },
-                  },
                   Text: "{",
                   TrailingTrivia: [
                      {
@@ -2674,7 +1467,6 @@
                            Length: 1,
                            Start: 92,
                         },
-                        Language: "C#",
                         RawKind: 8539,
                         Span: {
                            End: 93,
@@ -2682,19 +1474,6 @@
                            Start: 92,
                         },
                         SpanStart: 92,
-                        SyntaxTree: {
-                           FilePath: "",
-                           HasCompilationUnitRoot: true,
-                           Length: 344,
-                           Options: {
-                              DocumentationMode: 1,
-                              Errors: [],
-                              Features: {},
-                              Language: "C#",
-                              LanguageVersion: 7,
-                              PreprocessorSymbolNames: [],
-                           },
-                        },
                      },
                   ],
                   Value: "{",
@@ -2707,19 +1486,6 @@
                   Start: 74,
                },
                SpanStart: 74,
-               SyntaxTree: {
-                  FilePath: "",
-                  HasCompilationUnitRoot: true,
-                  Length: 344,
-                  Options: {
-                     DocumentationMode: 1,
-                     Errors: [],
-                     Features: {},
-                     Language: "C#",
-                     LanguageVersion: 7,
-                     PreprocessorSymbolNames: [],
-                  },
-               },
             },
          ],
          Name: {
@@ -2736,7 +1502,6 @@
                   Start: 57,
                },
                HasTrailingTrivia: true,
-               Language: "C#",
                LeadingTrivia: [],
                RawKind: 8508,
                Span: {
@@ -2745,19 +1510,6 @@
                   Start: 57,
                },
                SpanStart: 57,
-               SyntaxTree: {
-                  FilePath: "",
-                  HasCompilationUnitRoot: true,
-                  Length: 344,
-                  Options: {
-                     DocumentationMode: 1,
-                     Errors: [],
-                     Features: {},
-                     Language: "C#",
-                     LanguageVersion: 7,
-                     PreprocessorSymbolNames: [],
-                  },
-               },
                Text: "HelloWorld",
                TrailingTrivia: [
                   {
@@ -2766,7 +1518,6 @@
                         Length: 1,
                         Start: 67,
                      },
-                     Language: "C#",
                      RawKind: 8539,
                      Span: {
                         End: 68,
@@ -2774,25 +1525,11 @@
                         Start: 67,
                      },
                      SpanStart: 67,
-                     SyntaxTree: {
-                        FilePath: "",
-                        HasCompilationUnitRoot: true,
-                        Length: 344,
-                        Options: {
-                           DocumentationMode: 1,
-                           Errors: [],
-                           Features: {},
-                           Language: "C#",
-                           LanguageVersion: 7,
-                           PreprocessorSymbolNames: [],
-                        },
-                     },
                   },
                ],
                Value: "HelloWorld",
                ValueText: "HelloWorld",
             },
-            Language: "C#",
             RawKind: 8616,
             Span: {
                End: 67,
@@ -2800,19 +1537,6 @@
                Start: 57,
             },
             SpanStart: 57,
-            SyntaxTree: {
-               FilePath: "",
-               HasCompilationUnitRoot: true,
-               Length: 344,
-               Options: {
-                  DocumentationMode: 1,
-                  Errors: [],
-                  Features: {},
-                  Language: "C#",
-                  LanguageVersion: 7,
-                  PreprocessorSymbolNames: [],
-               },
-            },
          },
          NamespaceKeyword: {
             FullSpan: {
@@ -2821,7 +1545,6 @@
                Start: 47,
             },
             HasTrailingTrivia: true,
-            Language: "C#",
             LeadingTrivia: [],
             RawKind: 8372,
             Span: {
@@ -2830,19 +1553,6 @@
                Start: 47,
             },
             SpanStart: 47,
-            SyntaxTree: {
-               FilePath: "",
-               HasCompilationUnitRoot: true,
-               Length: 344,
-               Options: {
-                  DocumentationMode: 1,
-                  Errors: [],
-                  Features: {},
-                  Language: "C#",
-                  LanguageVersion: 7,
-                  PreprocessorSymbolNames: [],
-               },
-            },
             Text: "namespace",
             TrailingTrivia: [
                {
@@ -2851,7 +1561,6 @@
                      Length: 1,
                      Start: 56,
                   },
-                  Language: "C#",
                   RawKind: 8540,
                   Span: {
                      End: 57,
@@ -2859,19 +1568,6 @@
                      Start: 56,
                   },
                   SpanStart: 56,
-                  SyntaxTree: {
-                     FilePath: "",
-                     HasCompilationUnitRoot: true,
-                     Length: 344,
-                     Options: {
-                        DocumentationMode: 1,
-                        Errors: [],
-                        Features: {},
-                        Language: "C#",
-                        LanguageVersion: 7,
-                        PreprocessorSymbolNames: [],
-                     },
-                  },
                },
             ],
             Value: "namespace",
@@ -2884,7 +1580,6 @@
                Start: 68,
             },
             HasTrailingTrivia: true,
-            Language: "C#",
             LeadingTrivia: [],
             RawKind: 8205,
             Span: {
@@ -2893,19 +1588,6 @@
                Start: 68,
             },
             SpanStart: 68,
-            SyntaxTree: {
-               FilePath: "",
-               HasCompilationUnitRoot: true,
-               Length: 344,
-               Options: {
-                  DocumentationMode: 1,
-                  Errors: [],
-                  Features: {},
-                  Language: "C#",
-                  LanguageVersion: 7,
-                  PreprocessorSymbolNames: [],
-               },
-            },
             Text: "{",
             TrailingTrivia: [
                {
@@ -2914,7 +1596,6 @@
                      Length: 1,
                      Start: 69,
                   },
-                  Language: "C#",
                   RawKind: 8539,
                   Span: {
                      End: 70,
@@ -2922,19 +1603,6 @@
                      Start: 69,
                   },
                   SpanStart: 69,
-                  SyntaxTree: {
-                     FilePath: "",
-                     HasCompilationUnitRoot: true,
-                     Length: 344,
-                     Options: {
-                        DocumentationMode: 1,
-                        Errors: [],
-                        Features: {},
-                        Language: "C#",
-                        LanguageVersion: 7,
-                        PreprocessorSymbolNames: [],
-                     },
-                  },
                },
             ],
             Value: "{",
@@ -2947,19 +1615,6 @@
             Start: 47,
          },
          SpanStart: 47,
-         SyntaxTree: {
-            FilePath: "",
-            HasCompilationUnitRoot: true,
-            Length: 344,
-            Options: {
-               DocumentationMode: 1,
-               Errors: [],
-               Features: {},
-               Language: "C#",
-               LanguageVersion: 7,
-               PreprocessorSymbolNames: [],
-            },
-         },
       },
    ],
    RawKind: 8840,
@@ -2969,19 +1624,6 @@
       Start: 33,
    },
    SpanStart: 33,
-   SyntaxTree: {
-      FilePath: "",
-      HasCompilationUnitRoot: true,
-      Length: 344,
-      Options: {
-         DocumentationMode: 1,
-         Errors: [],
-         Features: {},
-         Language: "C#",
-         LanguageVersion: 7,
-         PreprocessorSymbolNames: [],
-      },
-   },
    Usings: [
       {
          FullSpan: {
@@ -2990,7 +1632,6 @@
          },
          HasLeadingTrivia: true,
          HasTrailingTrivia: true,
-         Language: "C#",
          Name: {
             FullSpan: {
                End: 45,
@@ -3003,7 +1644,6 @@
                   Length: 6,
                   Start: 39,
                },
-               Language: "C#",
                LeadingTrivia: [],
                RawKind: 8508,
                Span: {
@@ -3012,25 +1652,11 @@
                   Start: 39,
                },
                SpanStart: 39,
-               SyntaxTree: {
-                  FilePath: "",
-                  HasCompilationUnitRoot: true,
-                  Length: 344,
-                  Options: {
-                     DocumentationMode: 1,
-                     Errors: [],
-                     Features: {},
-                     Language: "C#",
-                     LanguageVersion: 7,
-                     PreprocessorSymbolNames: [],
-                  },
-               },
                Text: "System",
                TrailingTrivia: [],
                Value: "System",
                ValueText: "System",
             },
-            Language: "C#",
             RawKind: 8616,
             Span: {
                End: 45,
@@ -3038,19 +1664,6 @@
                Start: 39,
             },
             SpanStart: 39,
-            SyntaxTree: {
-               FilePath: "",
-               HasCompilationUnitRoot: true,
-               Length: 344,
-               Options: {
-                  DocumentationMode: 1,
-                  Errors: [],
-                  Features: {},
-                  Language: "C#",
-                  LanguageVersion: 7,
-                  PreprocessorSymbolNames: [],
-               },
-            },
          },
          RawKind: 8843,
          SemicolonToken: {
@@ -3060,7 +1673,6 @@
                Start: 45,
             },
             HasTrailingTrivia: true,
-            Language: "C#",
             LeadingTrivia: [],
             RawKind: 8212,
             Span: {
@@ -3069,19 +1681,6 @@
                Start: 45,
             },
             SpanStart: 45,
-            SyntaxTree: {
-               FilePath: "",
-               HasCompilationUnitRoot: true,
-               Length: 344,
-               Options: {
-                  DocumentationMode: 1,
-                  Errors: [],
-                  Features: {},
-                  Language: "C#",
-                  LanguageVersion: 7,
-                  PreprocessorSymbolNames: [],
-               },
-            },
             Text: ";",
             TrailingTrivia: [
                {
@@ -3090,7 +1689,6 @@
                      Length: 1,
                      Start: 46,
                   },
-                  Language: "C#",
                   RawKind: 8539,
                   Span: {
                      End: 47,
@@ -3098,19 +1696,6 @@
                      Start: 46,
                   },
                   SpanStart: 46,
-                  SyntaxTree: {
-                     FilePath: "",
-                     HasCompilationUnitRoot: true,
-                     Length: 344,
-                     Options: {
-                        DocumentationMode: 1,
-                        Errors: [],
-                        Features: {},
-                        Language: "C#",
-                        LanguageVersion: 7,
-                        PreprocessorSymbolNames: [],
-                     },
-                  },
                },
             ],
             Value: ";",
@@ -3122,19 +1707,6 @@
             Start: 33,
          },
          SpanStart: 33,
-         SyntaxTree: {
-            FilePath: "",
-            HasCompilationUnitRoot: true,
-            Length: 344,
-            Options: {
-               DocumentationMode: 1,
-               Errors: [],
-               Features: {},
-               Language: "C#",
-               LanguageVersion: 7,
-               PreprocessorSymbolNames: [],
-            },
-         },
          UsingKeyword: {
             FullSpan: {
                End: 39,
@@ -3142,31 +1714,16 @@
             },
             HasLeadingTrivia: true,
             HasTrailingTrivia: true,
-            Language: "C#",
             LeadingTrivia: [
                {
                   FullSpan: {
                      End: 32,
                      Length: 32,
                   },
-                  Language: "C#",
                   RawKind: 8541,
                   Span: {
                      End: 32,
                      Length: 32,
-                  },
-                  SyntaxTree: {
-                     FilePath: "",
-                     HasCompilationUnitRoot: true,
-                     Length: 344,
-                     Options: {
-                        DocumentationMode: 1,
-                        Errors: [],
-                        Features: {},
-                        Language: "C#",
-                        LanguageVersion: 7,
-                        PreprocessorSymbolNames: [],
-                     },
                   },
                },
                {
@@ -3175,7 +1732,6 @@
                      Length: 1,
                      Start: 32,
                   },
-                  Language: "C#",
                   RawKind: 8539,
                   Span: {
                      End: 33,
@@ -3183,19 +1739,6 @@
                      Start: 32,
                   },
                   SpanStart: 32,
-                  SyntaxTree: {
-                     FilePath: "",
-                     HasCompilationUnitRoot: true,
-                     Length: 344,
-                     Options: {
-                        DocumentationMode: 1,
-                        Errors: [],
-                        Features: {},
-                        Language: "C#",
-                        LanguageVersion: 7,
-                        PreprocessorSymbolNames: [],
-                     },
-                  },
                },
             ],
             RawKind: 8373,
@@ -3205,19 +1748,6 @@
                Start: 33,
             },
             SpanStart: 33,
-            SyntaxTree: {
-               FilePath: "",
-               HasCompilationUnitRoot: true,
-               Length: 344,
-               Options: {
-                  DocumentationMode: 1,
-                  Errors: [],
-                  Features: {},
-                  Language: "C#",
-                  LanguageVersion: 7,
-                  PreprocessorSymbolNames: [],
-               },
-            },
             Text: "using",
             TrailingTrivia: [
                {
@@ -3226,7 +1756,6 @@
                      Length: 1,
                      Start: 38,
                   },
-                  Language: "C#",
                   RawKind: 8540,
                   Span: {
                      End: 39,
@@ -3234,19 +1763,6 @@
                      Start: 38,
                   },
                   SpanStart: 38,
-                  SyntaxTree: {
-                     FilePath: "",
-                     HasCompilationUnitRoot: true,
-                     Length: 344,
-                     Options: {
-                        DocumentationMode: 1,
-                        Errors: [],
-                        Features: {},
-                        Language: "C#",
-                        LanguageVersion: 7,
-                        PreprocessorSymbolNames: [],
-                     },
-                  },
                },
             ],
             Value: "using",
