@@ -63,4 +63,26 @@ var Normalizers = []Mapping{
 			"Name": Var("name"),
 		},
 	)),
+
+	MapSemantic("LiteralExpressionSyntax", uast.String{}, MapObj(
+		Obj{
+			"Token": Obj{
+				uast.KeyType: String("SyntaxToken"),
+				// TODO(dennwc): assert that it's the same as in parent
+				uast.KeyPos: AnyNode(nil),
+
+				"LeadingTrivia":  Arr(),
+				"TrailingTrivia": Arr(),
+				"RawKind":        Int(8511),
+				// contains escaped value, we don't need it in this mode
+				"Text":      AnyNode(nil),
+				"Value":     Var("val"),
+				"ValueText": Var("val"),
+			},
+			"RawKind": Int(8750),
+		},
+		Obj{
+			"Value": Var("val"),
+		},
+	)),
 }
