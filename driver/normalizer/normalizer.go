@@ -85,4 +85,19 @@ var Normalizers = []Mapping{
 			"Value": Var("val"),
 		},
 	)),
+
+	MapSemantic("BlockSyntax", uast.Block{}, MapObj(
+		Obj{
+			"Statements":        Var("stmts"),
+			"RawKind":           Int(8792),
+			"HasLeadingTrivia":  Bool(true),
+			"HasTrailingTrivia": Bool(true),
+			// TODO(dennwc): remap to custom positional fields
+			"OpenBraceToken":  AnyNode(nil),
+			"CloseBraceToken": AnyNode(nil),
+		},
+		Obj{
+			"Statements": Var("stmts"),
+		},
+	)),
 }
