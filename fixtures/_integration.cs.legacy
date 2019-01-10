@@ -1,142 +1,79 @@
 CompilationUnitSyntax {
 .  Roles: Unannotated
+.  StartPosition: {
+.  .  Offset: 0
+.  .  Line: 1
+.  .  Col: 1
+.  }
+.  EndPosition: {
+.  .  Offset: 344
+.  .  Line: 17
+.  .  Col: 1
+.  }
 .  Properties: {
 .  .  HasLeadingTrivia: true
 .  .  RawKind: 8840
-.  .  SpanStart: 33
 .  }
 .  Children: {
-.  .  0: SyntaxToken {
+.  .  0: UsingDirectiveSyntax {
 .  .  .  Roles: Unannotated
-.  .  .  Properties: {
-.  .  .  .  RawKind: 8496
-.  .  .  .  SpanStart: 344
-.  .  .  .  Text: 
-.  .  .  .  Value: 
-.  .  .  .  ValueText: 
-.  .  .  .  internalRole: EndOfFileToken
+.  .  .  StartPosition: {
+.  .  .  .  Offset: 0
+.  .  .  .  Line: 1
+.  .  .  .  Col: 1
 .  .  .  }
-.  .  .  Children: {
-.  .  .  .  0: TextSpan {
-.  .  .  .  .  Roles: Unannotated
-.  .  .  .  .  Properties: {
-.  .  .  .  .  .  End: 344
-.  .  .  .  .  .  IsEmpty: true
-.  .  .  .  .  .  Start: 344
-.  .  .  .  .  .  internalRole: FullSpan
-.  .  .  .  .  }
-.  .  .  .  }
-.  .  .  .  1: TextSpan {
-.  .  .  .  .  Roles: Unannotated
-.  .  .  .  .  Properties: {
-.  .  .  .  .  .  End: 344
-.  .  .  .  .  .  IsEmpty: true
-.  .  .  .  .  .  Start: 344
-.  .  .  .  .  .  internalRole: Span
-.  .  .  .  .  }
-.  .  .  .  }
+.  .  .  EndPosition: {
+.  .  .  .  Offset: 47
+.  .  .  .  Line: 3
+.  .  .  .  Col: 1
 .  .  .  }
-.  .  }
-.  .  1: TextSpan {
-.  .  .  Roles: Unannotated
-.  .  .  Properties: {
-.  .  .  .  End: 344
-.  .  .  .  Length: 344
-.  .  .  .  internalRole: FullSpan
-.  .  .  }
-.  .  }
-.  .  2: TextSpan {
-.  .  .  Roles: Unannotated
-.  .  .  Properties: {
-.  .  .  .  End: 344
-.  .  .  .  Length: 311
-.  .  .  .  Start: 33
-.  .  .  .  internalRole: Span
-.  .  .  }
-.  .  }
-.  .  3: UsingDirectiveSyntax {
-.  .  .  Roles: Unannotated
 .  .  .  Properties: {
 .  .  .  .  HasLeadingTrivia: true
 .  .  .  .  HasTrailingTrivia: true
 .  .  .  .  RawKind: 8843
-.  .  .  .  SpanStart: 33
 .  .  .  .  internalRole: Usings
 .  .  .  }
 .  .  .  Children: {
-.  .  .  .  0: TextSpan {
+.  .  .  .  0: SyntaxToken {
 .  .  .  .  .  Roles: Unannotated
-.  .  .  .  .  Properties: {
-.  .  .  .  .  .  End: 47
-.  .  .  .  .  .  Length: 47
-.  .  .  .  .  .  internalRole: FullSpan
+.  .  .  .  .  StartPosition: {
+.  .  .  .  .  .  Offset: 0
+.  .  .  .  .  .  Line: 1
+.  .  .  .  .  .  Col: 1
 .  .  .  .  .  }
-.  .  .  .  }
-.  .  .  .  1: TextSpan {
-.  .  .  .  .  Roles: Unannotated
-.  .  .  .  .  Properties: {
-.  .  .  .  .  .  End: 46
-.  .  .  .  .  .  Length: 13
-.  .  .  .  .  .  Start: 33
-.  .  .  .  .  .  internalRole: Span
+.  .  .  .  .  EndPosition: {
+.  .  .  .  .  .  Offset: 39
+.  .  .  .  .  .  Line: 2
+.  .  .  .  .  .  Col: 7
 .  .  .  .  .  }
-.  .  .  .  }
-.  .  .  .  2: SyntaxToken {
-.  .  .  .  .  Roles: Unannotated
 .  .  .  .  .  Properties: {
 .  .  .  .  .  .  HasLeadingTrivia: true
 .  .  .  .  .  .  HasTrailingTrivia: true
 .  .  .  .  .  .  RawKind: 8373
-.  .  .  .  .  .  SpanStart: 33
 .  .  .  .  .  .  Text: using
 .  .  .  .  .  .  Value: using
 .  .  .  .  .  .  ValueText: using
 .  .  .  .  .  .  internalRole: UsingKeyword
 .  .  .  .  .  }
 .  .  .  .  .  Children: {
-.  .  .  .  .  .  0: TextSpan {
+.  .  .  .  .  .  0: SyntaxTrivia {
 .  .  .  .  .  .  .  Roles: Unannotated
-.  .  .  .  .  .  .  Properties: {
-.  .  .  .  .  .  .  .  End: 39
-.  .  .  .  .  .  .  .  Length: 39
-.  .  .  .  .  .  .  .  internalRole: FullSpan
+.  .  .  .  .  .  .  StartPosition: {
+.  .  .  .  .  .  .  .  Offset: 0
+.  .  .  .  .  .  .  .  Line: 1
+.  .  .  .  .  .  .  .  Col: 1
 .  .  .  .  .  .  .  }
-.  .  .  .  .  .  }
-.  .  .  .  .  .  1: SyntaxTrivia {
-.  .  .  .  .  .  .  Roles: Unannotated
+.  .  .  .  .  .  .  EndPosition: {
+.  .  .  .  .  .  .  .  Offset: 32
+.  .  .  .  .  .  .  .  Line: 1
+.  .  .  .  .  .  .  .  Col: 33
+.  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  Properties: {
 .  .  .  .  .  .  .  .  RawKind: 8541
 .  .  .  .  .  .  .  .  internalRole: LeadingTrivia
 .  .  .  .  .  .  .  }
-.  .  .  .  .  .  .  Children: {
-.  .  .  .  .  .  .  .  0: TextSpan {
-.  .  .  .  .  .  .  .  .  Roles: Unannotated
-.  .  .  .  .  .  .  .  .  Properties: {
-.  .  .  .  .  .  .  .  .  .  End: 32
-.  .  .  .  .  .  .  .  .  .  Length: 32
-.  .  .  .  .  .  .  .  .  .  internalRole: FullSpan
-.  .  .  .  .  .  .  .  .  }
-.  .  .  .  .  .  .  .  }
-.  .  .  .  .  .  .  .  1: TextSpan {
-.  .  .  .  .  .  .  .  .  Roles: Unannotated
-.  .  .  .  .  .  .  .  .  Properties: {
-.  .  .  .  .  .  .  .  .  .  End: 32
-.  .  .  .  .  .  .  .  .  .  Length: 32
-.  .  .  .  .  .  .  .  .  .  internalRole: Span
-.  .  .  .  .  .  .  .  .  }
-.  .  .  .  .  .  .  .  }
-.  .  .  .  .  .  .  }
 .  .  .  .  .  .  }
-.  .  .  .  .  .  2: TextSpan {
-.  .  .  .  .  .  .  Roles: Unannotated
-.  .  .  .  .  .  .  Properties: {
-.  .  .  .  .  .  .  .  End: 38
-.  .  .  .  .  .  .  .  Length: 5
-.  .  .  .  .  .  .  .  Start: 33
-.  .  .  .  .  .  .  .  internalRole: Span
-.  .  .  .  .  .  .  }
-.  .  .  .  .  .  }
-.  .  .  .  .  .  3: SyntaxTrivia {
+.  .  .  .  .  .  1: SyntaxTrivia {
 .  .  .  .  .  .  .  Roles: Unannotated
 .  .  .  .  .  .  .  StartPosition: {
 .  .  .  .  .  .  .  .  Offset: 32
@@ -153,7 +90,7 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  .  .  internalRole: LeadingTrivia
 .  .  .  .  .  .  .  }
 .  .  .  .  .  .  }
-.  .  .  .  .  .  4: SyntaxTrivia {
+.  .  .  .  .  .  2: SyntaxTrivia {
 .  .  .  .  .  .  .  Roles: Unannotated
 .  .  .  .  .  .  .  StartPosition: {
 .  .  .  .  .  .  .  .  Offset: 38
@@ -172,7 +109,7 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  }
 .  .  .  .  .  }
 .  .  .  .  }
-.  .  .  .  3: IdentifierNameSyntax {
+.  .  .  .  1: IdentifierNameSyntax {
 .  .  .  .  .  Roles: Unannotated
 .  .  .  .  .  StartPosition: {
 .  .  .  .  .  .  Offset: 39
@@ -211,7 +148,7 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  }
 .  .  .  .  .  }
 .  .  .  .  }
-.  .  .  .  4: SyntaxToken {
+.  .  .  .  2: SyntaxToken {
 .  .  .  .  .  Roles: Unannotated
 .  .  .  .  .  StartPosition: {
 .  .  .  .  .  .  Offset: 45
@@ -253,7 +190,7 @@ CompilationUnitSyntax {
 .  .  .  .  }
 .  .  .  }
 .  .  }
-.  .  4: NamespaceDeclarationSyntax {
+.  .  1: NamespaceDeclarationSyntax {
 .  .  .  Roles: Unannotated
 .  .  .  StartPosition: {
 .  .  .  .  Offset: 47
@@ -2117,6 +2054,26 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  }
 .  .  .  .  .  }
 .  .  .  .  }
+.  .  .  }
+.  .  }
+.  .  2: SyntaxToken {
+.  .  .  Roles: Unannotated
+.  .  .  StartPosition: {
+.  .  .  .  Offset: 344
+.  .  .  .  Line: 17
+.  .  .  .  Col: 1
+.  .  .  }
+.  .  .  EndPosition: {
+.  .  .  .  Offset: 344
+.  .  .  .  Line: 17
+.  .  .  .  Col: 1
+.  .  .  }
+.  .  .  Properties: {
+.  .  .  .  RawKind: 8496
+.  .  .  .  Text: 
+.  .  .  .  Value: 
+.  .  .  .  ValueText: 
+.  .  .  .  internalRole: EndOfFileToken
 .  .  .  }
 .  .  }
 .  }
