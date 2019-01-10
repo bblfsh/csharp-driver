@@ -42,4 +42,25 @@ var Preprocessors = []Mapping{
 }
 
 // Normalizers is the main block of normalization rules to convert native AST to semantic UAST.
-var Normalizers = []Mapping{}
+var Normalizers = []Mapping{
+	MapSemantic("IdentifierNameSyntax", uast.Identifier{}, MapObj(
+		Obj{
+			"Identifier": Obj{
+				uast.KeyType: String("SyntaxToken"),
+				// TODO(dennwc): assert that it's the same as in parent
+				uast.KeyPos: AnyNode(nil),
+
+				"LeadingTrivia":  Arr(),
+				"TrailingTrivia": Arr(),
+				"RawKind":        Int(8508),
+				"Text":           Var("name"),
+				"Value":          Var("name"),
+				"ValueText":      Var("name"),
+			},
+			"RawKind": Int(8616),
+		},
+		Obj{
+			"Name": Var("name"),
+		},
+	)),
+}
