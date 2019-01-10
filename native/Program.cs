@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 
 using Newtonsoft.Json;
+using Microsoft.CodeAnalysis;
+using Microsoft.CodeAnalysis.CSharp;
 
 namespace native
 {
@@ -21,6 +23,12 @@ namespace native
     {
         static void Main(string[] args)
         {
+            var jsonSerializerSettings = new JsonSerializerSettings
+            {
+                PreserveReferencesHandling = PreserveReferencesHandling.None,
+                ReferenceLoopHandling = ReferenceLoopHandling.Ignore,
+            };
+
             string line;
             while ((line = Console.ReadLine()) != null)
             {
@@ -33,14 +41,16 @@ namespace native
                     status = "ok",
                     ast = ast,
                 };
-                string json = JsonConvert.SerializeObject(resp);
-                Console.Write(json);
+                string json = JsonConvert.SerializeObject(resp, jsonSerializerSettings);
+                Console.WriteLine(json);
             }
         }
 
         static Object Parse(string source)
         {
-            return source; // TODO
+            SyntaxTree tree = CSharpSyntaxTree.ParseText(source);
+            var cstree = (CSharpSyntaxTree)tree;
+            return cstree.GetRoot();
         }
     }
 }
