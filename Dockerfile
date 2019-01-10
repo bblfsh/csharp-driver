@@ -56,7 +56,7 @@ ADD ./native/native.sh ./bin/native
 
 
 # copy build artifacts for native driver
-COPY --from=native /native/out/native.dll ./bin/native.dll
+COPY --from=native /native/out/*.dll ./bin/./
 COPY --from=native /native/out/native.runtimeconfig.json ./bin/native.runtimeconfig.json
 
 
