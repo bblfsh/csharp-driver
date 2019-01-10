@@ -152,4 +152,42 @@ var Normalizers = []Mapping{
 			"All":  Bool(true),
 		},
 	)),
+
+	MapSemantic("QualifiedNameSyntax", uast.QualifiedIdentifier{}, MapObj(
+		CasesObj("case",
+			// common
+			Obj{
+				"RawKind": Int(8617),
+				"Right":   Var("right"),
+			},
+			Objs{
+				// the last name = identifier
+				{
+					"Left": Check(Has{
+						uast.KeyType: String(uast.TypeOf(uast.Identifier{})),
+					}, Var("left")),
+				},
+				// linked list
+				{
+					"Left": UASTType(uast.QualifiedIdentifier{}, Obj{
+						// FIXME: start position
+						uast.KeyPos: AnyNode(nil),
+						"Names":     Var("names"),
+					}),
+				},
+			},
+		),
+		CasesObj("case", nil,
+			Objs{
+				// the last name = identifier
+				{
+					"Names": Arr(Var("left"), Var("right")),
+				},
+				// linked list
+				{
+					"Names": Append(Var("names"), Arr(Var("right"))),
+				},
+			},
+		),
+	)),
 }
