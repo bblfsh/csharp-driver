@@ -69,6 +69,8 @@ namespace native
                 {
                 case "Language":
                 case "SyntaxTree":
+                case "HasLeadingTrivia":
+                case "HasTrailingTrivia":
                     return false;
                 default:
                     return true;

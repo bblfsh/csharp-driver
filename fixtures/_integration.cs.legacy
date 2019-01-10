@@ -11,7 +11,6 @@ CompilationUnitSyntax {
 .  .  Col: 1
 .  }
 .  Properties: {
-.  .  HasLeadingTrivia: true
 .  .  RawKind: 8840
 .  }
 .  Children: {
@@ -28,8 +27,6 @@ CompilationUnitSyntax {
 .  .  .  .  Col: 1
 .  .  .  }
 .  .  .  Properties: {
-.  .  .  .  HasLeadingTrivia: true
-.  .  .  .  HasTrailingTrivia: true
 .  .  .  .  RawKind: 8843
 .  .  .  .  internalRole: Usings
 .  .  .  }
@@ -47,8 +44,6 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  Col: 7
 .  .  .  .  .  }
 .  .  .  .  .  Properties: {
-.  .  .  .  .  .  HasLeadingTrivia: true
-.  .  .  .  .  .  HasTrailingTrivia: true
 .  .  .  .  .  .  RawKind: 8373
 .  .  .  .  .  .  Text: using
 .  .  .  .  .  .  Value: using
@@ -161,7 +156,6 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  Col: 1
 .  .  .  .  .  }
 .  .  .  .  .  Properties: {
-.  .  .  .  .  .  HasTrailingTrivia: true
 .  .  .  .  .  .  RawKind: 8212
 .  .  .  .  .  .  Text: ;
 .  .  .  .  .  .  Value: ;
@@ -203,7 +197,6 @@ CompilationUnitSyntax {
 .  .  .  .  Col: 1
 .  .  .  }
 .  .  .  Properties: {
-.  .  .  .  HasTrailingTrivia: true
 .  .  .  .  RawKind: 8842
 .  .  .  .  internalRole: Members
 .  .  .  }
@@ -221,7 +214,6 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  Col: 11
 .  .  .  .  .  }
 .  .  .  .  .  Properties: {
-.  .  .  .  .  .  HasTrailingTrivia: true
 .  .  .  .  .  .  RawKind: 8372
 .  .  .  .  .  .  Text: namespace
 .  .  .  .  .  .  Value: namespace
@@ -261,7 +253,6 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  Col: 1
 .  .  .  .  .  }
 .  .  .  .  .  Properties: {
-.  .  .  .  .  .  HasTrailingTrivia: true
 .  .  .  .  .  .  RawKind: 8616
 .  .  .  .  .  .  internalRole: Name
 .  .  .  .  .  }
@@ -279,7 +270,6 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  .  .  Col: 1
 .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  Properties: {
-.  .  .  .  .  .  .  .  HasTrailingTrivia: true
 .  .  .  .  .  .  .  .  RawKind: 8508
 .  .  .  .  .  .  .  .  Text: HelloWorld
 .  .  .  .  .  .  .  .  Value: HelloWorld
@@ -321,7 +311,6 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  Col: 1
 .  .  .  .  .  }
 .  .  .  .  .  Properties: {
-.  .  .  .  .  .  HasTrailingTrivia: true
 .  .  .  .  .  .  RawKind: 8205
 .  .  .  .  .  .  Text: {
 .  .  .  .  .  .  Value: {
@@ -361,8 +350,6 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  Col: 1
 .  .  .  .  .  }
 .  .  .  .  .  Properties: {
-.  .  .  .  .  .  HasLeadingTrivia: true
-.  .  .  .  .  .  HasTrailingTrivia: true
 .  .  .  .  .  .  RawKind: 8855
 .  .  .  .  .  .  internalRole: Members
 .  .  .  .  .  }
@@ -380,8 +367,6 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  .  .  Col: 11
 .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  Properties: {
-.  .  .  .  .  .  .  .  HasLeadingTrivia: true
-.  .  .  .  .  .  .  .  HasTrailingTrivia: true
 .  .  .  .  .  .  .  .  RawKind: 8374
 .  .  .  .  .  .  .  .  Text: class
 .  .  .  .  .  .  .  .  Value: class
@@ -438,7 +423,6 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  .  .  Col: 1
 .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  Properties: {
-.  .  .  .  .  .  .  .  HasTrailingTrivia: true
 .  .  .  .  .  .  .  .  RawKind: 8508
 .  .  .  .  .  .  .  .  Text: Hello
 .  .  .  .  .  .  .  .  Value: Hello
@@ -495,8 +479,6 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  .  .  Col: 1
 .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  Properties: {
-.  .  .  .  .  .  .  .  HasLeadingTrivia: true
-.  .  .  .  .  .  .  .  HasTrailingTrivia: true
 .  .  .  .  .  .  .  .  RawKind: 8205
 .  .  .  .  .  .  .  .  Text: {
 .  .  .  .  .  .  .  .  Value: {
@@ -553,8 +535,6 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  .  .  Col: 1
 .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  Properties: {
-.  .  .  .  .  .  .  .  HasLeadingTrivia: true
-.  .  .  .  .  .  .  .  HasTrailingTrivia: true
 .  .  .  .  .  .  .  .  RawKind: 8875
 .  .  .  .  .  .  .  .  internalRole: Members
 .  .  .  .  .  .  .  }
@@ -572,8 +552,6 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  .  .  .  .  Col: 16
 .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  Properties: {
-.  .  .  .  .  .  .  .  .  .  HasLeadingTrivia: true
-.  .  .  .  .  .  .  .  .  .  HasTrailingTrivia: true
 .  .  .  .  .  .  .  .  .  .  RawKind: 8347
 .  .  .  .  .  .  .  .  .  .  Text: static
 .  .  .  .  .  .  .  .  .  .  Value: static
@@ -630,7 +608,6 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  .  .  .  .  Col: 21
 .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  Properties: {
-.  .  .  .  .  .  .  .  .  .  HasTrailingTrivia: true
 .  .  .  .  .  .  .  .  .  .  RawKind: 8621
 .  .  .  .  .  .  .  .  .  .  internalRole: ReturnType
 .  .  .  .  .  .  .  .  .  }
@@ -648,7 +625,6 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  .  .  .  .  .  .  Col: 21
 .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  Properties: {
-.  .  .  .  .  .  .  .  .  .  .  .  HasTrailingTrivia: true
 .  .  .  .  .  .  .  .  .  .  .  .  RawKind: 8318
 .  .  .  .  .  .  .  .  .  .  .  .  Text: void
 .  .  .  .  .  .  .  .  .  .  .  .  Value: void
@@ -710,7 +686,6 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  .  .  .  .  Col: 1
 .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  Properties: {
-.  .  .  .  .  .  .  .  .  .  HasTrailingTrivia: true
 .  .  .  .  .  .  .  .  .  .  RawKind: 8906
 .  .  .  .  .  .  .  .  .  .  internalRole: ParameterList
 .  .  .  .  .  .  .  .  .  }
@@ -748,7 +723,6 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  .  .  .  .  .  .  Col: 1
 .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  Properties: {
-.  .  .  .  .  .  .  .  .  .  .  .  HasTrailingTrivia: true
 .  .  .  .  .  .  .  .  .  .  .  .  RawKind: 8201
 .  .  .  .  .  .  .  .  .  .  .  .  Text: )
 .  .  .  .  .  .  .  .  .  .  .  .  Value: )
@@ -807,8 +781,6 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  .  .  .  .  Col: 1
 .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  Properties: {
-.  .  .  .  .  .  .  .  .  .  HasLeadingTrivia: true
-.  .  .  .  .  .  .  .  .  .  HasTrailingTrivia: true
 .  .  .  .  .  .  .  .  .  .  RawKind: 8792
 .  .  .  .  .  .  .  .  .  .  internalRole: Body
 .  .  .  .  .  .  .  .  .  }
@@ -826,8 +798,6 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  .  .  .  .  .  .  Col: 1
 .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  Properties: {
-.  .  .  .  .  .  .  .  .  .  .  .  HasLeadingTrivia: true
-.  .  .  .  .  .  .  .  .  .  .  .  HasTrailingTrivia: true
 .  .  .  .  .  .  .  .  .  .  .  .  RawKind: 8205
 .  .  .  .  .  .  .  .  .  .  .  .  Text: {
 .  .  .  .  .  .  .  .  .  .  .  .  Value: {
@@ -884,8 +854,6 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  .  .  .  .  .  .  Col: 1
 .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  Properties: {
-.  .  .  .  .  .  .  .  .  .  .  .  HasLeadingTrivia: true
-.  .  .  .  .  .  .  .  .  .  .  .  HasTrailingTrivia: true
 .  .  .  .  .  .  .  .  .  .  .  .  RawKind: 8797
 .  .  .  .  .  .  .  .  .  .  .  .  internalRole: Statements
 .  .  .  .  .  .  .  .  .  .  .  }
@@ -903,7 +871,6 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  Col: 46
 .  .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  .  .  Properties: {
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  HasLeadingTrivia: true
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  RawKind: 8634
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  internalRole: Expression
 .  .  .  .  .  .  .  .  .  .  .  .  .  }
@@ -921,7 +888,6 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Col: 30
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Properties: {
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  HasLeadingTrivia: true
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  RawKind: 8689
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  internalRole: Expression
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
@@ -939,7 +905,6 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Col: 20
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Properties: {
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  HasLeadingTrivia: true
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  RawKind: 8616
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  internalRole: Expression
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
@@ -957,7 +922,6 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Col: 20
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Properties: {
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  HasLeadingTrivia: true
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  RawKind: 8508
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Text: Console
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Value: Console
@@ -1179,7 +1143,6 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  Col: 1
 .  .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  .  .  Properties: {
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  HasTrailingTrivia: true
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  RawKind: 8212
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  Text: ;
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  Value: ;
@@ -1221,8 +1184,6 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  .  .  .  .  .  .  Col: 1
 .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  Properties: {
-.  .  .  .  .  .  .  .  .  .  .  .  HasLeadingTrivia: true
-.  .  .  .  .  .  .  .  .  .  .  .  HasTrailingTrivia: true
 .  .  .  .  .  .  .  .  .  .  .  .  RawKind: 8797
 .  .  .  .  .  .  .  .  .  .  .  .  internalRole: Statements
 .  .  .  .  .  .  .  .  .  .  .  }
@@ -1240,7 +1201,6 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  Col: 56
 .  .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  .  .  Properties: {
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  HasLeadingTrivia: true
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  RawKind: 8634
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  internalRole: Expression
 .  .  .  .  .  .  .  .  .  .  .  .  .  }
@@ -1258,7 +1218,6 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Col: 30
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Properties: {
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  HasLeadingTrivia: true
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  RawKind: 8689
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  internalRole: Expression
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
@@ -1276,7 +1235,6 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Col: 20
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Properties: {
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  HasLeadingTrivia: true
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  RawKind: 8616
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  internalRole: Expression
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
@@ -1294,7 +1252,6 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Col: 20
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Properties: {
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  HasLeadingTrivia: true
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  RawKind: 8508
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Text: Console
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Value: Console
@@ -1584,7 +1541,6 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  Col: 1
 .  .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  .  .  Properties: {
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  HasTrailingTrivia: true
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  RawKind: 8212
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  Text: ;
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  Value: ;
@@ -1626,8 +1582,6 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  .  .  .  .  .  .  Col: 1
 .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  Properties: {
-.  .  .  .  .  .  .  .  .  .  .  .  HasLeadingTrivia: true
-.  .  .  .  .  .  .  .  .  .  .  .  HasTrailingTrivia: true
 .  .  .  .  .  .  .  .  .  .  .  .  RawKind: 8797
 .  .  .  .  .  .  .  .  .  .  .  .  internalRole: Statements
 .  .  .  .  .  .  .  .  .  .  .  }
@@ -1645,7 +1599,6 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  Col: 30
 .  .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  .  .  Properties: {
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  HasLeadingTrivia: true
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  RawKind: 8634
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  internalRole: Expression
 .  .  .  .  .  .  .  .  .  .  .  .  .  }
@@ -1663,7 +1616,6 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Col: 28
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Properties: {
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  HasLeadingTrivia: true
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  RawKind: 8689
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  internalRole: Expression
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
@@ -1681,7 +1633,6 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Col: 20
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Properties: {
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  HasLeadingTrivia: true
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  RawKind: 8616
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  internalRole: Expression
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
@@ -1699,7 +1650,6 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Col: 20
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Properties: {
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  HasLeadingTrivia: true
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  RawKind: 8508
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Text: Console
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Value: Console
@@ -1863,7 +1813,6 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  Col: 1
 .  .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  .  .  Properties: {
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  HasTrailingTrivia: true
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  RawKind: 8212
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  Text: ;
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  Value: ;
@@ -1905,8 +1854,6 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  .  .  .  .  .  .  Col: 1
 .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  Properties: {
-.  .  .  .  .  .  .  .  .  .  .  .  HasLeadingTrivia: true
-.  .  .  .  .  .  .  .  .  .  .  .  HasTrailingTrivia: true
 .  .  .  .  .  .  .  .  .  .  .  .  RawKind: 8206
 .  .  .  .  .  .  .  .  .  .  .  .  Text: }
 .  .  .  .  .  .  .  .  .  .  .  .  Value: }
@@ -1967,8 +1914,6 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  .  .  Col: 1
 .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  Properties: {
-.  .  .  .  .  .  .  .  HasLeadingTrivia: true
-.  .  .  .  .  .  .  .  HasTrailingTrivia: true
 .  .  .  .  .  .  .  .  RawKind: 8206
 .  .  .  .  .  .  .  .  Text: }
 .  .  .  .  .  .  .  .  Value: }
@@ -2027,7 +1972,6 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  Col: 1
 .  .  .  .  .  }
 .  .  .  .  .  Properties: {
-.  .  .  .  .  .  HasTrailingTrivia: true
 .  .  .  .  .  .  RawKind: 8206
 .  .  .  .  .  .  Text: }
 .  .  .  .  .  .  Value: }
