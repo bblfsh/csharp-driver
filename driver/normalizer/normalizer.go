@@ -138,4 +138,18 @@ var Normalizers = []Mapping{
 			"Statements": Var("stmts"),
 		},
 	)),
+
+	MapSemantic("UsingDirectiveSyntax", uast.Import{}, MapObj(
+		Obj{
+			"Name":    Var("path"),
+			"RawKind": Int(8843),
+			// TODO(dennwc): remap to custom positional fields
+			"SemicolonToken": AnyNode(nil),
+			"UsingKeyword":   AnyNode(nil),
+		},
+		Obj{
+			"Path": Var("path"),
+			"All":  Bool(true),
+		},
+	)),
 }
