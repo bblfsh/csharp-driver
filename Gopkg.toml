@@ -2,8 +2,10 @@
 # for detailed Gopkg.toml documentation.
 
 [[constraint]]
-  version = "v2.12.x"
+#  version = "v2.12.x"
   name = "gopkg.in/bblfsh/sdk.v2"
+  source = "github.com/dennwc/sdk"
+  branch = "more_ops"
 
 [prune]
   go-tests = true
