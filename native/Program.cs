@@ -28,14 +28,16 @@ namespace native
             var jsonSerializerSettings = new JsonSerializerSettings
             {
                 PreserveReferencesHandling = PreserveReferencesHandling.None,
+                // ignore loops
                 ReferenceLoopHandling = ReferenceLoopHandling.Ignore,
-                DefaultValueHandling = DefaultValueHandling.Ignore,
+                // controls how individual fields are converted
                 ContractResolver = new ASTContractResolver(),
             };
 
             string line;
             while ((line = Console.ReadLine()) != null)
             {
+                // TODO(dennwc): handle exceptions and syntax errors
                 ParseRequest req = JsonConvert.DeserializeObject<ParseRequest>(line);
 
                 Object ast = Parse(req.content);
@@ -64,19 +66,31 @@ namespace native
         {
             IList<JsonProperty> properties = base.CreateProperties(type, memberSerialization);
 
+            // drop properties that we won't use
             properties = properties.Where((p) => {
                 switch (p.PropertyName)
                 {
+                // is set nearly for every node; always "C#"
                 case "Language":
+                // reference from tokens to the corresponding SyntaxTree root
+                // always the same in every node
                 case "SyntaxTree":
-                case "HasLeadingTrivia":
-                case "HasTrailingTrivia":
+                // don't need any parent references
+                case "ParentTrivia":
+
                     return false;
                 default:
+                    // don't need those Contains<FieldName> and Has<FieldName> flags
+                    // can check the field value directly
+                    if (p.PropertyName.StartsWith("Contains") ||
+                        p.PropertyName.StartsWith("Has")) {
+                        return false;
+                    }
                     return true;
                 }
             }).ToList();
 
+            // add a virtual @type property
             properties.Add(new JsonProperty()
             {
                 PropertyName = "@type",

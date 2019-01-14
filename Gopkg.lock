@@ -342,6 +342,7 @@
   version = "v1.16.1"
 
 [[projects]]
+  branch = "more_ops"
   name = "gopkg.in/bblfsh/sdk.v2"
   packages = [
     "cmd",
@@ -365,8 +366,8 @@
     "uast/viewer",
     "uast/yaml"
   ]
-  revision = "37027d4a0e82f04fb0a2d63fa016cc4070687335"
-  version = "v2.12.0"
+  revision = "5b158f2045485a496b27315ccfecc9e3ee59f0d4"
+  source = "github.com/dennwc/sdk"
 
 [[projects]]
   name = "gopkg.in/src-d/go-errors.v1"
@@ -383,6 +384,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "d7c482e240d8350c2fac16f7e2a5a766432639c19e01972a19b0edaa13180ea3"
+  inputs-digest = "8da0edeb47d2fd4a4dfabfc29e4dc4db33d175825abd9a3c7cf350f773ff4b11"
   solver-name = "gps-cdcl"
   solver-version = 1

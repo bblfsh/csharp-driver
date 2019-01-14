@@ -23,7 +23,13 @@ var Suite = &fixtures.Suite{
 	//BenchName: "fixture-name", // TODO: specify a largest file
 	Semantic: fixtures.SemanticConfig{
 		BlacklistTypes: []string{
-			// TODO: list native types that should be converted to semantic UAST
+			// TODO: more types
+			"IdentifierNameSyntax",
+			"BlockSyntax",
+			"UsingDirectiveSyntax",
+			"QualifiedNameSyntax",
+			// TODO: includes Null and Bool literals
+			//"LiteralExpressionSyntax",
 		},
 	},
 	Docker: fixtures.DockerConfig{
