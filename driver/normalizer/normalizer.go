@@ -2,6 +2,7 @@ package normalizer
 
 import (
 	"gopkg.in/bblfsh/sdk.v2/uast"
+	"gopkg.in/bblfsh/sdk.v2/uast/nodes"
 	. "gopkg.in/bblfsh/sdk.v2/uast/transformer"
 )
 
@@ -16,7 +17,57 @@ var Normalize = Transformers([][]Transformer{
 
 // Preprocessors is a block of AST preprocessing rules rules.
 var Preprocessors = []Mapping{
-	// Drop "IsEmpty" - we can detect it with "Length == 0", if necessary.
+	// Erase "SyntaxTrivia" nodes with RawKind == 8539 and 8540.
+	// Those two appears to be whitespaces.
+	Map(
+		Obj{
+			uast.KeyType:  String("SyntaxTrivia"),
+			"FullSpan":    Any(),
+			"Span":        Any(),
+			"SpanStart":   Any(),
+			"IsDirective": Bool(false),
+			"RawKind": Check(
+				In(nodes.Int(8540), nodes.Int(8539)),
+				Any(),
+			),
+		},
+		// cannot delete directly, so set to nil
+		Is(nil),
+	),
+
+	// Now all whitespace "SyntaxTrivia" nodes are nil, we need
+	// to cleanup arrays that were hosting those nodes.
+	//
+	// Find "LeadingTrivia" and "TrailingTrivia" and replace arrays
+	// where all nodes are nil with an empty array.
+	// TODO(dennwc): this only works if all nodes are nil, bu real nodes
+	//               may contain whitespace and comment Trivias in the
+	//               same field
+	Map(
+		Part("_", Obj{
+			"LeadingTrivia": Check(
+				And(All(Is(nil)), OfKind(nodes.KindArray)),
+				Any(),
+			),
+		}),
+		Part("_", Obj{
+			"LeadingTrivia": Arr(),
+		}),
+	),
+	Map(
+		Part("_", Obj{
+			"TrailingTrivia": Check(
+				And(All(Is(nil)), OfKind(nodes.KindArray)),
+				Any(),
+			),
+		}),
+		Part("_", Obj{
+			"TrailingTrivia": Arr(),
+		}),
+	),
+
+	// Drop "IsEmpty" field from TextSpan.
+	// We can detect it with "Length == 0", if necessary.
 	Map(
 		Part("_", Obj{
 			uast.KeyType: String("TextSpan"),
