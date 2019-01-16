@@ -60,11 +60,13 @@ namespace native
         }
     }
 
-    public class ASTContractResolver : DefaultContractResolver
+    class ASTContractResolver : DefaultContractResolver
     {
         protected override IList<JsonProperty> CreateProperties(Type type, MemberSerialization memberSerialization)
         {
             IList<JsonProperty> properties = base.CreateProperties(type, memberSerialization);
+
+            bool hasRawKind = false;
 
             // drop properties that we won't use
             properties = properties.Where((p) => {
@@ -78,6 +80,11 @@ namespace native
                 // don't need any parent references
                 case "ParentTrivia":
 
+                    return false;
+                case "RawKind":
+                    // RawKind stores a specific node type as an int enum value
+                    // we drop this field and merge it with virtual @type field
+                    hasRawKind = true;
                     return false;
                 default:
                     // don't need those Contains<FieldName> and Has<FieldName> flags
@@ -97,22 +104,52 @@ namespace native
                 PropertyType = typeof(string),
                 Readable = true,
                 Writable = false,
-                ValueProvider = new StringValueProvider(type.Name)
+                ValueProvider = new TypeValueProvider(type, hasRawKind)
             });
 
             return properties;
         }
     }
 
-    public class StringValueProvider : IValueProvider {
-        string value;
-        public StringValueProvider(string v)
+    class TypeValueProvider : IValueProvider {
+        Type _type;
+        bool _hasKind;
+        public TypeValueProvider(Type v, bool hasKind = false)
         {
-            value = v;
+            _type = v;
+            _hasKind = hasKind;
         }
         public Object GetValue(Object target)
         {
-            return value;
+            string name = _type.Name;
+            // most nodes types contain "Syntax" prefix, so we trim it
+            if (name.EndsWith("Syntax"))
+            {
+                name = name.Substring(0, name.Length - 6);
+            }
+            if (!_hasKind)
+            {
+                return name;
+            }
+            // RawKind gives a more specific type name for AST nodes
+            int kind = (int)_type.GetProperty("RawKind").GetValue(target, null);
+            string skind = Enum.GetName(typeof(SyntaxKind), kind);
+
+            if (skind == name)
+            {
+                return name;
+            }
+            // for tokens and trivias the RawKind alone is descriptive enough
+            else if (name == "SyntaxToken" || name == "SyntaxTrivia")
+            {
+                return skind;
+            }
+            // some RawKinds end with the type name
+            if (skind.EndsWith(name))
+            {
+                return skind;
+            }
+            return name + "_" + skind;
         }
         public void SetValue(Object target, Object value)
         {

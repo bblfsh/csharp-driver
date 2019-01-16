@@ -17,19 +17,17 @@ var Normalize = Transformers([][]Transformer{
 
 // Preprocessors is a block of AST preprocessing rules rules.
 var Preprocessors = []Mapping{
-	// Erase "SyntaxTrivia" nodes with RawKind == 8539 and 8540.
-	// Those two appears to be whitespaces.
+	// Erase Whitespace and EndOfLine trivias.
 	Map(
 		Obj{
-			uast.KeyType:  String("SyntaxTrivia"),
+			uast.KeyType: Check(
+				In(nodes.String("WhitespaceTrivia"), nodes.String("EndOfLineTrivia")),
+				AnyNode(nil),
+			),
 			"FullSpan":    AnyNode(nil),
 			"Span":        AnyNode(nil),
 			"SpanStart":   AnyNode(nil),
 			"IsDirective": Bool(false),
-			"RawKind": Check(
-				In(nodes.Int(8540), nodes.Int(8539)),
-				AnyNode(nil),
-			),
 		},
 		// cannot delete directly, so set to nil
 		Is(nil),
@@ -40,7 +38,7 @@ var Preprocessors = []Mapping{
 	//
 	// Find "LeadingTrivia" and "TrailingTrivia" and replace arrays
 	// where all nodes are nil with an empty array.
-	// TODO(dennwc): this only works if all nodes are nil, bu real nodes
+	// TODO(dennwc): this only works if all nodes are nil, but real nodes
 	//               may contain whitespace and comment Trivias in the
 	//               same field
 	Map(
@@ -123,16 +121,11 @@ var Preprocessors = []Mapping{
 
 // Normalizers is the main block of normalization rules to convert native AST to semantic UAST.
 var Normalizers = []Mapping{
-	// C# AST types also have a RawKind that acts like an enum with a specific
-	// subclass of the node. For example, "LiteralExpressionSyntax" node
-	// may have different RawKind for string, bool and null literals.
-	// TODO(dennwc): check if the native driver can convert this enum
-	//               to meaningful string names
 
-	MapSemantic("IdentifierNameSyntax", uast.Identifier{}, MapObj(
+	MapSemantic("IdentifierName", uast.Identifier{}, MapObj(
 		Obj{
 			"Identifier": Obj{
-				uast.KeyType: String("SyntaxToken"),
+				uast.KeyType: String("IdentifierToken"),
 				// TODO(dennwc): assert that it's the same as in parent
 				uast.KeyPos: AnyNode(nil),
 
@@ -141,15 +134,13 @@ var Normalizers = []Mapping{
 				"TrailingTrivia": AnyNode(nil),
 
 				"IsMissing": Bool(false),
-				"RawKind":   Int(8508),
 
 				// all token values are the same
 				"Text":      Var("name"),
 				"Value":     Var("name"),
 				"ValueText": Var("name"),
 			},
-			"RawKind": Int(8616),
-			"Arity":   Int(0),
+			"Arity": Int(0),
 
 			// TODO(dennwc): these assertions might not be valid for all cases
 			//               and will break this annotation, but at least it will
@@ -166,10 +157,10 @@ var Normalizers = []Mapping{
 		},
 	)),
 
-	MapSemantic("LiteralExpressionSyntax", uast.String{}, MapObj(
+	MapSemantic("StringLiteralExpression", uast.String{}, MapObj(
 		Obj{
 			"Token": Obj{
-				uast.KeyType: String("SyntaxToken"),
+				uast.KeyType: String("StringLiteralToken"),
 				// TODO(dennwc): assert that it's the same as in parent
 				uast.KeyPos: AnyNode(nil),
 
@@ -178,7 +169,6 @@ var Normalizers = []Mapping{
 				"TrailingTrivia": AnyNode(nil),
 
 				"IsMissing": Bool(false),
-				"RawKind":   Int(8511),
 
 				// contains escaped value, we don't need it in canonical UAST
 				"Text": AnyNode(nil),
@@ -187,7 +177,6 @@ var Normalizers = []Mapping{
 				"Value":     Var("val"),
 				"ValueText": Var("val"),
 			},
-			"RawKind":            Int(8750),
 			"IsMissing":          Bool(false),
 			"IsStructuredTrivia": Bool(false),
 		},
@@ -196,10 +185,9 @@ var Normalizers = []Mapping{
 		},
 	)),
 
-	MapSemantic("BlockSyntax", uast.Block{}, MapObj(
+	MapSemantic("Block", uast.Block{}, MapObj(
 		Obj{
 			"Statements": Var("stmts"),
-			"RawKind":    Int(8792),
 			// TODO(dennwc): remap to custom positional fields
 			"OpenBraceToken":  AnyNode(nil),
 			"CloseBraceToken": AnyNode(nil),
@@ -216,10 +204,9 @@ var Normalizers = []Mapping{
 	//
 	// Also, C# assumes that "using" statement imports all the symbols
 	// from that package, so we also set an "All" field on Import.
-	MapSemantic("UsingDirectiveSyntax", uast.Import{}, MapObj(
+	MapSemantic("UsingDirective", uast.Import{}, MapObj(
 		Obj{
-			"Name":    Var("path"),
-			"RawKind": Int(8843),
+			"Name": Var("path"),
 			// TODO(dennwc): remap to custom positional fields
 			"SemicolonToken": AnyNode(nil),
 			"UsingKeyword":   AnyNode(nil),
@@ -246,12 +233,11 @@ var Normalizers = []Mapping{
 	// QualifiedIdentifier (all children were converted by DFS) and
 	// save its "Names". Then we can simply create a new QualifiedIdentifier
 	// and append "Right" (Identifier) to the end of the saved "Names" array.
-	MapSemantic("QualifiedNameSyntax", uast.QualifiedIdentifier{}, MapObj(
+	MapSemantic("QualifiedName", uast.QualifiedIdentifier{}, MapObj(
 		CasesObj("case",
 			// common
 			Obj{
-				"RawKind": Int(8617),
-				"Right":   Var("right"),
+				"Right": Var("right"),
 			},
 			Objs{
 				// the last name = identifier

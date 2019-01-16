@@ -20,16 +20,15 @@ var Suite = &fixtures.Suite{
 		return native.NewDriverAt(filepath.Join(projectRoot, "build/bin/native"), native.UTF8)
 	},
 	Transforms: normalizer.Transforms,
-	//BenchName: "fixture-name", // TODO: specify a largest file
+	BenchName:  "parser_context",
 	Semantic: fixtures.SemanticConfig{
 		BlacklistTypes: []string{
 			// TODO: more types
-			"IdentifierNameSyntax",
-			"BlockSyntax",
-			"UsingDirectiveSyntax",
-			"QualifiedNameSyntax",
-			// TODO: includes Null and Bool literals
-			//"LiteralExpressionSyntax",
+			"IdentifierName",
+			"Block",
+			"UsingDirective",
+			"QualifiedName",
+			"StringLiteralExpression",
 		},
 	},
 	Docker: fixtures.DockerConfig{
