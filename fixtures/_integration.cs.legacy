@@ -1,4 +1,4 @@
-CompilationUnitSyntax {
+CompilationUnit {
 .  Roles: Unannotated
 .  StartPosition: {
 .  .  Offset: 0
@@ -13,10 +13,9 @@ CompilationUnitSyntax {
 .  Properties: {
 .  .  IsMissing: false
 .  .  IsStructuredTrivia: false
-.  .  RawKind: 8840
 .  }
 .  Children: {
-.  .  0: UsingDirectiveSyntax {
+.  .  0: UsingDirective {
 .  .  .  Roles: Unannotated
 .  .  .  StartPosition: {
 .  .  .  .  Offset: 0
@@ -31,11 +30,10 @@ CompilationUnitSyntax {
 .  .  .  Properties: {
 .  .  .  .  IsMissing: false
 .  .  .  .  IsStructuredTrivia: false
-.  .  .  .  RawKind: 8843
 .  .  .  .  internalRole: Usings
 .  .  .  }
 .  .  .  Children: {
-.  .  .  .  0: SyntaxToken {
+.  .  .  .  0: None {
 .  .  .  .  .  Roles: Unannotated
 .  .  .  .  .  StartPosition: {
 .  .  .  .  .  .  Offset: 0
@@ -49,12 +47,11 @@ CompilationUnitSyntax {
 .  .  .  .  .  }
 .  .  .  .  .  Properties: {
 .  .  .  .  .  .  IsMissing: false
-.  .  .  .  .  .  RawKind: 0
 .  .  .  .  .  .  Text: 
 .  .  .  .  .  .  internalRole: StaticKeyword
 .  .  .  .  .  }
 .  .  .  .  }
-.  .  .  .  1: SyntaxToken {
+.  .  .  .  1: UsingKeyword {
 .  .  .  .  .  Roles: Unannotated
 .  .  .  .  .  StartPosition: {
 .  .  .  .  .  .  Offset: 0
@@ -68,14 +65,13 @@ CompilationUnitSyntax {
 .  .  .  .  .  }
 .  .  .  .  .  Properties: {
 .  .  .  .  .  .  IsMissing: false
-.  .  .  .  .  .  RawKind: 8373
 .  .  .  .  .  .  Text: using
 .  .  .  .  .  .  Value: using
 .  .  .  .  .  .  ValueText: using
 .  .  .  .  .  .  internalRole: UsingKeyword
 .  .  .  .  .  }
 .  .  .  .  .  Children: {
-.  .  .  .  .  .  0: SyntaxTrivia {
+.  .  .  .  .  .  0: SingleLineCommentTrivia {
 .  .  .  .  .  .  .  Roles: Unannotated
 .  .  .  .  .  .  .  StartPosition: {
 .  .  .  .  .  .  .  .  Offset: 0
@@ -89,13 +85,12 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  Properties: {
 .  .  .  .  .  .  .  .  IsDirective: false
-.  .  .  .  .  .  .  .  RawKind: 8541
 .  .  .  .  .  .  .  .  internalRole: LeadingTrivia
 .  .  .  .  .  .  .  }
 .  .  .  .  .  .  }
 .  .  .  .  .  }
 .  .  .  .  }
-.  .  .  .  2: IdentifierNameSyntax {
+.  .  .  .  2: IdentifierName {
 .  .  .  .  .  Roles: Unannotated
 .  .  .  .  .  StartPosition: {
 .  .  .  .  .  .  Offset: 39
@@ -113,11 +108,10 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  IsStructuredTrivia: false
 .  .  .  .  .  .  IsUnmanaged: false
 .  .  .  .  .  .  IsVar: false
-.  .  .  .  .  .  RawKind: 8616
 .  .  .  .  .  .  internalRole: Name
 .  .  .  .  .  }
 .  .  .  .  .  Children: {
-.  .  .  .  .  .  0: SyntaxToken {
+.  .  .  .  .  .  0: IdentifierToken {
 .  .  .  .  .  .  .  Roles: Unannotated
 .  .  .  .  .  .  .  StartPosition: {
 .  .  .  .  .  .  .  .  Offset: 39
@@ -131,7 +125,6 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  Properties: {
 .  .  .  .  .  .  .  .  IsMissing: false
-.  .  .  .  .  .  .  .  RawKind: 8508
 .  .  .  .  .  .  .  .  Text: System
 .  .  .  .  .  .  .  .  Value: System
 .  .  .  .  .  .  .  .  ValueText: System
@@ -140,7 +133,7 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  }
 .  .  .  .  .  }
 .  .  .  .  }
-.  .  .  .  3: SyntaxToken {
+.  .  .  .  3: SemicolonToken {
 .  .  .  .  .  Roles: Unannotated
 .  .  .  .  .  StartPosition: {
 .  .  .  .  .  .  Offset: 45
@@ -154,7 +147,6 @@ CompilationUnitSyntax {
 .  .  .  .  .  }
 .  .  .  .  .  Properties: {
 .  .  .  .  .  .  IsMissing: false
-.  .  .  .  .  .  RawKind: 8212
 .  .  .  .  .  .  Text: ;
 .  .  .  .  .  .  Value: ;
 .  .  .  .  .  .  ValueText: ;
@@ -163,7 +155,7 @@ CompilationUnitSyntax {
 .  .  .  .  }
 .  .  .  }
 .  .  }
-.  .  1: NamespaceDeclarationSyntax {
+.  .  1: NamespaceDeclaration {
 .  .  .  Roles: Unannotated
 .  .  .  StartPosition: {
 .  .  .  .  Offset: 47
@@ -178,11 +170,10 @@ CompilationUnitSyntax {
 .  .  .  Properties: {
 .  .  .  .  IsMissing: false
 .  .  .  .  IsStructuredTrivia: false
-.  .  .  .  RawKind: 8842
 .  .  .  .  internalRole: Members
 .  .  .  }
 .  .  .  Children: {
-.  .  .  .  0: SyntaxToken {
+.  .  .  .  0: None {
 .  .  .  .  .  Roles: Unannotated
 .  .  .  .  .  StartPosition: {
 .  .  .  .  .  .  Offset: 0
@@ -196,12 +187,11 @@ CompilationUnitSyntax {
 .  .  .  .  .  }
 .  .  .  .  .  Properties: {
 .  .  .  .  .  .  IsMissing: false
-.  .  .  .  .  .  RawKind: 0
 .  .  .  .  .  .  Text: 
 .  .  .  .  .  .  internalRole: SemicolonToken
 .  .  .  .  .  }
 .  .  .  .  }
-.  .  .  .  1: SyntaxToken {
+.  .  .  .  1: NamespaceKeyword {
 .  .  .  .  .  Roles: Unannotated
 .  .  .  .  .  StartPosition: {
 .  .  .  .  .  .  Offset: 47
@@ -215,14 +205,13 @@ CompilationUnitSyntax {
 .  .  .  .  .  }
 .  .  .  .  .  Properties: {
 .  .  .  .  .  .  IsMissing: false
-.  .  .  .  .  .  RawKind: 8372
 .  .  .  .  .  .  Text: namespace
 .  .  .  .  .  .  Value: namespace
 .  .  .  .  .  .  ValueText: namespace
 .  .  .  .  .  .  internalRole: NamespaceKeyword
 .  .  .  .  .  }
 .  .  .  .  }
-.  .  .  .  2: IdentifierNameSyntax {
+.  .  .  .  2: IdentifierName {
 .  .  .  .  .  Roles: Unannotated
 .  .  .  .  .  StartPosition: {
 .  .  .  .  .  .  Offset: 57
@@ -240,11 +229,10 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  IsStructuredTrivia: false
 .  .  .  .  .  .  IsUnmanaged: false
 .  .  .  .  .  .  IsVar: false
-.  .  .  .  .  .  RawKind: 8616
 .  .  .  .  .  .  internalRole: Name
 .  .  .  .  .  }
 .  .  .  .  .  Children: {
-.  .  .  .  .  .  0: SyntaxToken {
+.  .  .  .  .  .  0: IdentifierToken {
 .  .  .  .  .  .  .  Roles: Unannotated
 .  .  .  .  .  .  .  StartPosition: {
 .  .  .  .  .  .  .  .  Offset: 57
@@ -258,7 +246,6 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  Properties: {
 .  .  .  .  .  .  .  .  IsMissing: false
-.  .  .  .  .  .  .  .  RawKind: 8508
 .  .  .  .  .  .  .  .  Text: HelloWorld
 .  .  .  .  .  .  .  .  Value: HelloWorld
 .  .  .  .  .  .  .  .  ValueText: HelloWorld
@@ -267,7 +254,7 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  }
 .  .  .  .  .  }
 .  .  .  .  }
-.  .  .  .  3: SyntaxToken {
+.  .  .  .  3: OpenBraceToken {
 .  .  .  .  .  Roles: Unannotated
 .  .  .  .  .  StartPosition: {
 .  .  .  .  .  .  Offset: 68
@@ -281,14 +268,13 @@ CompilationUnitSyntax {
 .  .  .  .  .  }
 .  .  .  .  .  Properties: {
 .  .  .  .  .  .  IsMissing: false
-.  .  .  .  .  .  RawKind: 8205
 .  .  .  .  .  .  Text: {
 .  .  .  .  .  .  Value: {
 .  .  .  .  .  .  ValueText: {
 .  .  .  .  .  .  internalRole: OpenBraceToken
 .  .  .  .  .  }
 .  .  .  .  }
-.  .  .  .  4: ClassDeclarationSyntax {
+.  .  .  .  4: ClassDeclaration {
 .  .  .  .  .  Roles: Unannotated
 .  .  .  .  .  StartPosition: {
 .  .  .  .  .  .  Offset: 70
@@ -304,11 +290,10 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  Arity: 0
 .  .  .  .  .  .  IsMissing: false
 .  .  .  .  .  .  IsStructuredTrivia: false
-.  .  .  .  .  .  RawKind: 8855
 .  .  .  .  .  .  internalRole: Members
 .  .  .  .  .  }
 .  .  .  .  .  Children: {
-.  .  .  .  .  .  0: SyntaxToken {
+.  .  .  .  .  .  0: None {
 .  .  .  .  .  .  .  Roles: Unannotated
 .  .  .  .  .  .  .  StartPosition: {
 .  .  .  .  .  .  .  .  Offset: 0
@@ -322,12 +307,11 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  Properties: {
 .  .  .  .  .  .  .  .  IsMissing: false
-.  .  .  .  .  .  .  .  RawKind: 0
 .  .  .  .  .  .  .  .  Text: 
 .  .  .  .  .  .  .  .  internalRole: SemicolonToken
 .  .  .  .  .  .  .  }
 .  .  .  .  .  .  }
-.  .  .  .  .  .  1: SyntaxToken {
+.  .  .  .  .  .  1: ClassKeyword {
 .  .  .  .  .  .  .  Roles: Unannotated
 .  .  .  .  .  .  .  StartPosition: {
 .  .  .  .  .  .  .  .  Offset: 70
@@ -341,14 +325,13 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  Properties: {
 .  .  .  .  .  .  .  .  IsMissing: false
-.  .  .  .  .  .  .  .  RawKind: 8374
 .  .  .  .  .  .  .  .  Text: class
 .  .  .  .  .  .  .  .  Value: class
 .  .  .  .  .  .  .  .  ValueText: class
 .  .  .  .  .  .  .  .  internalRole: Keyword
 .  .  .  .  .  .  .  }
 .  .  .  .  .  .  }
-.  .  .  .  .  .  2: SyntaxToken {
+.  .  .  .  .  .  2: IdentifierToken {
 .  .  .  .  .  .  .  Roles: Unannotated
 .  .  .  .  .  .  .  StartPosition: {
 .  .  .  .  .  .  .  .  Offset: 80
@@ -362,14 +345,13 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  Properties: {
 .  .  .  .  .  .  .  .  IsMissing: false
-.  .  .  .  .  .  .  .  RawKind: 8508
 .  .  .  .  .  .  .  .  Text: Hello
 .  .  .  .  .  .  .  .  Value: Hello
 .  .  .  .  .  .  .  .  ValueText: Hello
 .  .  .  .  .  .  .  .  internalRole: Identifier
 .  .  .  .  .  .  .  }
 .  .  .  .  .  .  }
-.  .  .  .  .  .  3: SyntaxToken {
+.  .  .  .  .  .  3: OpenBraceToken {
 .  .  .  .  .  .  .  Roles: Unannotated
 .  .  .  .  .  .  .  StartPosition: {
 .  .  .  .  .  .  .  .  Offset: 87
@@ -383,14 +365,13 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  Properties: {
 .  .  .  .  .  .  .  .  IsMissing: false
-.  .  .  .  .  .  .  .  RawKind: 8205
 .  .  .  .  .  .  .  .  Text: {
 .  .  .  .  .  .  .  .  Value: {
 .  .  .  .  .  .  .  .  ValueText: {
 .  .  .  .  .  .  .  .  internalRole: OpenBraceToken
 .  .  .  .  .  .  .  }
 .  .  .  .  .  .  }
-.  .  .  .  .  .  4: MethodDeclarationSyntax {
+.  .  .  .  .  .  4: MethodDeclaration {
 .  .  .  .  .  .  .  Roles: Unannotated
 .  .  .  .  .  .  .  StartPosition: {
 .  .  .  .  .  .  .  .  Offset: 93
@@ -406,11 +387,10 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  .  .  Arity: 0
 .  .  .  .  .  .  .  .  IsMissing: false
 .  .  .  .  .  .  .  .  IsStructuredTrivia: false
-.  .  .  .  .  .  .  .  RawKind: 8875
 .  .  .  .  .  .  .  .  internalRole: Members
 .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  Children: {
-.  .  .  .  .  .  .  .  0: SyntaxToken {
+.  .  .  .  .  .  .  .  0: None {
 .  .  .  .  .  .  .  .  .  Roles: Unannotated
 .  .  .  .  .  .  .  .  .  StartPosition: {
 .  .  .  .  .  .  .  .  .  .  Offset: 0
@@ -424,12 +404,11 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  Properties: {
 .  .  .  .  .  .  .  .  .  .  IsMissing: false
-.  .  .  .  .  .  .  .  .  .  RawKind: 0
 .  .  .  .  .  .  .  .  .  .  Text: 
 .  .  .  .  .  .  .  .  .  .  internalRole: SemicolonToken
 .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  }
-.  .  .  .  .  .  .  .  1: SyntaxToken {
+.  .  .  .  .  .  .  .  1: StaticKeyword {
 .  .  .  .  .  .  .  .  .  Roles: Unannotated
 .  .  .  .  .  .  .  .  .  StartPosition: {
 .  .  .  .  .  .  .  .  .  .  Offset: 93
@@ -443,14 +422,13 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  Properties: {
 .  .  .  .  .  .  .  .  .  .  IsMissing: false
-.  .  .  .  .  .  .  .  .  .  RawKind: 8347
 .  .  .  .  .  .  .  .  .  .  Text: static
 .  .  .  .  .  .  .  .  .  .  Value: static
 .  .  .  .  .  .  .  .  .  .  ValueText: static
 .  .  .  .  .  .  .  .  .  .  internalRole: Modifiers
 .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  }
-.  .  .  .  .  .  .  .  2: PredefinedTypeSyntax {
+.  .  .  .  .  .  .  .  2: PredefinedType {
 .  .  .  .  .  .  .  .  .  Roles: Unannotated
 .  .  .  .  .  .  .  .  .  StartPosition: {
 .  .  .  .  .  .  .  .  .  .  Offset: 108
@@ -467,11 +445,10 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  .  .  .  .  IsStructuredTrivia: false
 .  .  .  .  .  .  .  .  .  .  IsUnmanaged: false
 .  .  .  .  .  .  .  .  .  .  IsVar: false
-.  .  .  .  .  .  .  .  .  .  RawKind: 8621
 .  .  .  .  .  .  .  .  .  .  internalRole: ReturnType
 .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  Children: {
-.  .  .  .  .  .  .  .  .  .  0: SyntaxToken {
+.  .  .  .  .  .  .  .  .  .  0: VoidKeyword {
 .  .  .  .  .  .  .  .  .  .  .  Roles: Unannotated
 .  .  .  .  .  .  .  .  .  .  .  StartPosition: {
 .  .  .  .  .  .  .  .  .  .  .  .  Offset: 108
@@ -485,7 +462,6 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  Properties: {
 .  .  .  .  .  .  .  .  .  .  .  .  IsMissing: false
-.  .  .  .  .  .  .  .  .  .  .  .  RawKind: 8318
 .  .  .  .  .  .  .  .  .  .  .  .  Text: void
 .  .  .  .  .  .  .  .  .  .  .  .  Value: void
 .  .  .  .  .  .  .  .  .  .  .  .  ValueText: void
@@ -494,7 +470,7 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  }
-.  .  .  .  .  .  .  .  3: SyntaxToken {
+.  .  .  .  .  .  .  .  3: IdentifierToken {
 .  .  .  .  .  .  .  .  .  Roles: Unannotated
 .  .  .  .  .  .  .  .  .  StartPosition: {
 .  .  .  .  .  .  .  .  .  .  Offset: 113
@@ -508,14 +484,13 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  Properties: {
 .  .  .  .  .  .  .  .  .  .  IsMissing: false
-.  .  .  .  .  .  .  .  .  .  RawKind: 8508
 .  .  .  .  .  .  .  .  .  .  Text: Main
 .  .  .  .  .  .  .  .  .  .  Value: Main
 .  .  .  .  .  .  .  .  .  .  ValueText: Main
 .  .  .  .  .  .  .  .  .  .  internalRole: Identifier
 .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  }
-.  .  .  .  .  .  .  .  4: ParameterListSyntax {
+.  .  .  .  .  .  .  .  4: ParameterList {
 .  .  .  .  .  .  .  .  .  Roles: Unannotated
 .  .  .  .  .  .  .  .  .  StartPosition: {
 .  .  .  .  .  .  .  .  .  .  Offset: 117
@@ -530,11 +505,10 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  .  .  .  Properties: {
 .  .  .  .  .  .  .  .  .  .  IsMissing: false
 .  .  .  .  .  .  .  .  .  .  IsStructuredTrivia: false
-.  .  .  .  .  .  .  .  .  .  RawKind: 8906
 .  .  .  .  .  .  .  .  .  .  internalRole: ParameterList
 .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  Children: {
-.  .  .  .  .  .  .  .  .  .  0: SyntaxToken {
+.  .  .  .  .  .  .  .  .  .  0: OpenParenToken {
 .  .  .  .  .  .  .  .  .  .  .  Roles: Unannotated
 .  .  .  .  .  .  .  .  .  .  .  StartPosition: {
 .  .  .  .  .  .  .  .  .  .  .  .  Offset: 117
@@ -548,14 +522,13 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  Properties: {
 .  .  .  .  .  .  .  .  .  .  .  .  IsMissing: false
-.  .  .  .  .  .  .  .  .  .  .  .  RawKind: 8200
 .  .  .  .  .  .  .  .  .  .  .  .  Text: (
 .  .  .  .  .  .  .  .  .  .  .  .  Value: (
 .  .  .  .  .  .  .  .  .  .  .  .  ValueText: (
 .  .  .  .  .  .  .  .  .  .  .  .  internalRole: OpenParenToken
 .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  }
-.  .  .  .  .  .  .  .  .  .  1: SyntaxToken {
+.  .  .  .  .  .  .  .  .  .  1: CloseParenToken {
 .  .  .  .  .  .  .  .  .  .  .  Roles: Unannotated
 .  .  .  .  .  .  .  .  .  .  .  StartPosition: {
 .  .  .  .  .  .  .  .  .  .  .  .  Offset: 118
@@ -569,7 +542,6 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  Properties: {
 .  .  .  .  .  .  .  .  .  .  .  .  IsMissing: false
-.  .  .  .  .  .  .  .  .  .  .  .  RawKind: 8201
 .  .  .  .  .  .  .  .  .  .  .  .  Text: )
 .  .  .  .  .  .  .  .  .  .  .  .  Value: )
 .  .  .  .  .  .  .  .  .  .  .  .  ValueText: )
@@ -578,7 +550,7 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  }
-.  .  .  .  .  .  .  .  5: BlockSyntax {
+.  .  .  .  .  .  .  .  5: Block {
 .  .  .  .  .  .  .  .  .  Roles: Unannotated
 .  .  .  .  .  .  .  .  .  StartPosition: {
 .  .  .  .  .  .  .  .  .  .  Offset: 121
@@ -593,11 +565,10 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  .  .  .  Properties: {
 .  .  .  .  .  .  .  .  .  .  IsMissing: false
 .  .  .  .  .  .  .  .  .  .  IsStructuredTrivia: false
-.  .  .  .  .  .  .  .  .  .  RawKind: 8792
 .  .  .  .  .  .  .  .  .  .  internalRole: Body
 .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  Children: {
-.  .  .  .  .  .  .  .  .  .  0: SyntaxToken {
+.  .  .  .  .  .  .  .  .  .  0: OpenBraceToken {
 .  .  .  .  .  .  .  .  .  .  .  Roles: Unannotated
 .  .  .  .  .  .  .  .  .  .  .  StartPosition: {
 .  .  .  .  .  .  .  .  .  .  .  .  Offset: 121
@@ -611,14 +582,13 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  Properties: {
 .  .  .  .  .  .  .  .  .  .  .  .  IsMissing: false
-.  .  .  .  .  .  .  .  .  .  .  .  RawKind: 8205
 .  .  .  .  .  .  .  .  .  .  .  .  Text: {
 .  .  .  .  .  .  .  .  .  .  .  .  Value: {
 .  .  .  .  .  .  .  .  .  .  .  .  ValueText: {
 .  .  .  .  .  .  .  .  .  .  .  .  internalRole: OpenBraceToken
 .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  }
-.  .  .  .  .  .  .  .  .  .  1: ExpressionStatementSyntax {
+.  .  .  .  .  .  .  .  .  .  1: ExpressionStatement {
 .  .  .  .  .  .  .  .  .  .  .  Roles: Unannotated
 .  .  .  .  .  .  .  .  .  .  .  StartPosition: {
 .  .  .  .  .  .  .  .  .  .  .  .  Offset: 131
@@ -634,11 +604,10 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  .  .  .  .  .  .  AllowsAnyExpression: false
 .  .  .  .  .  .  .  .  .  .  .  .  IsMissing: false
 .  .  .  .  .  .  .  .  .  .  .  .  IsStructuredTrivia: false
-.  .  .  .  .  .  .  .  .  .  .  .  RawKind: 8797
 .  .  .  .  .  .  .  .  .  .  .  .  internalRole: Statements
 .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  Children: {
-.  .  .  .  .  .  .  .  .  .  .  .  0: InvocationExpressionSyntax {
+.  .  .  .  .  .  .  .  .  .  .  .  0: InvocationExpression {
 .  .  .  .  .  .  .  .  .  .  .  .  .  Roles: Unannotated
 .  .  .  .  .  .  .  .  .  .  .  .  .  StartPosition: {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  Offset: 131
@@ -653,11 +622,10 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  .  .  .  .  .  .  .  Properties: {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  IsMissing: false
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  IsStructuredTrivia: false
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  RawKind: 8634
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  internalRole: Expression
 .  .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  .  .  Children: {
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  0: MemberAccessExpressionSyntax {
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  0: SimpleMemberAccessExpression {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Roles: Unannotated
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  StartPosition: {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Offset: 131
@@ -672,11 +640,10 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Properties: {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  IsMissing: false
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  IsStructuredTrivia: false
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  RawKind: 8689
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  internalRole: Expression
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Children: {
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  0: IdentifierNameSyntax {
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  0: IdentifierName {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Roles: Unannotated
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  StartPosition: {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Offset: 131
@@ -694,11 +661,10 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  IsStructuredTrivia: false
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  IsUnmanaged: false
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  IsVar: false
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  RawKind: 8616
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  internalRole: Expression
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Children: {
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  0: SyntaxToken {
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  0: IdentifierToken {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Roles: Unannotated
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  StartPosition: {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Offset: 131
@@ -712,7 +678,6 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Properties: {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  IsMissing: false
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  RawKind: 8508
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Text: Console
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Value: Console
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  ValueText: Console
@@ -721,7 +686,7 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  1: SyntaxToken {
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  1: DotToken {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Roles: Unannotated
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  StartPosition: {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Offset: 150
@@ -735,14 +700,13 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Properties: {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  IsMissing: false
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  RawKind: 8218
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Text: .
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Value: .
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  ValueText: .
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  internalRole: OperatorToken
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  2: IdentifierNameSyntax {
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  2: IdentifierName {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Roles: Unannotated
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  StartPosition: {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Offset: 151
@@ -760,11 +724,10 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  IsStructuredTrivia: false
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  IsUnmanaged: false
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  IsVar: false
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  RawKind: 8616
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  internalRole: Name
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Children: {
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  0: SyntaxToken {
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  0: IdentifierToken {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Roles: Unannotated
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  StartPosition: {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Offset: 151
@@ -778,7 +741,6 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Properties: {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  IsMissing: false
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  RawKind: 8508
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Text: WriteLine
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Value: WriteLine
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  ValueText: WriteLine
@@ -789,7 +751,7 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  1: ArgumentListSyntax {
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  1: ArgumentList {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Roles: Unannotated
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  StartPosition: {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Offset: 160
@@ -804,11 +766,10 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Properties: {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  IsMissing: false
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  IsStructuredTrivia: false
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  RawKind: 8636
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  internalRole: ArgumentList
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Children: {
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  0: SyntaxToken {
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  0: OpenParenToken {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Roles: Unannotated
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  StartPosition: {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Offset: 160
@@ -822,14 +783,13 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Properties: {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  IsMissing: false
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  RawKind: 8200
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Text: (
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Value: (
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  ValueText: (
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  internalRole: OpenParenToken
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  1: ArgumentSyntax {
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  1: Argument {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Roles: Unannotated
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  StartPosition: {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Offset: 161
@@ -844,11 +804,10 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Properties: {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  IsMissing: false
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  IsStructuredTrivia: false
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  RawKind: 8638
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  internalRole: Arguments
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Children: {
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  0: SyntaxToken {
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  0: None {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Roles: Unannotated
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  StartPosition: {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Offset: 0
@@ -862,12 +821,11 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Properties: {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  IsMissing: false
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  RawKind: 0
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Text: 
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  internalRole: RefKindKeyword
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  1: SyntaxToken {
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  1: None {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Roles: Unannotated
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  StartPosition: {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Offset: 0
@@ -881,12 +839,11 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Properties: {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  IsMissing: false
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  RawKind: 0
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Text: 
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  internalRole: RefOrOutKeyword
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  2: LiteralExpressionSyntax {
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  2: StringLiteralExpression {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Roles: Unannotated
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  StartPosition: {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Offset: 161
@@ -901,11 +858,10 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Properties: {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  IsMissing: false
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  IsStructuredTrivia: false
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  RawKind: 8750
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  internalRole: Expression
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Children: {
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  0: SyntaxToken {
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  0: StringLiteralToken {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Roles: Unannotated
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  StartPosition: {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Offset: 161
@@ -919,7 +875,6 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Properties: {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  IsMissing: false
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  RawKind: 8511
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Text: "Hello World!"
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Value: Hello World!
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  ValueText: Hello World!
@@ -930,7 +885,7 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  2: SyntaxToken {
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  2: CloseParenToken {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Roles: Unannotated
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  StartPosition: {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Offset: 175
@@ -944,7 +899,6 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Properties: {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  IsMissing: false
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  RawKind: 8201
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Text: )
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Value: )
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  ValueText: )
@@ -955,7 +909,7 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  .  }
-.  .  .  .  .  .  .  .  .  .  .  .  1: SyntaxToken {
+.  .  .  .  .  .  .  .  .  .  .  .  1: SemicolonToken {
 .  .  .  .  .  .  .  .  .  .  .  .  .  Roles: Unannotated
 .  .  .  .  .  .  .  .  .  .  .  .  .  StartPosition: {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  Offset: 176
@@ -969,7 +923,6 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  .  .  Properties: {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  IsMissing: false
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  RawKind: 8212
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  Text: ;
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  Value: ;
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  ValueText: ;
@@ -978,7 +931,7 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  }
-.  .  .  .  .  .  .  .  .  .  2: ExpressionStatementSyntax {
+.  .  .  .  .  .  .  .  .  .  2: ExpressionStatement {
 .  .  .  .  .  .  .  .  .  .  .  Roles: Unannotated
 .  .  .  .  .  .  .  .  .  .  .  StartPosition: {
 .  .  .  .  .  .  .  .  .  .  .  .  Offset: 178
@@ -994,11 +947,10 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  .  .  .  .  .  .  AllowsAnyExpression: false
 .  .  .  .  .  .  .  .  .  .  .  .  IsMissing: false
 .  .  .  .  .  .  .  .  .  .  .  .  IsStructuredTrivia: false
-.  .  .  .  .  .  .  .  .  .  .  .  RawKind: 8797
 .  .  .  .  .  .  .  .  .  .  .  .  internalRole: Statements
 .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  Children: {
-.  .  .  .  .  .  .  .  .  .  .  .  0: InvocationExpressionSyntax {
+.  .  .  .  .  .  .  .  .  .  .  .  0: InvocationExpression {
 .  .  .  .  .  .  .  .  .  .  .  .  .  Roles: Unannotated
 .  .  .  .  .  .  .  .  .  .  .  .  .  StartPosition: {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  Offset: 178
@@ -1013,11 +965,10 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  .  .  .  .  .  .  .  Properties: {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  IsMissing: false
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  IsStructuredTrivia: false
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  RawKind: 8634
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  internalRole: Expression
 .  .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  .  .  Children: {
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  0: MemberAccessExpressionSyntax {
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  0: SimpleMemberAccessExpression {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Roles: Unannotated
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  StartPosition: {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Offset: 178
@@ -1032,11 +983,10 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Properties: {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  IsMissing: false
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  IsStructuredTrivia: false
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  RawKind: 8689
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  internalRole: Expression
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Children: {
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  0: IdentifierNameSyntax {
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  0: IdentifierName {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Roles: Unannotated
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  StartPosition: {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Offset: 178
@@ -1054,11 +1004,10 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  IsStructuredTrivia: false
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  IsUnmanaged: false
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  IsVar: false
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  RawKind: 8616
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  internalRole: Expression
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Children: {
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  0: SyntaxToken {
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  0: IdentifierToken {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Roles: Unannotated
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  StartPosition: {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Offset: 178
@@ -1072,14 +1021,13 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Properties: {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  IsMissing: false
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  RawKind: 8508
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Text: Console
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Value: Console
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  ValueText: Console
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  internalRole: Identifier
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Children: {
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  0: SyntaxTrivia {
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  0: SingleLineCommentTrivia {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Roles: Unannotated
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  StartPosition: {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Offset: 191
@@ -1093,7 +1041,6 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Properties: {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  IsDirective: false
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  RawKind: 8541
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  internalRole: LeadingTrivia
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
@@ -1101,7 +1048,7 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  1: SyntaxToken {
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  1: DotToken {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Roles: Unannotated
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  StartPosition: {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Offset: 257
@@ -1115,14 +1062,13 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Properties: {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  IsMissing: false
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  RawKind: 8218
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Text: .
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Value: .
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  ValueText: .
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  internalRole: OperatorToken
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  2: IdentifierNameSyntax {
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  2: IdentifierName {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Roles: Unannotated
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  StartPosition: {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Offset: 258
@@ -1140,11 +1086,10 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  IsStructuredTrivia: false
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  IsUnmanaged: false
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  IsVar: false
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  RawKind: 8616
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  internalRole: Name
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Children: {
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  0: SyntaxToken {
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  0: IdentifierToken {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Roles: Unannotated
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  StartPosition: {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Offset: 258
@@ -1158,7 +1103,6 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Properties: {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  IsMissing: false
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  RawKind: 8508
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Text: WriteLine
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Value: WriteLine
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  ValueText: WriteLine
@@ -1169,7 +1113,7 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  1: ArgumentListSyntax {
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  1: ArgumentList {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Roles: Unannotated
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  StartPosition: {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Offset: 267
@@ -1184,11 +1128,10 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Properties: {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  IsMissing: false
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  IsStructuredTrivia: false
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  RawKind: 8636
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  internalRole: ArgumentList
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Children: {
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  0: SyntaxToken {
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  0: OpenParenToken {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Roles: Unannotated
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  StartPosition: {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Offset: 267
@@ -1202,14 +1145,13 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Properties: {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  IsMissing: false
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  RawKind: 8200
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Text: (
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Value: (
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  ValueText: (
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  internalRole: OpenParenToken
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  1: ArgumentSyntax {
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  1: Argument {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Roles: Unannotated
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  StartPosition: {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Offset: 268
@@ -1224,11 +1166,10 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Properties: {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  IsMissing: false
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  IsStructuredTrivia: false
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  RawKind: 8638
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  internalRole: Arguments
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Children: {
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  0: SyntaxToken {
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  0: None {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Roles: Unannotated
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  StartPosition: {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Offset: 0
@@ -1242,12 +1183,11 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Properties: {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  IsMissing: false
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  RawKind: 0
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Text: 
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  internalRole: RefKindKeyword
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  1: SyntaxToken {
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  1: None {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Roles: Unannotated
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  StartPosition: {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Offset: 0
@@ -1261,12 +1201,11 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Properties: {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  IsMissing: false
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  RawKind: 0
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Text: 
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  internalRole: RefOrOutKeyword
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  2: LiteralExpressionSyntax {
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  2: StringLiteralExpression {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Roles: Unannotated
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  StartPosition: {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Offset: 268
@@ -1281,11 +1220,10 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Properties: {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  IsMissing: false
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  IsStructuredTrivia: false
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  RawKind: 8750
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  internalRole: Expression
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Children: {
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  0: SyntaxToken {
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  0: StringLiteralToken {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Roles: Unannotated
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  StartPosition: {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Offset: 268
@@ -1299,7 +1237,6 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Properties: {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  IsMissing: false
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  RawKind: 8511
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Text: "Press any key to exit."
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Value: Press any key to exit.
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  ValueText: Press any key to exit.
@@ -1310,7 +1247,7 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  2: SyntaxToken {
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  2: CloseParenToken {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Roles: Unannotated
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  StartPosition: {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Offset: 292
@@ -1324,7 +1261,6 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Properties: {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  IsMissing: false
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  RawKind: 8201
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Text: )
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Value: )
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  ValueText: )
@@ -1335,7 +1271,7 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  .  }
-.  .  .  .  .  .  .  .  .  .  .  .  1: SyntaxToken {
+.  .  .  .  .  .  .  .  .  .  .  .  1: SemicolonToken {
 .  .  .  .  .  .  .  .  .  .  .  .  .  Roles: Unannotated
 .  .  .  .  .  .  .  .  .  .  .  .  .  StartPosition: {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  Offset: 293
@@ -1349,7 +1285,6 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  .  .  Properties: {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  IsMissing: false
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  RawKind: 8212
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  Text: ;
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  Value: ;
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  ValueText: ;
@@ -1358,7 +1293,7 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  }
-.  .  .  .  .  .  .  .  .  .  3: ExpressionStatementSyntax {
+.  .  .  .  .  .  .  .  .  .  3: ExpressionStatement {
 .  .  .  .  .  .  .  .  .  .  .  Roles: Unannotated
 .  .  .  .  .  .  .  .  .  .  .  StartPosition: {
 .  .  .  .  .  .  .  .  .  .  .  .  Offset: 295
@@ -1374,11 +1309,10 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  .  .  .  .  .  .  AllowsAnyExpression: false
 .  .  .  .  .  .  .  .  .  .  .  .  IsMissing: false
 .  .  .  .  .  .  .  .  .  .  .  .  IsStructuredTrivia: false
-.  .  .  .  .  .  .  .  .  .  .  .  RawKind: 8797
 .  .  .  .  .  .  .  .  .  .  .  .  internalRole: Statements
 .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  Children: {
-.  .  .  .  .  .  .  .  .  .  .  .  0: InvocationExpressionSyntax {
+.  .  .  .  .  .  .  .  .  .  .  .  0: InvocationExpression {
 .  .  .  .  .  .  .  .  .  .  .  .  .  Roles: Unannotated
 .  .  .  .  .  .  .  .  .  .  .  .  .  StartPosition: {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  Offset: 295
@@ -1393,11 +1327,10 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  .  .  .  .  .  .  .  Properties: {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  IsMissing: false
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  IsStructuredTrivia: false
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  RawKind: 8634
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  internalRole: Expression
 .  .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  .  .  Children: {
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  0: MemberAccessExpressionSyntax {
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  0: SimpleMemberAccessExpression {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Roles: Unannotated
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  StartPosition: {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Offset: 295
@@ -1412,11 +1345,10 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Properties: {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  IsMissing: false
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  IsStructuredTrivia: false
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  RawKind: 8689
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  internalRole: Expression
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Children: {
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  0: IdentifierNameSyntax {
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  0: IdentifierName {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Roles: Unannotated
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  StartPosition: {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Offset: 295
@@ -1434,11 +1366,10 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  IsStructuredTrivia: false
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  IsUnmanaged: false
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  IsVar: false
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  RawKind: 8616
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  internalRole: Expression
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Children: {
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  0: SyntaxToken {
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  0: IdentifierToken {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Roles: Unannotated
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  StartPosition: {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Offset: 295
@@ -1452,7 +1383,6 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Properties: {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  IsMissing: false
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  RawKind: 8508
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Text: Console
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Value: Console
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  ValueText: Console
@@ -1461,7 +1391,7 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  1: SyntaxToken {
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  1: DotToken {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Roles: Unannotated
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  StartPosition: {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Offset: 314
@@ -1475,14 +1405,13 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Properties: {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  IsMissing: false
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  RawKind: 8218
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Text: .
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Value: .
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  ValueText: .
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  internalRole: OperatorToken
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  2: IdentifierNameSyntax {
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  2: IdentifierName {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Roles: Unannotated
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  StartPosition: {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Offset: 315
@@ -1500,11 +1429,10 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  IsStructuredTrivia: false
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  IsUnmanaged: false
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  IsVar: false
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  RawKind: 8616
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  internalRole: Name
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Children: {
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  0: SyntaxToken {
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  0: IdentifierToken {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Roles: Unannotated
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  StartPosition: {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Offset: 315
@@ -1518,7 +1446,6 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Properties: {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  IsMissing: false
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  RawKind: 8508
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Text: ReadKey
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Value: ReadKey
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  ValueText: ReadKey
@@ -1529,7 +1456,7 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  1: ArgumentListSyntax {
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  1: ArgumentList {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Roles: Unannotated
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  StartPosition: {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Offset: 322
@@ -1544,11 +1471,10 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Properties: {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  IsMissing: false
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  IsStructuredTrivia: false
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  RawKind: 8636
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  internalRole: ArgumentList
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Children: {
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  0: SyntaxToken {
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  0: OpenParenToken {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Roles: Unannotated
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  StartPosition: {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Offset: 322
@@ -1562,14 +1488,13 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Properties: {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  IsMissing: false
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  RawKind: 8200
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Text: (
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Value: (
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  ValueText: (
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  internalRole: OpenParenToken
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  1: SyntaxToken {
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  1: CloseParenToken {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Roles: Unannotated
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  StartPosition: {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Offset: 323
@@ -1583,7 +1508,6 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Properties: {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  IsMissing: false
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  RawKind: 8201
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Text: )
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Value: )
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  ValueText: )
@@ -1594,7 +1518,7 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  .  }
-.  .  .  .  .  .  .  .  .  .  .  .  1: SyntaxToken {
+.  .  .  .  .  .  .  .  .  .  .  .  1: SemicolonToken {
 .  .  .  .  .  .  .  .  .  .  .  .  .  Roles: Unannotated
 .  .  .  .  .  .  .  .  .  .  .  .  .  StartPosition: {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  Offset: 324
@@ -1608,7 +1532,6 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  .  .  Properties: {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  IsMissing: false
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  RawKind: 8212
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  Text: ;
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  Value: ;
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  ValueText: ;
@@ -1617,7 +1540,7 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  }
-.  .  .  .  .  .  .  .  .  .  4: SyntaxToken {
+.  .  .  .  .  .  .  .  .  .  4: CloseBraceToken {
 .  .  .  .  .  .  .  .  .  .  .  Roles: Unannotated
 .  .  .  .  .  .  .  .  .  .  .  StartPosition: {
 .  .  .  .  .  .  .  .  .  .  .  .  Offset: 326
@@ -1631,7 +1554,6 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  Properties: {
 .  .  .  .  .  .  .  .  .  .  .  .  IsMissing: false
-.  .  .  .  .  .  .  .  .  .  .  .  RawKind: 8206
 .  .  .  .  .  .  .  .  .  .  .  .  Text: }
 .  .  .  .  .  .  .  .  .  .  .  .  Value: }
 .  .  .  .  .  .  .  .  .  .  .  .  ValueText: }
@@ -1642,7 +1564,7 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  }
 .  .  .  .  .  .  }
-.  .  .  .  .  .  5: SyntaxToken {
+.  .  .  .  .  .  5: CloseBraceToken {
 .  .  .  .  .  .  .  Roles: Unannotated
 .  .  .  .  .  .  .  StartPosition: {
 .  .  .  .  .  .  .  .  Offset: 336
@@ -1656,7 +1578,6 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  Properties: {
 .  .  .  .  .  .  .  .  IsMissing: false
-.  .  .  .  .  .  .  .  RawKind: 8206
 .  .  .  .  .  .  .  .  Text: }
 .  .  .  .  .  .  .  .  Value: }
 .  .  .  .  .  .  .  .  ValueText: }
@@ -1665,7 +1586,7 @@ CompilationUnitSyntax {
 .  .  .  .  .  .  }
 .  .  .  .  .  }
 .  .  .  .  }
-.  .  .  .  5: SyntaxToken {
+.  .  .  .  5: CloseBraceToken {
 .  .  .  .  .  Roles: Unannotated
 .  .  .  .  .  StartPosition: {
 .  .  .  .  .  .  Offset: 342
@@ -1679,7 +1600,6 @@ CompilationUnitSyntax {
 .  .  .  .  .  }
 .  .  .  .  .  Properties: {
 .  .  .  .  .  .  IsMissing: false
-.  .  .  .  .  .  RawKind: 8206
 .  .  .  .  .  .  Text: }
 .  .  .  .  .  .  Value: }
 .  .  .  .  .  .  ValueText: }
@@ -1688,7 +1608,7 @@ CompilationUnitSyntax {
 .  .  .  .  }
 .  .  .  }
 .  .  }
-.  .  2: SyntaxToken {
+.  .  2: EndOfFileToken {
 .  .  .  Roles: Unannotated
 .  .  .  StartPosition: {
 .  .  .  .  Offset: 344
@@ -1702,7 +1622,6 @@ CompilationUnitSyntax {
 .  .  .  }
 .  .  .  Properties: {
 .  .  .  .  IsMissing: false
-.  .  .  .  RawKind: 8496
 .  .  .  .  Text: 
 .  .  .  .  Value: 
 .  .  .  .  ValueText: 
