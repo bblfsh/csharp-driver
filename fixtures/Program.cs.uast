@@ -13220,7 +13220,6 @@
                            },
                            IsMissing: false,
                            LeadingTrivia: [
-                              ~,
                               { '@type': "SingleLineCommentTrivia",
                                  '@role': [Unannotated],
                                  '@pos': { '@type': "uast:Positions",
@@ -13237,8 +13236,6 @@
                                  },
                                  IsDirective: false,
                               },
-                              ~,
-                              ~,
                            ],
                            Text: "}",
                            TrailingTrivia: [],

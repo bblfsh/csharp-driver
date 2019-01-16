@@ -36,31 +36,22 @@ var Preprocessors = []Mapping{
 	// Now all whitespace "SyntaxTrivia" nodes are nil, we need
 	// to cleanup arrays that were hosting those nodes.
 	//
-	// Find "LeadingTrivia" and "TrailingTrivia" and replace arrays
-	// where all nodes are nil with an empty array.
-	// TODO(dennwc): this only works if all nodes are nil, but real nodes
-	//               may contain whitespace and comment Trivias in the
-	//               same field
+	// Find "LeadingTrivia" and "TrailingTrivia" and drop nil
+	// elements in those arrays.
 	Map(
 		Part("_", Obj{
-			"LeadingTrivia": Check(
-				And(All(Is(nil)), OfKind(nodes.KindArray)),
-				AnyNode(nil),
-			),
+			"LeadingTrivia": dropNils{Var("arr")},
 		}),
 		Part("_", Obj{
-			"LeadingTrivia": Arr(),
+			"LeadingTrivia": Var("arr"),
 		}),
 	),
 	Map(
 		Part("_", Obj{
-			"TrailingTrivia": Check(
-				And(All(Is(nil)), OfKind(nodes.KindArray)),
-				AnyNode(nil),
-			),
+			"TrailingTrivia": dropNils{Var("arr")},
 		}),
 		Part("_", Obj{
-			"TrailingTrivia": Arr(),
+			"TrailingTrivia": Var("arr"),
 		}),
 	),
 
@@ -267,4 +258,33 @@ var Normalizers = []Mapping{
 			},
 		),
 	)),
+}
+
+// dropNils accepts a array node, removes all nil values from it and passes it to
+// a specified suboperation.
+// It will not restore nil values when constructing nodes (not reversible).
+type dropNils struct {
+	op Op
+}
+
+func (op dropNils) Kinds() nodes.Kind {
+	return nodes.KindArray
+}
+
+func (op dropNils) Check(st *State, n nodes.Node) (bool, error) {
+	arr, ok := n.(nodes.Array)
+	if !ok && n != nil {
+		return false, nil
+	}
+	out := make(nodes.Array, 0, len(arr))
+	for _, e := range arr {
+		if e != nil {
+			out = append(out, e)
+		}
+	}
+	return op.op.Check(st, out)
+}
+
+func (op dropNils) Construct(st *State, n nodes.Node) (nodes.Node, error) {
+	return op.op.Construct(st, n)
 }

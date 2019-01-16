@@ -8794,8 +8794,6 @@
                },
                IsMissing: false,
                LeadingTrivia: [
-                  ~,
-                  ~,
                   { '@type': "csharp:SingleLineDocumentationCommentTrivia",
                      '@role': [Unannotated],
                      '@pos': { '@type': "uast:Positions",

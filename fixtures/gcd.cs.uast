@@ -10141,8 +10141,6 @@
                },
                IsMissing: false,
                LeadingTrivia: [
-                  ~,
-                  ~,
                   { '@type': "SingleLineDocumentationCommentTrivia",
                      '@role': [Unannotated],
                      '@pos': { '@type': "uast:Positions",
