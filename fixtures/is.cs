@@ -13,7 +13,6 @@ class Program {
 
         string s;
         if (s is null) {}
-
         if (s is var x) {}
     }
 
