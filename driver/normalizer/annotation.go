@@ -19,13 +19,13 @@ var Native = Transformers([][]Transformer{
 	},
 }...)
 
-// Code is a special block of transformations that are applied at the end
+// PreprocessCode is a special block of transformations that are applied at the end
 // and can access original source code file. It can be used to improve or
 // fix positional information.
 //
 // https://godoc.org/gopkg.in/bblfsh/sdk.v2/uast/transformer/positioner
-var Code = []CodeTransformer{
-	positioner.NewFillLineColFromOffset(),
+var PreprocessCode = []CodeTransformer{
+	positioner.FromOffset(),
 }
 
 // Annotations is a list of individual transformations to annotate a native AST with roles.

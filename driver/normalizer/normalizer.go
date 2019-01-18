@@ -22,11 +22,11 @@ var Preprocessors = []Mapping{
 		Obj{
 			uast.KeyType: Check(
 				In(nodes.String("WhitespaceTrivia"), nodes.String("EndOfLineTrivia")),
-				AnyNode(nil),
+				Any(),
 			),
-			"FullSpan":    AnyNode(nil),
-			"Span":        AnyNode(nil),
-			"SpanStart":   AnyNode(nil),
+			"FullSpan":    Any(),
+			"Span":        Any(),
+			"SpanStart":   Any(),
 			"IsDirective": Bool(false),
 		},
 		// cannot delete directly, so set to nil
@@ -60,7 +60,7 @@ var Preprocessors = []Mapping{
 	Map(
 		Part("_", Obj{
 			uast.KeyType: String("TextSpan"),
-			"IsEmpty":    AnyNode(nil),
+			"IsEmpty":    Any(),
 		}),
 		Part("_", Obj{
 			uast.KeyType: String("TextSpan"),
@@ -71,7 +71,7 @@ var Preprocessors = []Mapping{
 	// TODO(dennwc): add it as a custom position field?
 	Map(
 		Part("_", Obj{
-			"SpanStart": AnyNode(nil),
+			"SpanStart": Any(),
 		}),
 		Part("_", Obj{}),
 	),
@@ -89,12 +89,12 @@ var Preprocessors = []Mapping{
 		Part("_", Obj{
 			"FullSpan": Obj{
 				uast.KeyType: String("TextSpan"),
-				"Length":     AnyNode(nil),
+				"Length":     Any(),
 				"Start":      Var("start"),
 				"End":        Var("end"),
 			},
 			// TODO(dennwc): add it as a custom position field?
-			"Span": AnyNode(nil),
+			"Span": Any(),
 		}),
 		Part("_", Obj{
 			// remap to temporary keys and let ObjectToNode to pick them up
@@ -118,11 +118,11 @@ var Normalizers = []Mapping{
 			"Identifier": Obj{
 				uast.KeyType: String("IdentifierToken"),
 				// TODO(dennwc): assert that it's the same as in parent
-				uast.KeyPos: AnyNode(nil),
+				uast.KeyPos: Any(),
 
 				// trivia == whitespace; can safely drop it
-				"LeadingTrivia":  AnyNode(nil),
-				"TrailingTrivia": AnyNode(nil),
+				"LeadingTrivia":  Any(),
+				"TrailingTrivia": Any(),
 
 				"IsMissing": Bool(false),
 
@@ -141,7 +141,7 @@ var Normalizers = []Mapping{
 			"IsUnmanaged":        Bool(false),
 
 			// TODO(dennwc): might be useful later; drop it for now
-			"IsVar": AnyNode(nil),
+			"IsVar": Any(),
 		},
 		Obj{
 			"Name": Var("name"),
@@ -153,16 +153,16 @@ var Normalizers = []Mapping{
 			"Token": Obj{
 				uast.KeyType: String("StringLiteralToken"),
 				// TODO(dennwc): assert that it's the same as in parent
-				uast.KeyPos: AnyNode(nil),
+				uast.KeyPos: Any(),
 
 				// trivia == whitespace; can safely drop it
-				"LeadingTrivia":  AnyNode(nil),
-				"TrailingTrivia": AnyNode(nil),
+				"LeadingTrivia":  Any(),
+				"TrailingTrivia": Any(),
 
 				"IsMissing": Bool(false),
 
 				// contains escaped value, we don't need it in canonical UAST
-				"Text": AnyNode(nil),
+				"Text": Any(),
 
 				// both values are the same
 				"Value":     Var("val"),
@@ -180,8 +180,8 @@ var Normalizers = []Mapping{
 		Obj{
 			"Statements": Var("stmts"),
 			// TODO(dennwc): remap to custom positional fields
-			"OpenBraceToken":  AnyNode(nil),
-			"CloseBraceToken": AnyNode(nil),
+			"OpenBraceToken":  Any(),
+			"CloseBraceToken": Any(),
 		},
 		Obj{
 			"Statements": Var("stmts"),
@@ -199,8 +199,8 @@ var Normalizers = []Mapping{
 		Obj{
 			"Name": Var("path"),
 			// TODO(dennwc): remap to custom positional fields
-			"SemicolonToken": AnyNode(nil),
-			"UsingKeyword":   AnyNode(nil),
+			"SemicolonToken": Any(),
+			"UsingKeyword":   Any(),
 		},
 		Obj{
 			"Path": Var("path"),
@@ -239,7 +239,7 @@ var Normalizers = []Mapping{
 				{
 					"Left": UASTType(uast.QualifiedIdentifier{}, Obj{
 						// FIXME: start position
-						uast.KeyPos: AnyNode(nil),
+						uast.KeyPos: Any(),
 						"Names":     Var("names"),
 					}),
 				},
