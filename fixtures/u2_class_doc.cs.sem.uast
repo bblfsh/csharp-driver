@@ -117,6 +117,7 @@
             IsMissing: false,
             LeadingTrivia: [
                { '@type': "csharp:SingleLineDocumentationCommentTrivia",
+                  '@token': "/// Some doc\n",
                   '@role': [Unannotated],
                   '@pos': { '@type': "uast:Positions",
                      start: { '@type': "uast:Position",

@@ -8795,6 +8795,7 @@
                IsMissing: false,
                LeadingTrivia: [
                   { '@type': "csharp:SingleLineDocumentationCommentTrivia",
+                     '@token': "/// <summary>\n/// Greatest Common Denominator using Euclidian Algorithm\n/// </summary>\n",
                      '@role': [Unannotated],
                      '@pos': { '@type': "uast:Positions",
                         start: { '@type': "uast:Position",

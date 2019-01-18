@@ -1026,6 +1026,7 @@
                                  IsMissing: false,
                                  LeadingTrivia: [
                                     { '@type': "csharp:SingleLineCommentTrivia",
+                                       '@token': "//Close all doors to start.",
                                        '@role': [Unannotated],
                                        '@pos': { '@type': "uast:Positions",
                                           start: { '@type': "uast:Position",
@@ -1466,6 +1467,7 @@
                                  Text: ")",
                                  TrailingTrivia: [
                                     { '@type': "csharp:SingleLineCommentTrivia",
+                                       '@token': "//number of passes",
                                        '@role': [Unannotated],
                                        '@pos': { '@type': "uast:Positions",
                                           start: { '@type': "uast:Position",
@@ -1788,6 +1790,7 @@
                                  IsMissing: false,
                                  LeadingTrivia: [
                                     { '@type': "csharp:SingleLineCommentTrivia",
+                                       '@token': "//For each pass...",
                                        '@role': [Unannotated],
                                        '@pos': { '@type': "uast:Positions",
                                           start: { '@type': "uast:Position",
@@ -1956,6 +1959,7 @@
                                           Text: ")",
                                           TrailingTrivia: [
                                              { '@type': "csharp:SingleLineCommentTrivia",
+                                                '@token': "//door number",
                                                 '@role': [Unannotated],
                                                 '@pos': { '@type': "uast:Positions",
                                                    start: { '@type': "uast:Position",
@@ -2278,6 +2282,7 @@
                                           IsMissing: false,
                                           LeadingTrivia: [
                                              { '@type': "csharp:SingleLineCommentTrivia",
+                                                '@token': "//For each door to toggle...",
                                                 '@role': [Unannotated],
                                                 '@pos': { '@type': "uast:Positions",
                                                    start: { '@type': "uast:Position",
