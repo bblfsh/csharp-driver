@@ -1917,6 +1917,7 @@
                                        IsMissing: false,
                                        LeadingTrivia: [
                                           { '@type': "SingleLineCommentTrivia",
+                                             '@token': "// Incomplete, does not handle null",
                                              '@role': [Unannotated],
                                              '@pos': { '@type': "uast:Positions",
                                                 start: { '@type': "uast:Position",

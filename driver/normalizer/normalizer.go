@@ -108,6 +108,27 @@ var Preprocessors = []Mapping{
 		OffsetKey:    "spanStart",
 		EndOffsetKey: "spanEnd",
 	}.Mapping(),
+
+	// Add an empty @token field to comment nodes. It's necessary to pass the check
+	// in the comment extractor.
+	Map(
+		Part("_", Obj{
+			uast.KeyType: String("SingleLineCommentTrivia"),
+		}),
+		Part("_", Obj{
+			uast.KeyType:  String("SingleLineCommentTrivia"),
+			uast.KeyToken: String(""),
+		}),
+	),
+	Map(
+		Part("_", Obj{
+			uast.KeyType: String("SingleLineDocumentationCommentTrivia"),
+		}),
+		Part("_", Obj{
+			uast.KeyType:  String("SingleLineDocumentationCommentTrivia"),
+			uast.KeyToken: String(""),
+		}),
+	),
 }
 
 // Normalizers is the main block of normalization rules to convert native AST to semantic UAST.

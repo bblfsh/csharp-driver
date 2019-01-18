@@ -809,6 +809,7 @@
                                           IsMissing: false,
                                           LeadingTrivia: [
                                              { '@type': "SingleLineCommentTrivia",
+                                                '@token': "// Keep the console window open in debug mode.",
                                                 '@role': [Unannotated],
                                                 '@pos': { '@type': "uast:Positions",
                                                    start: { '@type': "uast:Position",
@@ -1614,6 +1615,7 @@
             IsMissing: false,
             LeadingTrivia: [
                { '@type': "SingleLineCommentTrivia",
+                  '@token': "// A Hello World! program in C#.",
                   '@role': [Unannotated],
                   '@pos': { '@type': "uast:Positions",
                      start: { '@type': "uast:Position",

@@ -26,6 +26,12 @@ var Native = Transformers([][]Transformer{
 // https://godoc.org/gopkg.in/bblfsh/sdk.v2/uast/transformer/positioner
 var PreprocessCode = []CodeTransformer{
 	positioner.FromOffset(),
+	positioner.TokenFromSource{
+		Types: []string{
+			"SingleLineCommentTrivia",
+			"SingleLineDocumentationCommentTrivia",
+		},
+	},
 }
 
 // Annotations is a list of individual transformations to annotate a native AST with roles.
