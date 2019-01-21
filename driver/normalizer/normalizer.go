@@ -209,6 +209,22 @@ var Normalizers = []Mapping{
 		},
 	)),
 
+	MapSemantic("SingleLineCommentTrivia", uast.Comment{}, MapObj(
+		Obj{
+			uast.KeyToken: CommentText([2]string{"//", ""}, "text"),
+			"IsDirective": Bool(false),
+		},
+		CommentNode(false, "text", nil),
+	)),
+	// TODO(dennwc): differentiate from regular comments
+	MapSemantic("SingleLineDocumentationCommentTrivia", uast.Comment{}, MapObj(
+		Obj{
+			uast.KeyToken: CommentText([2]string{"///", ""}, "text"),
+			"IsDirective": Bool(false),
+		},
+		CommentNode(false, "text", nil),
+	)),
+
 	// Import (aka UsingDirectiveSyntax) is trivial.
 	//
 	// "Name" field is QualifiedIdentifier or Identifier and we remap to
