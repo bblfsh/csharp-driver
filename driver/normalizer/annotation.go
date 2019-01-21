@@ -34,6 +34,8 @@ var PreprocessCode = []CodeTransformer{
 	},
 }
 
+var Code []CodeTransformer // legacy stage, will be deprecated
+
 // Annotations is a list of individual transformations to annotate a native AST with roles.
 var Annotations = []Mapping{
 	AnnotateType("internal-type", nil, role.Incomplete),

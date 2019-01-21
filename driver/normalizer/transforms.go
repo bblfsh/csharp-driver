@@ -8,4 +8,5 @@ var Transforms = driver.Transforms{
 	PreprocessCode: PreprocessCode,
 	Normalize:      Normalize,
 	Annotations:    Native,
+	Code:           Code,
 }
