@@ -1918,6 +1918,7 @@
                                        IsMissing: false,
                                        LeadingTrivia: [
                                           { '@type': "SingleLineCommentTrivia",
+                                             '@token': "// Incomplete, does not handle null",
                                              '@role': [Comment, Noop],
                                              '@pos': { '@type': "uast:Positions",
                                                 start: { '@type': "uast:Position",

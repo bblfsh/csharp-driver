@@ -1098,6 +1098,7 @@
                                  IsMissing: false,
                                  LeadingTrivia: [
                                     { '@type': "SingleLineCommentTrivia",
+                                       '@token': "//Close all doors to start.",
                                        '@role': [Comment, Noop],
                                        '@pos': { '@type': "uast:Positions",
                                           start: { '@type': "uast:Position",
@@ -1615,6 +1616,7 @@
                                  Text: ")",
                                  TrailingTrivia: [
                                     { '@type': "SingleLineCommentTrivia",
+                                       '@token': "//number of passes",
                                        '@role': [Comment, Noop],
                                        '@pos': { '@type': "uast:Positions",
                                           start: { '@type': "uast:Position",
@@ -1964,6 +1966,7 @@
                                  IsMissing: false,
                                  LeadingTrivia: [
                                     { '@type': "SingleLineCommentTrivia",
+                                       '@token': "//For each pass...",
                                        '@role': [Comment, Noop],
                                        '@pos': { '@type': "uast:Positions",
                                           start: { '@type': "uast:Position",
@@ -2202,6 +2205,7 @@
                                           Text: ")",
                                           TrailingTrivia: [
                                              { '@type': "SingleLineCommentTrivia",
+                                                '@token': "//door number",
                                                 '@role': [Comment, Noop],
                                                 '@pos': { '@type': "uast:Positions",
                                                    start: { '@type': "uast:Position",
@@ -2551,6 +2555,7 @@
                                           IsMissing: false,
                                           LeadingTrivia: [
                                              { '@type': "SingleLineCommentTrivia",
+                                                '@token': "//For each door to toggle...",
                                                 '@role': [Comment, Noop],
                                                 '@pos': { '@type': "uast:Positions",
                                                    start: { '@type': "uast:Position",
@@ -4166,6 +4171,7 @@
                                           IsMissing: false,
                                           LeadingTrivia: [
                                              { '@type': "SingleLineCommentTrivia",
+                                                '@token': "//Output the results.",
                                                 '@role': [Comment, Noop],
                                                 '@pos': { '@type': "uast:Positions",
                                                    start: { '@type': "uast:Position",

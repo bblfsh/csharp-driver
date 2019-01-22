@@ -1029,6 +1029,7 @@
                      IsMissing: false,
                      LeadingTrivia: [
                         { '@type': "SingleLineCommentTrivia",
+                           '@token': "// User-defined conversion from Digit to double",
                            '@role': [Comment, Noop],
                            '@pos': { '@type': "uast:Positions",
                               start: { '@type': "uast:Position",
