@@ -286,7 +286,7 @@
                   Parameters: [],
                },
                ReturnType: { '@type': "PredefinedType",
-                  '@role': [Declaration, Incomplete, Variable],
+                  '@role': [Incomplete, Primitive, Type],
                   '@pos': { '@type': "uast:Positions",
                      start: { '@type': "uast:Position",
                         offset: 17,

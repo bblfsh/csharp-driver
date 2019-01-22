@@ -42,10 +42,9 @@ var Code []CodeTransformer // legacy stage, will be deprecated
 var Annotations = []Mapping{
 
 	// Misc
-	AnnotateType("internal-type", nil, role.Incomplete),
 	AnnotateType("CompilationUnit", nil, role.File, role.Module),
 	AnnotateType("Block", nil, role.Block),
-	AnnotateType("LockStatement", nil, role. Statement, role.Block, role.Incomplete),
+	AnnotateType("LockStatement", nil, role.Statement, role.Block, role.Incomplete),
 	AnnotateType("CheckedStatement_UncheckedStatement", nil, role.Block, role.Statement, role.Incomplete),
 	AnnotateType("CheckedExpression_UncheckedExpression", nil, role.Block, role.Expression, role.Incomplete),
 	AnnotateType("UnsafeStatement", nil, role.Block, role.Statement, role.Incomplete),
@@ -53,7 +52,7 @@ var Annotations = []Mapping{
 	AnnotateType("NamespaceDeclaration", nil, role.Block, role.Scope),
 	AnnotateType("EventFieldDeclaration", nil, role.Declaration, role.Variable),
 	AnnotateType("EventDeclaration", nil, role.Declaration, role.Variable),
-	AnnotateType("ArrayType", nil, role.List, role.Incomplete),
+	AnnotateType("ArrayType", nil, role.List, role.Type, role.Incomplete),
 	AnnotateType("ArrayRankSpecifier", nil, role.List, role.Incomplete),
 	AnnotateType("BracketedArgumentList", nil, role.List, role.Value, role.Incomplete), // i in someaArray[i]
 	AnnotateType("OmittedArraySizeExpression", nil, role.List, role.Expression, role.Incomplete),
@@ -63,10 +62,10 @@ var Annotations = []Mapping{
 	AnnotateType("ArrayInitializerExpression", nil, role.List, role.Expression, role.Instance, role.Incomplete),
 	AnnotateType("ElementAccessExpression", nil, role.List, role.Value, role.Incomplete),
 	AnnotateType("CastExpression", nil, role.Expression, role.Incomplete),
-	AnnotateType("PredefinedType", nil, role.Incomplete, role.Declaration, role.Variable),
-	AnnotateType("GenericName", nil, role.Identifier, role.Incomplete), // FIXME: get the role from the IdentifierToken child?
+	AnnotateType("PredefinedType", nil, role.Type, role.Primitive, role.Incomplete),
+	AnnotateType("GenericName", nil, role.Identifier, role.Incomplete),                              // FIXME: get the role from the IdentifierToken child?
 	AnnotateType("TypeArgumentList", nil, role.Argument, role.List, role.Instance, role.Incomplete), // generic <T,U> types on instantiation
-	AnnotateType("TypeParameterList", nil, role.Argument, role.List, role.Incomplete), // generic <T,U> types on specification
+	AnnotateType("TypeParameterList", nil, role.Argument, role.List, role.Incomplete),               // generic <T,U> types on specification
 	AnnotateType("TypeParameter", nil, role.Argument, role.Incomplete),
 	AnnotateType("ObjectCreationExpression", nil, role.Type, role.Instance),
 	AnnotateType("AnonymousObjectCreationExpression", nil, role.Type, role.Anonymous, role.Instance),
@@ -83,7 +82,7 @@ var Annotations = []Mapping{
 	AnnotateType("Attribute", nil, role.Incomplete),
 	AnnotateType("AttributeArgument", nil, role.Argument, role.Incomplete),
 	AnnotateType("AttributeTargetSpecifier", nil, role.Argument, role.Incomplete),
-	AnnotateType("PointerType", nil, role.Declaration, role.TakeAddress, role.Incomplete),
+	AnnotateType("PointerType", nil, role.Type, role.Incomplete),
 
 	// Literals and Literal tokens
 	AnnotateType("NumericLiteralToken", nil, role.Value, role.Number, role.Literal),
