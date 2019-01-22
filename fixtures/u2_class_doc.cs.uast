@@ -118,6 +118,7 @@
             IsMissing: false,
             LeadingTrivia: [
                { '@type': "SingleLineDocumentationCommentTrivia",
+                  '@token': "/// Some doc\n",
                   '@role': [Comment, Documentation, Noop],
                   '@pos': { '@type': "uast:Positions",
                      start: { '@type': "uast:Position",

@@ -168,7 +168,7 @@
                         },
                         AllowsAnyExpression: false,
                         Expression: { '@type': "csharp:SizeOfExpression",
-                           '@role': [Expression, Incomplete, Number, Value],
+                           '@role': [Call, Expression, Incomplete],
                            '@pos': { '@type': "uast:Positions",
                               start: { '@type': "uast:Position",
                                  offset: 54,

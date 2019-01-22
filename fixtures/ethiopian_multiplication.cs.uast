@@ -7307,6 +7307,7 @@
                                  IsMissing: false,
                                  LeadingTrivia: [
                                     { '@type': "SingleLineCommentTrivia",
+                                       '@token': "//     Anchor Point,                Recurse to find the next row                                 Sum it with the second number according to the rules",
                                        '@role': [Comment, Noop],
                                        '@pos': { '@type': "uast:Positions",
                                           start: { '@type': "uast:Position",
@@ -10798,6 +10799,7 @@
                                                                   IsMissing: false,
                                                                   LeadingTrivia: [
                                                                      { '@type': "SingleLineCommentTrivia",
+                                                                        '@token': "// The aggregate method iterates over every value in the target list, passing the accumulated value and the current item's value.",
                                                                         '@role': [Comment, Noop],
                                                                         '@pos': { '@type': "uast:Positions",
                                                                            start: { '@type': "uast:Position",
@@ -12794,6 +12796,7 @@
                                                    IsMissing: false,
                                                    LeadingTrivia: [
                                                       { '@type': "SingleLineCommentTrivia",
+                                                         '@token': "// For every item (Y) in that range, create a new list, comprising the pair (p_NumberA,p_NumberB) Y times.",
                                                          '@role': [Comment, Noop],
                                                          '@pos': { '@type': "uast:Positions",
                                                             start: { '@type': "uast:Position",
@@ -12879,6 +12882,7 @@
                                              IsMissing: false,
                                              LeadingTrivia: [
                                                 { '@type': "SingleLineCommentTrivia",
+                                                   '@token': "// Remove all even items",
                                                    '@role': [Comment, Noop],
                                                    '@pos': { '@type': "uast:Positions",
                                                       start: { '@type': "uast:Position",
@@ -12964,6 +12968,7 @@
                                        IsMissing: false,
                                        LeadingTrivia: [
                                           { '@type': "SingleLineCommentTrivia",
+                                             '@token': "// And sum!",
                                              '@role': [Comment, Noop],
                                              '@pos': { '@type': "uast:Positions",
                                                 start: { '@type': "uast:Position",
@@ -13009,6 +13014,7 @@
                                  IsMissing: false,
                                  LeadingTrivia: [
                                     { '@type': "SingleLineCommentTrivia",
+                                       '@token': "// Creating a range from 1 to x where x the number of times p_NumberA can be halved.",
                                        '@role': [Comment, Noop],
                                        '@pos': { '@type': "uast:Positions",
                                           start: { '@type': "uast:Position",
@@ -13025,6 +13031,7 @@
                                        IsDirective: false,
                                     },
                                     { '@type': "SingleLineCommentTrivia",
+                                       '@token': "// This will be 2^x where 2^x <= p_NumberA. Basically, ln(p_NumberA)/ln(2).",
                                        '@role': [Comment, Noop],
                                        '@pos': { '@type': "uast:Positions",
                                           start: { '@type': "uast:Position",

@@ -1162,6 +1162,7 @@
                            IsMissing: false,
                            LeadingTrivia: [
                               { '@type': "SingleLineDocumentationCommentTrivia",
+                                 '@token': "/// <summary>Use Binary Search to find index of GLB for value</summary>\n    /// <typeparam name=\"T\">type of entries and value</typeparam>\n    /// <param name=\"entries\">array of entries</param>\n    /// <param name=\"value\">search value</param>\n    /// <remarks>entries must be in ascending order</remarks>\n    /// <returns>index into entries of GLB for value</returns>\n",
                                  '@role': [Comment, Documentation, Noop],
                                  '@pos': { '@type': "uast:Positions",
                                     start: { '@type': "uast:Position",
@@ -4522,6 +4523,7 @@
                                  IsMissing: false,
                                  LeadingTrivia: [
                                     { '@type': "SingleLineCommentTrivia",
+                                       '@token': "//[Assert]left == right + 1",
                                        '@role': [Comment, Noop],
                                        '@pos': { '@type': "uast:Positions",
                                           start: { '@type': "uast:Position",
@@ -4538,6 +4540,7 @@
                                        IsDirective: false,
                                     },
                                     { '@type': "SingleLineCommentTrivia",
+                                       '@token': "// GLB: entries[right] < value && value <= entries[right + 1]",
                                        '@role': [Comment, Noop],
                                        '@pos': { '@type': "uast:Positions",
                                           start: { '@type': "uast:Position",
@@ -4788,6 +4791,7 @@
                            IsMissing: false,
                            LeadingTrivia: [
                               { '@type': "SingleLineDocumentationCommentTrivia",
+                                 '@token': "/// <summary>Use Binary Search to find index of GLB for value</summary>\n    /// <typeparam name=\"T\">type of entries and value</typeparam>\n    /// <param name=\"entries\">array of entries</param>\n    /// <param name=\"value\">search value</param>\n    /// <param name=\"left\">leftmost index to search</param>\n    /// <param name=\"right\">rightmost index to search</param>\n    /// <remarks>entries must be in ascending order</remarks>\n    /// <returns>index into entries of GLB for value</returns>\n",
                                  '@role': [Comment, Documentation, Noop],
                                  '@pos': { '@type': "uast:Positions",
                                     start: { '@type': "uast:Position",
@@ -6546,6 +6550,7 @@
                            IsMissing: false,
                            LeadingTrivia: [
                               { '@type': "SingleLineDocumentationCommentTrivia",
+                                 '@token': "/// <summary>Use Binary Search to find index of LUB for value</summary>\n    /// <typeparam name=\"T\">type of entries and value</typeparam>\n    /// <param name=\"entries\">array of entries</param>\n    /// <param name=\"value\">search value</param>\n    /// <remarks>entries must be in ascending order</remarks>\n    /// <returns>index into entries of LUB for value</returns>\n",
                                  '@role': [Comment, Documentation, Noop],
                                  '@pos': { '@type': "uast:Positions",
                                     start: { '@type': "uast:Position",
@@ -9906,6 +9911,7 @@
                                  IsMissing: false,
                                  LeadingTrivia: [
                                     { '@type': "SingleLineCommentTrivia",
+                                       '@token': "//[Assert]left == right + 1",
                                        '@role': [Comment, Noop],
                                        '@pos': { '@type': "uast:Positions",
                                           start: { '@type': "uast:Position",
@@ -9922,6 +9928,7 @@
                                        IsDirective: false,
                                     },
                                     { '@type': "SingleLineCommentTrivia",
+                                       '@token': "// LUB: entries[left] > value && value >= entries[left - 1]",
                                        '@role': [Comment, Noop],
                                        '@pos': { '@type': "uast:Positions",
                                           start: { '@type': "uast:Position",
@@ -10172,6 +10179,7 @@
                            IsMissing: false,
                            LeadingTrivia: [
                               { '@type': "SingleLineDocumentationCommentTrivia",
+                                 '@token': "/// <summary>Use Binary Search to find index of LUB for value</summary>\n    /// <typeparam name=\"T\">type of entries and value</typeparam>\n    /// <param name=\"entries\">array of entries</param>\n    /// <param name=\"value\">search value</param>\n    /// <param name=\"left\">leftmost index to search</param>\n    /// <param name=\"right\">rightmost index to search</param>\n    /// <remarks>entries must be in ascending order</remarks>\n    /// <returns>index into entries of LUB for value</returns>\n",
                                  '@role': [Comment, Documentation, Noop],
                                  '@pos': { '@type': "uast:Positions",
                                     start: { '@type': "uast:Position",

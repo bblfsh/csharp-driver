@@ -13221,6 +13221,7 @@
                            IsMissing: false,
                            LeadingTrivia: [
                               { '@type': "SingleLineCommentTrivia",
+                                 '@token': "// do nothing",
                                  '@role': [Comment, Noop],
                                  '@pos': { '@type': "uast:Positions",
                                     start: { '@type': "uast:Position",
