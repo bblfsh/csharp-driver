@@ -430,7 +430,7 @@ CompilationUnit {
 .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  2: PredefinedType {
-.  .  .  .  .  .  .  .  .  Roles: Incomplete,Declaration,Variable
+.  .  .  .  .  .  .  .  .  Roles: Type,Primitive,Incomplete
 .  .  .  .  .  .  .  .  .  StartPosition: {
 .  .  .  .  .  .  .  .  .  .  Offset: 108
 .  .  .  .  .  .  .  .  .  .  Line: 7
