@@ -134,6 +134,24 @@ var Preprocessors = []Mapping{
 // Normalizers is the main block of normalization rules to convert native AST to semantic UAST.
 var Normalizers = []Mapping{
 
+	// remove empty identifiers
+	Map(
+		Check(
+			Has{
+				uast.KeyType: String("IdentifierName"),
+				"IsMissing":  Bool(true), // is set for empty identifiers
+				"Identifier": Has{
+					// make sure it's empty, we don't want to wipe something useful
+					"Text":      String(""),
+					"Value":     String(""),
+					"ValueText": String(""),
+				},
+			},
+			Any(),
+		),
+		Is(nil),
+	),
+
 	MapSemantic("IdentifierName", uast.Identifier{}, MapObj(
 		Obj{
 			"Identifier": Obj{
@@ -159,7 +177,10 @@ var Normalizers = []Mapping{
 			//               help us detect the case when it's not valid
 			"IsMissing":          Bool(false),
 			"IsStructuredTrivia": Bool(false),
-			"IsUnmanaged":        Bool(false),
+
+			// TODO(dennwc): this is true for Value == "unmanaged" and it looks
+			//				 more like a keyword, probably unrecognized one
+			"IsUnmanaged": Any(),
 
 			// TODO(dennwc): might be useful later; drop it for now
 			"IsVar": Any(),
