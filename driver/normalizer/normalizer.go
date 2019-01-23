@@ -218,6 +218,54 @@ var Normalizers = []Mapping{
 		},
 	)),
 
+	MapSemantic("TrueLiteralExpression", uast.Bool{}, MapObj(
+		Obj{
+			"Token": Obj{
+				uast.KeyType: String("TrueKeyword"),
+				uast.KeyPos: Any(),
+
+				// trivia == whitespace; can safely drop it
+				"LeadingTrivia": Any(),
+				"TrailingTrivia": Any(),
+
+				"Text": String("true"),
+				"Value": Bool(true),
+				"ValueText": String("true"),
+
+				"IsMissing": Bool(false),
+			},
+			"IsMissing": Bool(false),
+			"IsStructuredTrivia": Bool(false),
+		},
+		Obj{
+			"Value": Bool(true),
+		},
+	)),
+
+	MapSemantic("FalseLiteralExpression", uast.Bool{}, MapObj(
+		Obj{
+			"Token": Obj{
+				uast.KeyType: String("FalseKeyword"),
+				uast.KeyPos: Any(),
+
+				// trivia == whitespace; can safely drop it
+				"LeadingTrivia": Any(),
+				"TrailingTrivia": Any(),
+
+				"Text": String("false"),
+				"Value": Bool(false),
+				"ValueText": String("false"),
+
+				"IsMissing": Bool(false),
+			},
+			"IsMissing": Bool(false),
+			"IsStructuredTrivia": Bool(false),
+		},
+		Obj{
+			"Value": Bool(false),
+		},
+	)),
+
 	MapSemantic("Block", uast.Block{}, MapObj(
 		Obj{
 			"Statements": Var("stmts"),
@@ -316,7 +364,60 @@ var Normalizers = []Mapping{
 			},
 		),
 	)),
+
+	MapSemantic("Parameter", uast.Argument{}, MapObj(
+		Obj{
+			"Identifier": Obj{
+					// Could be identifier or some keywords like __arg, same fields in any case
+					uast.KeyType: Any(),
+					// TODO: assert that is the same as in parent
+					uast.KeyPos:      Var("id_pos"),
+					"LeadingTrivia":  Any(),
+					"TrailingTrivia": Any(),
+					"IsMissing": Bool(false),
+					"Text":      Var("name"),
+					"Value":     Var("name"),
+					"ValueText": Var("name"),
+				},
+			"AttributeLists":     Any(),
+			"Default":            Var("def_init"),
+			"IsMissing":          Any(),
+			"IsStructuredTrivia": Any(),
+			"Modifiers":          Cases("varargs",
+				// FIXME: must be something like "Contains", not exact match
+				Arr(),
+				Arr(Obj{
+					uast.KeyType: String("ParamsKeyword"),
+					uast.KeyPos: Any(),
+					"IsMissing": Bool(false),
+					"LeadingTrivia": Any(),
+					"TrailingTrivia": Any(),
+					"Text": Any(),
+					"Value": Any(),
+					"ValueText": Any(),
+				}),
+				Any(),
+			),
+			"Type": Var("type"),
+		},
+		Obj{
+			"Name": UASTType(uast.Identifier{}, Obj{
+					"Name": Var("name"),
+			}),
+			"Type": Var("type"),
+			"Init": Var("def_init"),
+			"Variadic": Cases("varargs",
+				Bool(false),
+				Bool(true),
+				Bool(false),
+			),
+			//"Variadic": Bool(false),
+			"MapVariadic": Bool(false),
+			"Receiver": Bool(false),
+		},
+	)),
 }
+
 
 // dropNils accepts a array node, removes all nil values from it and passes it to
 // a specified suboperation.

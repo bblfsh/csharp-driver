@@ -496,4 +496,5 @@ var Annotations = []Mapping{
 	// Comments
 	AnnotateType("SingleLineCommentTrivia", nil, role.Comment, role.Noop),
 	AnnotateType("SingleLineDocumentationCommentTrivia", nil, role.Comment, role.Noop, role.Documentation),
+	AnnotateType("MultiLineCommentTrivia", nil, role.Comment, role.Noop),
 }
