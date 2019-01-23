@@ -35,6 +35,9 @@ var Suite = &fixtures.Suite{
 			"TrueLiteralExpression",
 			"FalseLiteralExpression",
 			"Parameter",
+			"MethodDeclaration",
+			//"ConstructorDeclaration",
+			//"DestructorDeclaration",
 		},
 	},
 	Docker: fixtures.DockerConfig{
