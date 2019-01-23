@@ -23,12 +23,18 @@ var Suite = &fixtures.Suite{
 	BenchName:  "parser_context",
 	Semantic: fixtures.SemanticConfig{
 		BlacklistTypes: []string{
-			// TODO: more types
+			// TODO: more types and uncomment
 			"IdentifierName",
 			"Block",
 			"UsingDirective",
 			"QualifiedName",
 			"StringLiteralExpression",
+			"SingleLineCommentTrivia",
+			"SingleLineDocumentationCommentTrivia",
+			//"MultiLineCommentTrivia",
+			"TrueLiteralExpression",
+			"FalseLiteralExpression",
+			"Parameter",
 		},
 	},
 	Docker: fixtures.DockerConfig{
