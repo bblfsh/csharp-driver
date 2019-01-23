@@ -15,6 +15,88 @@ var Normalize = Transformers([][]Transformer{
 	{Mappings(Normalizers...)},
 }...)
 
+func funcDefMap(typ string) Mapping {
+	return MapSemantic(typ, uast.FunctionGroup{}, MapObj(
+		Obj{
+			"Body": Var("body"),
+			"Identifier": Obj{
+				uast.KeyType: String("IdentifierToken"),
+				// TODO: assert that is the same as in parent
+				uast.KeyPos:      Var("id_pos"),
+				"LeadingTrivia":  Any(),
+				"TrailingTrivia": Any(),
+				"IsMissing": Bool(false),
+				"Text":      Var("name"),
+				"Value":     Var("name"),
+				"ValueText": Var("name"),
+			},
+			"ParameterList": Obj{
+				uast.KeyType: String("ParameterList"),
+				uast.KeyPos: Any(),
+				"OpenParenToken": Any(),
+				"CloseParenToken": Any(),
+				"IsMissing": Bool(false),
+				"IsStructuredTrivia": Bool(false),
+				"Parameters": Var("params"),
+			},
+			"ReturnType": Cases("cases_return",
+				// Type = PredefinedType
+				Obj{
+					uast.KeyType: String("PredefinedType"),
+					uast.KeyPos: Any(),
+					"IsMissing": Bool(false),
+					"IsStructuredTrivia": Bool(false),
+					"IsUnmanaged": Any(),
+					"IsVar": Any(),
+					"Keyword": Obj{
+						uast.KeyType: Any(),
+						uast.KeyPos: Any(),
+						"IsMissing": Bool(false),
+						"LeadingTrivia": Any(),
+						"TrailingTrivia": Any(),
+						"Text": Var("rettype_text"),
+						"Value": Var("rettype_text"),
+						"ValueText": Var("rettype_text"),
+					},
+				},
+				// Type = Identifier (User type)
+				Var("rettype_ident"),
+			),
+		},
+
+		Obj{
+			"Nodes": Arr(
+				// TODO: add docs and annotations
+				UASTType(uast.Alias{}, Obj{
+					"Name": UASTType(uast.Identifier{}, Obj{
+						"Name": Var("name"),
+					}),
+					"Node": UASTType(uast.Function{}, Obj{
+						"Body": Var("body"),
+						"Type": UASTType(uast.FunctionType{}, Obj{
+							"Arguments": Var("params"),
+							"Returns": Arr(
+								Cases("cases_return",
+									// Type = PredefinedType
+									UASTType(uast.Argument{}, Obj{
+										"Type": UASTType(uast.Identifier{}, Obj{
+											"Name": Var("rettype_text"),
+										}),
+									}),
+									// Type = Identifier
+									UASTType(uast.Argument{}, Obj{
+										"Type": Var("rettype_ident"),
+									}),
+								),
+							),
+						}),
+					}),
+				}),
+			),
+		},
+	))
+}
+
 // Preprocessors is a block of AST preprocessing rules rules.
 var Preprocessors = []Mapping{
 	// Erase Whitespace and EndOfLine trivias.
@@ -416,8 +498,12 @@ var Normalizers = []Mapping{
 			"Receiver": Bool(false),
 		},
 	)),
-}
 
+	funcDefMap("MethodDeclaration"),
+	// FIXME: these two are not matching rightly
+	funcDefMap("ConstructorDeclaration"),
+	funcDefMap("DestructorDeclaration"),
+}
 
 // dropNils accepts a array node, removes all nil values from it and passes it to
 // a specified suboperation.
