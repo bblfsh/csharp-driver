@@ -265,6 +265,15 @@ var Preprocessors = []Mapping{
 			uast.KeyToken: String(""),
 		}),
 	),
+	Map(
+		Part("_", Obj{
+			uast.KeyType: String("MultiLineCommentTrivia"),
+		}),
+		Part("_", Obj{
+			uast.KeyType:  String("MultiLineCommentTrivia"),
+			uast.KeyToken: String(""),
+		}),
+	),
 }
 
 // Normalizers is the main block of normalization rules to convert native AST to semantic UAST.

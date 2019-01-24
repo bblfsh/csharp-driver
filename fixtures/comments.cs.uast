@@ -47,6 +47,7 @@
             IsDirective: false,
          },
          { '@type': "MultiLineCommentTrivia",
+            '@token': "/*\n * Multi line comment\n */",
             '@role': [Comment, Noop],
             '@pos': { '@type': "uast:Positions",
                start: { '@type': "uast:Position",
