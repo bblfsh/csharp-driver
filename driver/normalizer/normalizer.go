@@ -15,6 +15,60 @@ var Normalize = Transformers([][]Transformer{
 	{Mappings(Normalizers...)},
 }...)
 
+type opArrHasParams struct {
+	origArr Op
+}
+
+func (op opArrHasParams) Kinds() nodes.Kind {
+	return nodes.KindArray
+}
+
+func (op opArrHasParams) Check(st *State, n nodes.Node) (bool, error) {
+	arr, ok := n.(nodes.Array)
+	if !ok && arr != nil {
+		return false, nil
+	}
+
+    res, err := op.origArr.Check(st, arr)
+    if err != nil {
+    	return false, err
+	}
+	return res, nil
+}
+
+func (op opArrHasParams) Construct(st *State, n nodes.Node) (nodes.Node, error) {
+	arr, err := op.origArr.Construct(st, n)
+	if err != nil || arr == nil {
+		return n, err
+	}
+
+	arr2, ok := arr.(nodes.Array)
+	if !ok && arr2 != nil {
+		return nil, ErrExpectedList.New(arr2)
+	}
+
+	retVal := false
+
+	for _, n := range arr2 {
+		nobj, ok := n.(nodes.Object)
+		if !ok {
+			return nil, ErrExpectedObject.New(nobj)
+		}
+
+		objType, ok := nobj["@type"].(nodes.String)
+		if !ok {
+			return nil, ErrExpectedValue.New(nobj["@type"])
+		}
+
+		if objType == "ParamsKeyword" {
+			retVal = true
+			break
+		}
+	}
+
+	return nodes.Bool(retVal), nil
+}
+
 func funcDefMap(typ string) Mapping {
 	return MapSemantic(typ, uast.FunctionGroup{}, MapObj(
 		Fields{
@@ -465,21 +519,7 @@ var Normalizers = []Mapping{
 			"Default":            Var("def_init"),
 			"IsMissing":          Any(),
 			"IsStructuredTrivia": Any(),
-			"Modifiers":          Cases("varargs",
-				// FIXME: must be something like "Contains", not exact match
-				Arr(),
-				Arr(Obj{
-					uast.KeyType: String("ParamsKeyword"),
-					uast.KeyPos: Any(),
-					"IsMissing": Bool(false),
-					"LeadingTrivia": Any(),
-					"TrailingTrivia": Any(),
-					"Text": Any(),
-					"Value": Any(),
-					"ValueText": Any(),
-				}),
-				Any(),
-			),
+			"Modifiers": opArrHasParams{origArr: Var("modifiers")},
 			"Type": Var("type"),
 		},
 		Obj{
@@ -488,19 +528,13 @@ var Normalizers = []Mapping{
 			}),
 			"Type": Var("type"),
 			"Init": Var("def_init"),
-			"Variadic": Cases("varargs",
-				Bool(false),
-				Bool(true),
-				Bool(false),
-			),
-			//"Variadic": Bool(false),
+			"Variadic": opArrHasParams{Var("modifiers")},
 			"MapVariadic": Bool(false),
 			"Receiver": Bool(false),
 		},
 	)),
 
 	funcDefMap("MethodDeclaration"),
-	// FIXME: these two are not matching rightly
 	funcDefMap("ConstructorDeclaration"),
 	funcDefMap("DestructorDeclaration"),
 }
