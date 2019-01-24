@@ -17,9 +17,9 @@ var Normalize = Transformers([][]Transformer{
 
 func funcDefMap(typ string) Mapping {
 	return MapSemantic(typ, uast.FunctionGroup{}, MapObj(
-		Obj{
-			"Body": Var("body"),
-			"Identifier": Obj{
+		Fields{
+			{Name: "Body", Op: Var("body")},
+			{Name: "Identifier", Op: Obj{
 				uast.KeyType: String("IdentifierToken"),
 				// TODO: assert that is the same as in parent
 				uast.KeyPos:      Var("id_pos"),
@@ -29,8 +29,8 @@ func funcDefMap(typ string) Mapping {
 				"Text":      Var("name"),
 				"Value":     Var("name"),
 				"ValueText": Var("name"),
-			},
-			"ParameterList": Obj{
+			}},
+			{Name: "ParameterList", Op: Obj{
 				uast.KeyType: String("ParameterList"),
 				uast.KeyPos: Any(),
 				"OpenParenToken": Any(),
@@ -38,8 +38,8 @@ func funcDefMap(typ string) Mapping {
 				"IsMissing": Bool(false),
 				"IsStructuredTrivia": Bool(false),
 				"Parameters": Var("params"),
-			},
-			"ReturnType": Cases("cases_return",
+			}},
+			{Name: "ReturnType", Optional: "optReturn", Op: Cases("cases_return",
 				// Type = PredefinedType
 				Obj{
 					uast.KeyType: String("PredefinedType"),
@@ -61,7 +61,7 @@ func funcDefMap(typ string) Mapping {
 				},
 				// Type = Identifier (User type)
 				Var("rettype_ident"),
-			),
+			)},
 		},
 
 		Obj{
@@ -73,9 +73,9 @@ func funcDefMap(typ string) Mapping {
 					}),
 					"Node": UASTType(uast.Function{}, Obj{
 						"Body": Var("body"),
-						"Type": UASTType(uast.FunctionType{}, Obj{
-							"Arguments": Var("params"),
-							"Returns": Arr(
+						"Type": UASTType(uast.FunctionType{}, Fields{
+							{Name: "Arguments", Op: Var("params")},
+							{Name: "Returns", Optional: "optReturn", Op: Arr(
 								Cases("cases_return",
 									// Type = PredefinedType
 									UASTType(uast.Argument{}, Obj{
@@ -88,7 +88,7 @@ func funcDefMap(typ string) Mapping {
 										"Type": Var("rettype_ident"),
 									}),
 								),
-							),
+							)},
 						}),
 					}),
 				}),
