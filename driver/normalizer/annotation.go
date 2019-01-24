@@ -32,6 +32,7 @@ var PreprocessCode = []CodeTransformer{
 		Types: []string{
 			"SingleLineCommentTrivia",
 			"SingleLineDocumentationCommentTrivia",
+			"MultiLineCommentTrivia",
 		},
 	},
 }
@@ -63,7 +64,7 @@ var Annotations = []Mapping{
 	AnnotateType("ElementAccessExpression", nil, role.List, role.Value, role.Incomplete),
 	AnnotateType("CastExpression", nil, role.Expression, role.Incomplete),
 	AnnotateType("PredefinedType", nil, role.Type, role.Primitive, role.Incomplete),
-	AnnotateType("GenericName", nil, role.Identifier, role.Incomplete),                              // FIXME: get the role from the IdentifierToken child?
+	AnnotateType("GenericName", nil, role.Identifier, role.Incomplete),
 	AnnotateType("TypeArgumentList", nil, role.Argument, role.List, role.Instance, role.Incomplete), // generic <T,U> types on instantiation
 	AnnotateType("TypeParameterList", nil, role.Argument, role.List, role.Incomplete),               // generic <T,U> types on specification
 	AnnotateType("TypeParameter", nil, role.Argument, role.Incomplete),
@@ -419,7 +420,7 @@ var Annotations = []Mapping{
 	AnnotateType("FieldDeclaration", nil, role.Type, role.Declaration, role.Variable),
 	AnnotateType("MethodDeclaration", nil, role.Type, role.Function, role.Declaration),
 	AnnotateType("UsingDirective", nil, role.Import, role.Statement),
-	AnnotateType("IdentifierName", nil, role.Identifier), // FIXME: get the token from the IdentifierToken child?
+	AnnotateType("IdentifierName", nil, role.Identifier),
 	AnnotateType("ParameterList", nil, role.Function, role.Declaration, role.Argument, role.List),
 	AnnotateType("Parameter", nil, role.Function, role.Declaration, role.Argument),
 	AnnotateType("ReturnStatement", nil, role.Statement, role.Return),
