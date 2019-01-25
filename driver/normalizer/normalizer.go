@@ -75,8 +75,7 @@ func funcDefMap(typ string) Mapping {
 			{Name: "Body", Op: Var("body")},
 			{Name: "Identifier", Op: Obj{
 				uast.KeyType: String("IdentifierToken"),
-				// TODO: assert that is the same as in parent
-				uast.KeyPos:      Var("id_pos"),
+				uast.KeyPos:      Var("id_fnc_pos"),
 				"LeadingTrivia":  Any(),
 				"TrailingTrivia": Any(),
 				"IsMissing": Bool(false),
@@ -120,9 +119,9 @@ func funcDefMap(typ string) Mapping {
 
 		Obj{
 			"Nodes": Arr(
-				// TODO: add docs and annotations
 				UASTType(uast.Alias{}, Obj{
 					"Name": UASTType(uast.Identifier{}, Obj{
+						uast.KeyPos: Var("id_fnc_pos"),
 						"Name": Var("name"),
 					}),
 					"Node": UASTType(uast.Function{}, Obj{
@@ -301,7 +300,6 @@ var Normalizers = []Mapping{
 		Obj{
 			"Identifier": Obj{
 				uast.KeyType: String("IdentifierToken"),
-				// TODO(dennwc): assert that it's the same as in parent
 				uast.KeyPos: Any(),
 
 				// trivia == whitespace; can safely drop it
@@ -339,7 +337,6 @@ var Normalizers = []Mapping{
 		Obj{
 			"Token": Obj{
 				uast.KeyType: String("StringLiteralToken"),
-				// TODO(dennwc): assert that it's the same as in parent
 				uast.KeyPos: Any(),
 
 				// trivia == whitespace; can safely drop it
@@ -515,8 +512,7 @@ var Normalizers = []Mapping{
 			"Identifier": Obj{
 					// Could be identifier or some keywords like __arg, same fields in any case
 					uast.KeyType: Any(),
-					// TODO: assert that is the same as in parent
-					uast.KeyPos:      Var("id_pos"),
+					uast.KeyPos:      Var("id_param_pos"),
 					"LeadingTrivia":  Any(),
 					"TrailingTrivia": Any(),
 					"IsMissing": Bool(false),
@@ -534,6 +530,7 @@ var Normalizers = []Mapping{
 		Obj{
 			"Name": UASTType(uast.Identifier{}, Obj{
 					"Name": Var("name"),
+					uast.KeyPos: Var("id_param_pos"),
 			}),
 			"Type": Var("type"),
 			"Init": Var("def_init"),
