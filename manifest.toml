@@ -11,7 +11,7 @@ language = "csharp"
 # values for status are: `planning`, `pre-alpha`, `alpha`, `beta`, `stable`,
 # `mature` or `inactive`.
 status = "pre-alpha"
-features = ["ast"]
+features = ["ast", "uast", "roles"]
 
 # documentation block is use to render the README.md file.
 [documentation]
