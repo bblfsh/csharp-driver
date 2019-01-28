@@ -29,10 +29,11 @@ func (op opArrHasParams) Check(st *State, n nodes.Node) (bool, error) {
 		return false, nil
 	}
 
-    res, err := op.origArr.Check(st, arr)
-    if err != nil {
-    	return false, err
+	res, err := op.origArr.Check(st, arr)
+	if err != nil {
+		return false, err
 	}
+
 	return res, nil
 }
 
@@ -73,75 +74,31 @@ func funcDefMap(typ string) Mapping {
 	return MapSemantic(typ, uast.FunctionGroup{}, MapObj(
 		Fields{
 			{Name: "Body", Op: Var("body")},
-			{Name: "Identifier", Op: Obj{
-				uast.KeyType: String("IdentifierToken"),
-				uast.KeyPos:      Var("id_fnc_pos"),
-				"LeadingTrivia":  Any(),
-				"TrailingTrivia": Any(),
-				"IsMissing": Bool(false),
-				"Text":      Var("name"),
-				"Value":     Var("name"),
-				"ValueText": Var("name"),
-			}},
+			{Name: "Identifier", Op: Var("name")},
 			{Name: "ParameterList", Op: Obj{
-				uast.KeyType: String("ParameterList"),
-				uast.KeyPos: Any(),
-				"OpenParenToken": Any(),
-				"CloseParenToken": Any(),
-				"IsMissing": Bool(false),
+				uast.KeyType:         String("ParameterList"),
+				uast.KeyPos:          Any(),
+				"OpenParenToken":     Any(),
+				"CloseParenToken":    Any(),
+				"IsMissing":          Bool(false),
 				"IsStructuredTrivia": Bool(false),
-				"Parameters": Var("params"),
+				"Parameters":         Var("params"),
 			}},
-			{Name: "ReturnType", Optional: "optReturn", Op: Cases("cases_return",
-				// Type = PredefinedType
-				Obj{
-					uast.KeyType: String("PredefinedType"),
-					uast.KeyPos: Any(),
-					"IsMissing": Bool(false),
-					"IsStructuredTrivia": Bool(false),
-					"IsUnmanaged": Any(),
-					"IsVar": Any(),
-					"Keyword": Obj{
-						uast.KeyType: Any(),
-						uast.KeyPos: Any(),
-						"IsMissing": Bool(false),
-						"LeadingTrivia": Any(),
-						"TrailingTrivia": Any(),
-						"Text": Var("rettype_text"),
-						"Value": Var("rettype_text"),
-						"ValueText": Var("rettype_text"),
-					},
-				},
-				// Type = Identifier (User type)
-				Var("rettype_ident"),
-			)},
+			{Name: "ReturnType", Optional: "optReturn", Op: Var("rettype")},
 		},
 
 		Obj{
 			"Nodes": Arr(
 				UASTType(uast.Alias{}, Obj{
-					"Name": UASTType(uast.Identifier{}, Obj{
-						uast.KeyPos: Var("id_fnc_pos"),
-						"Name": Var("name"),
-					}),
+					"Name": Var("name"),
 					"Node": UASTType(uast.Function{}, Obj{
 						"Body": Var("body"),
 						"Type": UASTType(uast.FunctionType{}, Fields{
 							{Name: "Arguments", Op: Var("params")},
 							{Name: "Returns", Optional: "optReturn", Op: Arr(
-								Cases("cases_return",
-									// Type = PredefinedType
-									UASTType(uast.Argument{}, Obj{
-										"Type": UASTType(uast.Identifier{}, Obj{
-											"Name": Var("rettype_text"),
-										}),
-									}),
-									// Type = Identifier
-									UASTType(uast.Argument{}, Obj{
-										"Type": Var("rettype_ident"),
-									}),
-								),
-							)},
+								UASTType(uast.Argument{}, Obj{
+									"Type": Var("rettype"),
+								}))},
 						}),
 					}),
 				}),
@@ -282,54 +239,48 @@ var Normalizers = []Mapping{
 	Map(
 		Check(
 			Has{
-				uast.KeyType: String("IdentifierName"),
-				"IsMissing":  Bool(true), // is set for empty identifiers
-				"Identifier": Has{
-					// make sure it's empty, we don't want to wipe something useful
-					"Text":      String(""),
-					"Value":     String(""),
-					"ValueText": String(""),
-				},
+				uast.KeyType: String("IdentifierToken"),
+				// make sure it's empty, we don't want to wipe something useful
+				"Text":      String(""),
+				"Value":     String(""),
+				"ValueText": String(""),
 			},
 			Any(),
 		),
 		Is(nil),
 	),
 
-	MapSemantic("IdentifierName", uast.Identifier{}, MapObj(
+	MapSemantic("IdentifierToken", uast.Identifier{}, MapObj(
 		Obj{
-			"Identifier": Obj{
-				uast.KeyType: String("IdentifierToken"),
-				uast.KeyPos: Any(),
+			// trivia == whitespace; can safely drop it
+			"LeadingTrivia":  Any(),
+			"TrailingTrivia": Any(),
+			"IsMissing":      Bool(false),
 
-				// trivia == whitespace; can safely drop it
-				"LeadingTrivia":  Any(),
-				"TrailingTrivia": Any(),
-
-				"IsMissing": Bool(false),
-
-				// all token values are the same
-				"Text":      Var("name"),
-				"Value":     Var("name"),
-				"ValueText": Var("name"),
-			},
-			"Arity": Int(0),
-
-			// TODO(dennwc): these assertions might not be valid for all cases
-			//               and will break this annotation, but at least it will
-			//               help us detect the case when it's not valid
-			"IsMissing":          Bool(false),
-			"IsStructuredTrivia": Bool(false),
-
-			// TODO(dennwc): this is true for Value == "unmanaged" and it looks
-			//				 more like a keyword, probably unrecognized one
-			"IsUnmanaged": Any(),
-
-			// TODO(dennwc): might be useful later; drop it for now
-			"IsVar": Any(),
-		},
-		Obj{
+			// all token values are the same
+			"Text":      Var("name"),
+			"Value":     Var("name"),
+			"ValueText": Var("name"),
+		}, Obj{
 			"Name": Var("name"),
+		},
+	)),
+
+	// Special: is a keyword, but used as an identifier (Parameter name)
+	MapSemantic("ArgListKeyword", uast.Identifier{}, MapObj(
+		Obj{
+			// trivia == whitespace; can safely drop it
+			"LeadingTrivia":  Any(),
+			"TrailingTrivia": Any(),
+
+			"IsMissing": Bool(false),
+
+			// all token values are the same
+			"Text":      String("__arglist"),
+			"Value":     String("__arglist"),
+			"ValueText": String("__arglist"),
+		}, Obj{
+			"Name": String("__arglist"),
 		},
 	)),
 
@@ -337,7 +288,7 @@ var Normalizers = []Mapping{
 		Obj{
 			"Token": Obj{
 				uast.KeyType: String("StringLiteralToken"),
-				uast.KeyPos: Any(),
+				uast.KeyPos:  Any(),
 
 				// trivia == whitespace; can safely drop it
 				"LeadingTrivia":  Any(),
@@ -364,19 +315,19 @@ var Normalizers = []Mapping{
 		Obj{
 			"Token": Obj{
 				uast.KeyType: String("TrueKeyword"),
-				uast.KeyPos: Any(),
+				uast.KeyPos:  Any(),
 
 				// trivia == whitespace; can safely drop it
-				"LeadingTrivia": Any(),
+				"LeadingTrivia":  Any(),
 				"TrailingTrivia": Any(),
 
-				"Text": String("true"),
-				"Value": Bool(true),
+				"Text":      String("true"),
+				"Value":     Bool(true),
 				"ValueText": String("true"),
 
 				"IsMissing": Bool(false),
 			},
-			"IsMissing": Bool(false),
+			"IsMissing":          Bool(false),
 			"IsStructuredTrivia": Bool(false),
 		},
 		Obj{
@@ -388,19 +339,19 @@ var Normalizers = []Mapping{
 		Obj{
 			"Token": Obj{
 				uast.KeyType: String("FalseKeyword"),
-				uast.KeyPos: Any(),
+				uast.KeyPos:  Any(),
 
 				// trivia == whitespace; can safely drop it
-				"LeadingTrivia": Any(),
+				"LeadingTrivia":  Any(),
 				"TrailingTrivia": Any(),
 
-				"Text": String("false"),
-				"Value": Bool(false),
+				"Text":      String("false"),
+				"Value":     Bool(false),
 				"ValueText": String("false"),
 
 				"IsMissing": Bool(false),
 			},
-			"IsMissing": Bool(false),
+			"IsMissing":          Bool(false),
 			"IsStructuredTrivia": Bool(false),
 		},
 		Obj{
@@ -427,6 +378,16 @@ var Normalizers = []Mapping{
 		},
 		CommentNode(false, "text", nil),
 	)),
+
+	// FIXME: doesn't work
+	//MapSemantic("MultiLineCommentTrivia", uast.Comment{}, MapObj(
+		//Obj{
+			//uast.KeyToken: CommentText([2]string{"/*", "*/"}, uast.KeyToken),
+			//"IsDirective": Bool(false),
+		//},
+		//CommentNode(true, uast.KeyToken, nil),
+	//)),
+
 	// TODO(dennwc): differentiate from regular comments
 	MapSemantic("SingleLineDocumentationCommentTrivia", uast.Comment{}, MapObj(
 		Obj{
@@ -476,12 +437,30 @@ var Normalizers = []Mapping{
 		CasesObj("case",
 			// common
 			Obj{
-				"Right": Var("right"),
+				"Right": Obj{
+					uast.KeyType:         String("IdentifierName"),
+					uast.KeyPos:          Any(),
+					"Arity":              Int(0),
+					"IsMissing":          Bool(false),
+					"IsStructuredTrivia": Bool(false),
+					"IsUnmanaged":        Any(),
+					"IsVar":              Any(),
+					"Identifier":         Var("right"),
+				},
 			},
 			Objs{
 				// the last name = identifier
 				{
-					"Left": Check(HasType(uast.Identifier{}), Var("left")),
+					"Left": Obj{
+						uast.KeyType:         String("IdentifierName"),
+						uast.KeyPos:          Any(),
+						"Arity":              Int(0),
+						"IsMissing":          Bool(false),
+						"IsStructuredTrivia": Bool(false),
+						"IsUnmanaged":        Any(),
+						"IsVar":              Any(), // TODO: mmmm...
+						"Identifier":         Var("left"),
+					},
 				},
 				// linked list
 				{
@@ -507,36 +486,51 @@ var Normalizers = []Mapping{
 		),
 	)),
 
+	// Old style multiple arguments: argument with the magic name "__arglist"
 	MapSemantic("Parameter", uast.Argument{}, MapObj(
 		Obj{
-			"Identifier": Obj{
-					// Could be identifier or some keywords like __arg, same fields in any case
-					uast.KeyType: Any(),
-					uast.KeyPos:      Var("id_param_pos"),
-					"LeadingTrivia":  Any(),
-					"TrailingTrivia": Any(),
-					"IsMissing": Bool(false),
-					"Text":      Var("name"),
-					"Value":     Var("name"),
-					"ValueText": Var("name"),
-				},
-			"AttributeLists":     Any(),
+			"Identifier": Check(
+				Has{
+					uast.KeyType: String(uast.TypeOf(uast.Identifier{})),
+					"Name":       String("__arglist"),
+				}, Var("name")),
+			"AttributeLists":     Arr(),
 			"Default":            Var("def_init"),
-			"IsMissing":          Any(),
-			"IsStructuredTrivia": Any(),
-			"Modifiers": opArrHasParams{origArr: Var("modifiers")},
-			"Type": Var("type"),
+			"IsMissing":          Bool(false),
+			"IsStructuredTrivia": Bool(false),
+			"Modifiers":          Arr(),
+			"Type":               Var("type"),
 		},
 		Obj{
-			"Name": UASTType(uast.Identifier{}, Obj{
-					"Name": Var("name"),
-					uast.KeyPos: Var("id_param_pos"),
-			}),
-			"Type": Var("type"),
-			"Init": Var("def_init"),
-			"Variadic": opArrHasParams{Var("modifiers")},
+			"Name":        Var("name"),
+			"Type":        Var("type"),
+			"Init":        Var("def_init"),
+			"Variadic":    Bool(true),
 			"MapVariadic": Bool(false),
-			"Receiver": Bool(false),
+			"Receiver":    Bool(false),
+		},
+	)),
+
+	// Normal parameter, potential multiple args expressed by "params" in modifiers
+	MapSemantic("Parameter", uast.Argument{}, MapObj(
+		Obj{
+			"Identifier": Check(Has{
+				uast.KeyType: String(uast.TypeOf(uast.Identifier{})),
+			}, Var("name")),
+			"AttributeLists":     Any(),
+			"Default":            Var("def_init"),
+			"IsMissing":          Bool(false),
+			"IsStructuredTrivia": Any(),
+			"Modifiers":          opArrHasParams{origArr: Var("modifiers")},
+			"Type":               Var("type"),
+		},
+		Obj{
+			"Name":        Var("name"),
+			"Type":        Var("type"),
+			"Init":        Var("def_init"),
+			"Variadic":    opArrHasParams{Var("modifiers")},
+			"MapVariadic": Bool(false),
+			"Receiver":    Bool(false),
 		},
 	)),
 
