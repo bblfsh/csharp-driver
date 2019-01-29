@@ -282,7 +282,7 @@ var Preprocessors = []Mapping{
 // Normalizers is the main block of normalization rules to convert native AST to semantic UAST.
 var Normalizers = []Mapping{
 
-	// remove empty identifiers
+	// remove empty identifier tokens
 	Map(
 		Check(
 			Has{
@@ -312,6 +312,43 @@ var Normalizers = []Mapping{
 			"Name": Var("name"),
 		},
 	)),
+
+	// remove empty identifiers
+	Map(
+		Check(
+			Has{
+				uast.KeyType: String("IdentifierName"),
+				"Identifier": Is(nil),
+			},
+			Any(),
+		),
+		Is(nil),
+	),
+
+	Map(
+		Obj{
+			uast.KeyType: String("IdentifierName"),
+			uast.KeyPos:  Any(), // TODO(dennwc): assert that it's the same
+
+			"Identifier": Var("ident"),
+
+			"Arity": Int(0),
+
+			// TODO(dennwc): these assertions might not be valid for all cases
+			//               and will break this annotation, but at least it will
+			//               help us detect the case when it's not valid
+			"IsMissing":          Bool(false),
+			"IsStructuredTrivia": Bool(false),
+
+			// TODO(dennwc): this is true for Value == "unmanaged" and it looks
+			//				 more like a keyword, probably unrecognized one
+			"IsUnmanaged": Any(),
+
+			// TODO(dennwc): might be useful later; drop it for now
+			"IsVar": Any(),
+		},
+		Var("ident"),
+	),
 
 	// Special: is a keyword, but used as an identifier (Parameter name)
 	MapSemantic("ArgListKeyword", uast.Identifier{}, MapObj(
@@ -483,30 +520,12 @@ var Normalizers = []Mapping{
 		CasesObj("case",
 			// common
 			Obj{
-				"Right": Obj{
-					uast.KeyType:         String("IdentifierName"),
-					uast.KeyPos:          Any(),
-					"Arity":              Int(0),
-					"IsMissing":          Bool(false),
-					"IsStructuredTrivia": Bool(false),
-					"IsUnmanaged":        Any(),
-					"IsVar":              Any(),
-					"Identifier":         Var("right"),
-				},
+				"Right": Var("right"),
 			},
 			Objs{
 				// the last name = identifier
 				{
-					"Left": Obj{
-						uast.KeyType:         String("IdentifierName"),
-						uast.KeyPos:          Any(),
-						"Arity":              Int(0),
-						"IsMissing":          Bool(false),
-						"IsStructuredTrivia": Bool(false),
-						"IsUnmanaged":        Any(),
-						"IsVar":              Any(), // TODO: mmmm...
-						"Identifier":         Var("left"),
-					},
+					"Left": Check(HasType(uast.Identifier{}), Var("left")),
 				},
 				// linked list
 				{
