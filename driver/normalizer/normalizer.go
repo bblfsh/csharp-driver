@@ -540,7 +540,7 @@ var Normalizers = []Mapping{
 					uast.KeyType: String(uast.TypeOf(uast.Identifier{})),
 					"Name":       String("__arglist"),
 				}, Var("name")),
-			"AttributeLists":     Arr(),
+			"AttributeLists":     Arr(), // TODO(dennwc): any cases when it's not empty?
 			"Default":            Var("def_init"),
 			"IsMissing":          Bool(false),
 			"IsStructuredTrivia": Bool(false),
@@ -563,7 +563,7 @@ var Normalizers = []Mapping{
 			"Identifier": Check(Has{
 				uast.KeyType: String(uast.TypeOf(uast.Identifier{})),
 			}, Var("name")),
-			"AttributeLists":     Any(),
+			"AttributeLists":     Arr(), // TODO(dennwc): any cases when it's not empty?
 			"Default":            Var("def_init"),
 			"IsMissing":          Bool(false),
 			"IsStructuredTrivia": Any(),
