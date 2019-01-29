@@ -365,8 +365,8 @@
     "uast/viewer",
     "uast/yaml"
   ]
-  revision = "1293a566ed53f6b6ce224e5ccabd6098ea9e45a7"
-  version = "v2.13.1"
+  revision = "42e2023d304c66a242444d467c48f6913748e411"
+  version = "v2.13.3"
 
 [[projects]]
   name = "gopkg.in/src-d/go-errors.v1"
