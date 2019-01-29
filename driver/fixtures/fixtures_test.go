@@ -29,7 +29,7 @@ var Suite = &fixtures.Suite{
 			"ConstructorDeclaration",
 			"DestructorDeclaration",
 			"FalseLiteralExpression",
-			//"IdentifierName", // FIXME
+			"IdentifierName",
 			"IdentifierToken",
 			"MethodDeclaration",
 			"MultiLineCommentTrivia",
