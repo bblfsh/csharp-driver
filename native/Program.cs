@@ -33,6 +33,8 @@ namespace native
                 // controls how individual fields are converted
                 ContractResolver = new ASTContractResolver(),
             };
+            var jsonSerializer = JsonSerializer.Create(jsonSerializerSettings);
+            var jsonWriter = new JsonTextWriter(Console.Out);
 
             string line;
             while ((line = Console.ReadLine()) != null)
@@ -47,8 +49,9 @@ namespace native
                     status = "ok",
                     ast = ast,
                 };
-                string json = JsonConvert.SerializeObject(resp, jsonSerializerSettings);
-                Console.WriteLine(json);
+                jsonSerializer.Serialize(jsonWriter, resp);
+                jsonWriter.WriteWhitespace("\n");
+                jsonWriter.Flush();
             }
         }
 
