@@ -107,6 +107,11 @@ func funcDefMap(typ string) Mapping {
 	))
 }
 
+// useFullSpan is a set of node types that use FullSpan for positions instead of Span
+var useFullSpan = []nodes.Value{
+	nodes.String("SingleLineDocumentationCommentTrivia"),
+}
+
 // Preprocessors is a block of AST preprocessing rules rules.
 var Preprocessors = []Mapping{
 	// Erase Whitespace and EndOfLine trivias.
@@ -168,7 +173,7 @@ var Preprocessors = []Mapping{
 		Part("_", Obj{}),
 	),
 
-	// Positional info is stored in a child node in FullSpan field.
+	// Positional info is stored in a child node in Span field.
 	//
 	// This is not supported by ObjectToNode helper, and we are
 	// too lazy to create positional node by hand.
@@ -177,22 +182,64 @@ var Preprocessors = []Mapping{
 	// "spanStart" and "spanEnd" fields of the root node, and
 	// ObjectToNode will pick them up later to build a proper
 	// positional node.
+	//
+	// There is also a FullSpan field that includes leading/trailing
+	// whitespaces and sometimes node tokens. We ignore this second
+	// position for most nodes, but there are few exceptions where
+	// we use FullSpan and ignore Span.
 	Map(
-		Part("_", Obj{
-			"FullSpan": Obj{
-				uast.KeyType: String("TextSpan"),
-				"Length":     Any(),
-				"Start":      Var("start"),
-				"End":        Var("end"),
+		Part("_", CasesObj("case", Obj{}, Objs{
+			// exceptions - use FullSpan
+			{
+				uast.KeyType: Check(
+					In(useFullSpan...),
+					Var("typ"),
+				),
+				"FullSpan": Obj{
+					uast.KeyType: String("TextSpan"),
+					"Length":     Any(),
+					"Start":      Var("start"),
+					"End":        Var("end"),
+				},
+				// TODO(dennwc): add it as a custom position field?
+				"Span": Any(),
 			},
-			// TODO(dennwc): add it as a custom position field?
-			"Span": Any(),
-		}),
-		Part("_", Obj{
+			// other nodes - use Span
+			{
+				uast.KeyType: Check(
+					Not(In(useFullSpan...)),
+					Var("typ"),
+				),
+				"Span": Obj{
+					uast.KeyType: String("TextSpan"),
+					"Length":     Any(),
+					"Start":      Var("start"),
+					"End":        Var("end"),
+				},
+				// TODO(dennwc): add it as a custom position field?
+				"FullSpan": Any(),
+			},
+		})),
+		Part("_", CasesObj("case", Obj{
 			// remap to temporary keys and let ObjectToNode to pick them up
 			"spanStart": Var("start"),
 			"spanEnd":   Var("end"),
-		}),
+		}, Objs{
+			// exceptions
+			{
+				uast.KeyType: Check(
+					In(useFullSpan...),
+					Var("typ"),
+				),
+			},
+			// other nodes
+			{
+				uast.KeyType: Check(
+					Not(In(useFullSpan...)),
+					Var("typ"),
+				),
+			},
+		})),
 	),
 
 	// Use temporary fields from the previous transform to create positional node.
@@ -379,14 +426,13 @@ var Normalizers = []Mapping{
 		CommentNode(false, "text", nil),
 	)),
 
-	// FIXME: doesn't work
-	//MapSemantic("MultiLineCommentTrivia", uast.Comment{}, MapObj(
-		//Obj{
-			//uast.KeyToken: CommentText([2]string{"/*", "*/"}, uast.KeyToken),
-			//"IsDirective": Bool(false),
-		//},
-		//CommentNode(true, uast.KeyToken, nil),
-	//)),
+	MapSemantic("MultiLineCommentTrivia", uast.Comment{}, MapObj(
+		Obj{
+			uast.KeyToken: CommentText([2]string{"/*", "*/"}, uast.KeyToken),
+			"IsDirective": Bool(false),
+		},
+		CommentNode(true, uast.KeyToken, nil),
+	)),
 
 	// TODO(dennwc): differentiate from regular comments
 	MapSemantic("SingleLineDocumentationCommentTrivia", uast.Comment{}, MapObj(

@@ -8,6 +8,7 @@ import (
 	"gopkg.in/bblfsh/sdk.v2/driver"
 	"gopkg.in/bblfsh/sdk.v2/driver/fixtures"
 	"gopkg.in/bblfsh/sdk.v2/driver/native"
+	"gopkg.in/bblfsh/sdk.v2/uast/transformer/positioner"
 )
 
 const projectRoot = "../../"
@@ -28,6 +29,7 @@ var Suite = &fixtures.Suite{
 			"ConstructorDeclaration",
 			"DestructorDeclaration",
 			"FalseLiteralExpression",
+			//"IdentifierName", // FIXME
 			"IdentifierToken",
 			"MethodDeclaration",
 			"MultiLineCommentTrivia",
@@ -40,8 +42,18 @@ var Suite = &fixtures.Suite{
 			"UsingDirective",
 		},
 	},
-	Docker: fixtures.DockerConfig{
-		//Image:"image:tag", // TODO: specify a docker image with language runtime
+	VerifyTokens: []positioner.VerifyToken{
+		{Types: []string{
+			"IdentifierToken",
+			"ClassKeyword",
+			"FalseLiteralExpression",
+			"MultiLineCommentTrivia",
+			"QualifiedName",
+			"SingleLineCommentTrivia",
+			"SingleLineDocumentationCommentTrivia",
+			"StringLiteralExpression",
+			"TrueLiteralExpression",
+		}},
 	},
 }
 
