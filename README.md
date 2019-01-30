@@ -1,4 +1,4 @@
-# C# driver for [Babelfish](https://github.com/bblfsh/bblfshd) ![Driver Status](https://img.shields.io/badge/status-pre--alpha-d6ae86.svg) [![Build Status](https://travis-ci.org/bblfsh/csharp-driver.svg?branch=master)](https://travis-ci.org/bblfsh/csharp-driver) ![Native Version](https://img.shields.io/badge/csharp%20version--aa93ea.svg) ![Go Version](https://img.shields.io/badge/go%20version-1.10-63afbf.svg)
+# C# driver for [Babelfish](https://github.com/bblfsh/bblfshd) ![Driver Status](https://img.shields.io/badge/status-beta-dbd25c.svg) [![Build Status](https://travis-ci.org/bblfsh/csharp-driver.svg?branch=master)](https://travis-ci.org/bblfsh/csharp-driver) ![Native Version](https://img.shields.io/badge/csharp%20version--aa93ea.svg) ![Go Version](https://img.shields.io/badge/go%20version-1.10-63afbf.svg)
 
 
 
