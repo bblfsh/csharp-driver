@@ -1,6 +1,8 @@
 package normalizer
 
 import (
+	"errors"
+
 	"gopkg.in/bblfsh/sdk.v2/uast"
 	"gopkg.in/bblfsh/sdk.v2/uast/nodes"
 	. "gopkg.in/bblfsh/sdk.v2/uast/transformer"
@@ -15,59 +17,141 @@ var Normalize = Transformers([][]Transformer{
 	{Mappings(Normalizers...)},
 }...)
 
-type opArrHasParams struct {
-	origArr Op
+var _ Op = opArrHasKeyword{}
+
+type opArrHasKeyword struct {
+	keyword string
+	opHas   Op
+	opRest  Op
 }
 
-func (op opArrHasParams) Kinds() nodes.Kind {
+func (op opArrHasKeyword) Kinds() nodes.Kind {
 	return nodes.KindArray
 }
 
-func (op opArrHasParams) Check(st *State, n nodes.Node) (bool, error) {
+func (op opArrHasKeyword) Check(st *State, n nodes.Node) (bool, error) {
 	arr, ok := n.(nodes.Array)
 	if !ok && arr != nil {
 		return false, nil
 	}
-
-	res, err := op.origArr.Check(st, arr)
-	if err != nil {
-		return false, err
+	// find a node with a specified type and drop if from array
+	// the boolean flag that we pass to a sub-op will indicate
+	// if we found it or not
+	for i, n := range arr {
+		obj, ok := n.(nodes.Object)
+		if !ok {
+			continue
+		}
+		v, ok := obj[uast.KeyType]
+		if !ok {
+			continue
+		}
+		typ, ok := v.(nodes.String)
+		if !ok || string(typ) != op.keyword {
+			continue
+		}
+		// found the keyword
+		if ok, err := op.opHas.Check(st, nodes.Bool(true)); err != nil || !ok {
+			return ok, err
+		}
+		rest := make(nodes.Array, len(arr)-1)
+		copy(rest, arr[:i])
+		copy(rest[i:], arr[i+1:])
+		return op.opRest.Check(st, rest)
 	}
-
-	return res, nil
+	// not found, default to false
+	if ok, err := op.opHas.Check(st, nodes.Bool(false)); err != nil || !ok {
+		return ok, err
+	}
+	return op.opRest.Check(st, n)
 }
 
-func (op opArrHasParams) Construct(st *State, n nodes.Node) (nodes.Node, error) {
-	arr, err := op.origArr.Construct(st, n)
-	if err != nil || arr == nil {
-		return n, err
+func (op opArrHasKeyword) Construct(st *State, n nodes.Node) (nodes.Node, error) {
+	// first, we will need to read the flag from sub-op
+	// if it's false, we will just pass and array as-is
+	// if it's true, we will synthesize and append a node to it
+
+	v, err := op.opHas.Construct(st, nil)
+	if err != nil {
+		return nil, err
 	}
-
-	arr2, ok := arr.(nodes.Array)
-	if !ok && arr2 != nil {
-		return nil, ErrExpectedList.New(arr2)
+	has, ok := v.(nodes.Bool)
+	if !ok {
+		return nil, ErrUnexpectedType.New(nodes.Bool(false), v)
 	}
+	n, err = op.opRest.Construct(st, n)
+	if err != nil {
+		return nil, err
+	} else if !has {
+		// pass as-is
+		return n, nil
+	}
+	// synthesize the node
 
-	retVal := false
+	// TODO(dennwc): synthesize the node once we care about reverse transform
+	return n, nil
+}
 
-	for _, n := range arr2 {
-		nobj, ok := n.(nodes.Object)
+var _ Op = opArrToChain{}
+
+type opArrToChain struct {
+	opMods Op
+	opType Op
+	// TODO(dennwc): maybe whitelist only known modifiers? seen so far:
+	//  			 - RefKeyword
+	//				 - OutKeyword (we should move it to Returns)
+}
+
+func (op opArrToChain) Kinds() nodes.Kind {
+	return nodes.KindObject
+}
+
+func (op opArrToChain) Check(st *State, n nodes.Node) (bool, error) {
+	// we assert that the passed node is an object and start
+	// checking the Type field recursively
+	// if there is one, we will remove it from the "Type" field
+	// from current node and append it to an array
+	// and we repeat it recursively on the value of the "Type" field
+	var mods nodes.Array
+
+	// TODO(dennwc): implement when we will need a reversal
+	if ok, err := op.opType.Check(st, n); err != nil || !ok {
+		return ok, err
+	}
+	return op.opMods.Check(st, mods)
+}
+
+func (op opArrToChain) Construct(st *State, n nodes.Node) (nodes.Node, error) {
+	// load two nodes:
+	// - the first one is an array of modifiers (objects)
+	// - the second one is a type node
+	nd, err := op.opMods.Construct(st, nil)
+	if err != nil {
+		return nil, err
+	}
+	mods, ok := nd.(nodes.Array)
+	if !ok {
+		return nil, ErrUnexpectedType.New(nodes.Array{}, nd)
+	}
+	typ, err := op.opType.Construct(st, n)
+	if err != nil {
+		return nil, err
+	}
+	// we will now use each modifier to construct a chain or a linked list of nodes
+	// by adding a "Type" field to each modifier, that will point to the current node
+	for _, nd := range mods {
+		mod, ok := nd.(nodes.Object)
 		if !ok {
-			return nil, ErrExpectedObject.New(nobj)
+			return nil, ErrUnexpectedType.New(nodes.Object{}, nd)
 		}
-
-		objType, ok := nobj["@type"].(nodes.String)
-		if !ok {
-			return nil, ErrExpectedValue.New(nobj["@type"])
+		mod = mod.CloneObject()
+		if _, ok := mod["Type"]; ok {
+			return nil, errors.New("unexpected field in modifier: Type")
 		}
-
-		if objType == "ParamsKeyword" {
-			retVal = true
-			break
-		}
+		mod["Type"] = typ
+		typ = mod
 	}
-
-	return nodes.Bool(retVal), nil
+	return typ, nil
 }
 
 func funcDefMap(typ string) Mapping {
@@ -563,7 +647,7 @@ var Normalizers = []Mapping{
 			"Default":            Var("def_init"),
 			"IsMissing":          Bool(false),
 			"IsStructuredTrivia": Bool(false),
-			"Modifiers":          Arr(),
+			"Modifiers":          Arr(), // TODO(dennwc): any cases when it's not empty?
 			"Type":               Var("type"),
 		},
 		Obj{
@@ -586,16 +670,27 @@ var Normalizers = []Mapping{
 			"Default":            Var("def_init"),
 			"IsMissing":          Bool(false),
 			"IsStructuredTrivia": Any(),
-			"Modifiers":          opArrHasParams{origArr: Var("modifiers")},
-			"Type":               Var("type"),
+			"Modifiers": opArrHasKeyword{
+				keyword: "ParamsKeyword",
+				opHas:   Var("variadic"),
+				opRest: opArrHasKeyword{
+					keyword: "ThisKeyword",
+					opHas:   Var("this"),
+					opRest:  Var("rest"),
+				},
+			},
+			"Type": Var("type"),
 		},
 		Obj{
-			"Name":        Var("name"),
-			"Type":        Var("type"),
+			"Name": Var("name"),
+			"Type": opArrToChain{
+				opMods: Var("rest"),
+				opType: Var("type"),
+			},
 			"Init":        Var("def_init"),
-			"Variadic":    opArrHasParams{Var("modifiers")},
+			"Variadic":    Var("variadic"),
 			"MapVariadic": Bool(false),
-			"Receiver":    Bool(false),
+			"Receiver":    Var("this"),
 		},
 	)),
 
