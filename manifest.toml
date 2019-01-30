@@ -10,7 +10,7 @@ language = "csharp"
 # status describes the current development status of the driver, the valid
 # values for status are: `planning`, `pre-alpha`, `alpha`, `beta`, `stable`,
 # `mature` or `inactive`.
-status = "pre-alpha"
+status = "beta"
 features = ["ast", "uast", "roles"]
 
 # documentation block is use to render the README.md file.
