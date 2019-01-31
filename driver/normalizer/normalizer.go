@@ -388,8 +388,11 @@ var Normalizers = []Mapping{
 			"TrailingTrivia": Any(),
 			"IsMissing":      Bool(false),
 
-			// all token values are the same
-			"Text":      Var("name"),
+			// we drop this one, because C# allows to declare
+			// a "for" identifier by using "@for" notation
+			// and we don't need that token in Semantic mode
+			"Text": Any(),
+			// all other token values are the same
 			"Value":     Var("name"),
 			"ValueText": Var("name"),
 		}, Obj{

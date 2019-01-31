@@ -127,7 +127,7 @@ CompilationUnit {
 .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  Properties: {
 .  .  .  .  .  .  .  .  IsMissing: false
-.  .  .  .  .  .  .  .  Text: System
+.  .  .  .  .  .  .  .  Value: System
 .  .  .  .  .  .  .  .  ValueText: System
 .  .  .  .  .  .  .  .  internalRole: Identifier
 .  .  .  .  .  .  .  }
@@ -248,7 +248,7 @@ CompilationUnit {
 .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  Properties: {
 .  .  .  .  .  .  .  .  IsMissing: false
-.  .  .  .  .  .  .  .  Text: HelloWorld
+.  .  .  .  .  .  .  .  Value: HelloWorld
 .  .  .  .  .  .  .  .  ValueText: HelloWorld
 .  .  .  .  .  .  .  .  internalRole: Identifier
 .  .  .  .  .  .  .  }
@@ -347,7 +347,7 @@ CompilationUnit {
 .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  Properties: {
 .  .  .  .  .  .  .  .  IsMissing: false
-.  .  .  .  .  .  .  .  Text: Hello
+.  .  .  .  .  .  .  .  Value: Hello
 .  .  .  .  .  .  .  .  ValueText: Hello
 .  .  .  .  .  .  .  .  internalRole: Identifier
 .  .  .  .  .  .  .  }
@@ -486,7 +486,7 @@ CompilationUnit {
 .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  Properties: {
 .  .  .  .  .  .  .  .  .  .  IsMissing: false
-.  .  .  .  .  .  .  .  .  .  Text: Main
+.  .  .  .  .  .  .  .  .  .  Value: Main
 .  .  .  .  .  .  .  .  .  .  ValueText: Main
 .  .  .  .  .  .  .  .  .  .  internalRole: Identifier
 .  .  .  .  .  .  .  .  .  }
@@ -680,7 +680,7 @@ CompilationUnit {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Properties: {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  IsMissing: false
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Text: Console
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Value: Console
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  ValueText: Console
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  internalRole: Identifier
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
@@ -743,7 +743,7 @@ CompilationUnit {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Properties: {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  IsMissing: false
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Text: WriteLine
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Value: WriteLine
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  ValueText: WriteLine
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  internalRole: Identifier
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
@@ -1023,7 +1023,7 @@ CompilationUnit {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Properties: {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  IsMissing: false
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Text: Console
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Value: Console
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  ValueText: Console
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  internalRole: Identifier
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
@@ -1106,7 +1106,7 @@ CompilationUnit {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Properties: {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  IsMissing: false
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Text: WriteLine
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Value: WriteLine
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  ValueText: WriteLine
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  internalRole: Identifier
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
@@ -1386,7 +1386,7 @@ CompilationUnit {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Properties: {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  IsMissing: false
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Text: Console
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Value: Console
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  ValueText: Console
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  internalRole: Identifier
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
@@ -1449,7 +1449,7 @@ CompilationUnit {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Properties: {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  IsMissing: false
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Text: ReadKey
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Value: ReadKey
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  ValueText: ReadKey
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  internalRole: Identifier
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
