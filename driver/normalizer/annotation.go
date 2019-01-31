@@ -286,7 +286,7 @@ var Annotations = []Mapping{
 	AnnotateType("ByKeyword", FieldRoles{"Value": {Rename: uast.KeyToken}}, role.Equal, role.Incomplete),
 	AnnotateType("GroupKeyword", FieldRoles{"Value": {Rename: uast.KeyToken}}, role.Equal, role.Incomplete),
 
-	AnnotateType("IdentifierToken", FieldRoles{"Value": {Rename: uast.KeyToken}},
+	AnnotateType("IdentifierToken", FieldRoles{"Text": {Rename: uast.KeyToken}},
 		role.Identifier, role.Expression),
 	AnnotateType("QualifiedName", nil, role.Qualified, role.Identifier),
 
