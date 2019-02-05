@@ -198,11 +198,15 @@ var useFullSpan = []nodes.Value{
 
 // Preprocessors is a block of AST preprocessing rules rules.
 var Preprocessors = []Mapping{
-	// Erase Whitespace and EndOfLine trivias.
+	// Erase Whitespace, EndOfLine and SkippedToken trivias.
 	Map(
 		Obj{
 			uast.KeyType: Check(
-				In(nodes.String("WhitespaceTrivia"), nodes.String("EndOfLineTrivia")),
+				In(
+					nodes.String("WhitespaceTrivia"),
+					nodes.String("EndOfLineTrivia"),
+					nodes.String("SkippedTokensTrivia"),
+				),
 				Any(),
 			),
 			"FullSpan":    Any(),
