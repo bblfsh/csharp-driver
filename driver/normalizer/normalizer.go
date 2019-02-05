@@ -482,6 +482,27 @@ var Normalizers = []Mapping{
 		},
 	)),
 
+	// A string literal part of the interpolation expression.
+	MapSemantic("InterpolatedStringTextToken", uast.String{}, MapObj(
+		Obj{
+			// trivia == whitespace; can safely drop it
+			"LeadingTrivia":  Arr(),
+			"TrailingTrivia": Arr(),
+
+			"IsMissing": Bool(false),
+
+			// contains escaped value, we don't need it in canonical UAST
+			"Text": Any(),
+
+			// both values are the same
+			"Value":     Var("val"),
+			"ValueText": Var("val"),
+		},
+		Obj{
+			"Value": Var("val"),
+		},
+	)),
+
 	MapSemantic("TrueLiteralExpression", uast.Bool{}, MapObj(
 		Obj{
 			"Token": Obj{
