@@ -2,6 +2,8 @@ package normalizer
 
 import (
 	"errors"
+	"fmt"
+	"strings"
 
 	"gopkg.in/bblfsh/sdk.v2/uast"
 	"gopkg.in/bblfsh/sdk.v2/uast/nodes"
@@ -762,6 +764,12 @@ func (op dropNils) Construct(st *State, n nodes.Node) (nodes.Node, error) {
 
 var typeGroup = uast.TypeOf(uast.Group{})
 
+// triviaField specified a field with an array to put trivias into.
+var triviaField = map[string]string{
+	"Block":           "Statements",
+	"CompilationUnit": "Members",
+}
+
 // opMoveComments will move the comment nodes from LeadingTrivia/TrailingTrivia
 // into the nearest csharp:* node or array. The subtree with the comment will be
 // wrapped into uast:Group node.
@@ -778,38 +786,94 @@ func (op opMoveComments) Check(st *State, n nodes.Node) (bool, error) {
 	if !ok {
 		return false, nil
 	}
+	cloned := false
 	leading, ok1 := obj["LeadingTrivia"].(nodes.Array)
 	trailing, ok2 := obj["TrailingTrivia"].(nodes.Array)
-	if !ok1 || !ok2 {
-		return false, nil
+	if ok1 || ok2 {
+		// we saved the leading and trailing trivias, now wipe them from the node
+		obj = obj.CloneObject()
+		cloned = true
+		delete(obj, "LeadingTrivia")
+		delete(obj, "TrailingTrivia")
 	}
-	// we saved the leading and trailing trivias, now wipe them from the node
-	obj = obj.CloneObject()
-	delete(obj, "LeadingTrivia")
-	delete(obj, "TrailingTrivia")
-	// TODO(dennwc): check if we have uast:Groups inside
-	//				 - move trivias to the parent node if it's in *Token or *Keyword fields
-	//				 - move trivias to Memebers, if inside a CompilationUnit
+
+	// move comments out of keywords and tokens into actual AST nodes
+	// TODO(dennwc): handle more cases:
+	//				 - also check if functions have a Group in return type (it's a function comment)
 	//				 - Modifiers?
+	for key, sub := range obj {
+		if !strings.HasSuffix(key, "Token") && !strings.HasSuffix(key, "Keyword") {
+			continue
+		}
+		if uast.TypeOf(sub) != typeGroup {
+			continue
+		}
+		group := sub.(nodes.Object)
+		arr, ok := group["Nodes"].(nodes.Array)
+		if !ok {
+			continue
+		}
+		// we already joined trivias and the node into a single array,
+		// so we will have to find its index now
+		ind := -1
+		for i, sub := range arr {
+			if !strings.HasSuffix(uast.TypeOf(sub), "Trivia") {
+				ind = i
+				break
+			}
+		}
+		var node nodes.Node
+		if ind < 0 {
+			// cannot determine an index - pretend everything is a leading trivia
+			// TODO(dennwc): find another way if it happens in practice
+			leading = append(leading.CloneList(), arr...)
+		} else {
+			node = arr[ind]
+			leading = append(leading.CloneList(), arr[:ind]...)
+			trailing = append(arr[ind+1:len(arr):len(arr)], trailing...)
+		}
+		if !cloned {
+			obj = obj.CloneObject()
+			cloned = true
+		}
+		obj[key] = node
+	}
 
 	if len(leading) == 0 && len(trailing) == 0 {
+		if !cloned {
+			return false, nil // unmodified
+		}
+		// removed the trivia fields
 		return op.sub.Check(st, obj)
 	}
 
-	// join trivias into the same same array, place the node in between
-	arr := make(nodes.Array, 0, len(leading)+1+len(trailing))
-	arr = append(arr, leading...)
-	arr = append(arr, obj)
-	arr = append(arr, trailing...)
+	if field, ok := triviaField[uast.TypeOf(obj)]; ok {
+		// instead of wrapping the node, join trivias to a specified field
+		old, ok := obj[field].(nodes.Array)
+		if !ok {
+			return false, fmt.Errorf("expected %q field to be an array", field)
+		}
+		arr := make(nodes.Array, 0, len(leading)+len(old)+len(trailing))
+		arr = append(arr, leading...)
+		arr = append(arr, old...)
+		arr = append(arr, trailing...)
 
-	// array will be wrapped into the uast:Group
-	// TODO(dennwc): it will be cool if we could extract FullSpan position into the Group
-	group, err := uast.ToNode(uast.Group{})
-	if err != nil {
-		return false, err
+		obj[field] = arr
+	} else {
+		// wrap the node into a uast:Group
+		arr := make(nodes.Array, 0, len(leading)+1+len(trailing))
+		arr = append(arr, leading...)
+		arr = append(arr, obj)
+		arr = append(arr, trailing...)
+
+		// TODO(dennwc): it will be nice if we could extract FullSpan position into the Group
+		group, err := uast.ToNode(uast.Group{})
+		if err != nil {
+			return false, err
+		}
+		obj = group.(nodes.Object)
+		obj["Nodes"] = arr
 	}
-	obj = group.(nodes.Object)
-	obj["Nodes"] = arr
 
 	return op.sub.Check(st, obj)
 }
