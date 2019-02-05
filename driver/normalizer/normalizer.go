@@ -16,9 +16,12 @@ var Preprocess = Transformers([][]Transformer{
 
 var Normalize = Transformers([][]Transformer{
 	{Mappings(
-		// Move the Leading/TrailingTrivia outside of nodes
+		// Move the Leading/TrailingTrivia outside of nodes.
+		//
+		// This cannot be inside Normalizers because it should precede any
+		// other transformation.
 		Map(
-			opMoveComments{Var("group")},
+			opMoveTrivias{Var("group")},
 			Check(Has{uast.KeyType: String(typeGroup)}, Var("group")),
 		),
 	)},
@@ -731,6 +734,12 @@ var Normalizers = []Mapping{
 	funcDefMap("MethodDeclaration"),
 	funcDefMap("ConstructorDeclaration"),
 	funcDefMap("DestructorDeclaration"),
+
+	// Merge uast:Group with uast:FunctionGroup.
+	Map(
+		opMergeGroups{Var("group")},
+		Check(Has{uast.KeyType: String(uast.TypeOf(uast.FunctionGroup{}))}, Var("group")),
+	),
 }
 
 // dropNils accepts a array node, removes all nil values from it and passes it to
@@ -762,7 +771,10 @@ func (op dropNils) Construct(st *State, n nodes.Node) (nodes.Node, error) {
 	return op.op.Construct(st, n)
 }
 
-var typeGroup = uast.TypeOf(uast.Group{})
+var (
+	typeGroup     = uast.TypeOf(uast.Group{})
+	typeFuncGroup = uast.TypeOf(uast.FunctionGroup{})
+)
 
 // triviaField specified a field with an array to put trivias into.
 var triviaField = map[string]string{
@@ -770,18 +782,17 @@ var triviaField = map[string]string{
 	"CompilationUnit": "Members",
 }
 
-// opMoveComments will move the comment nodes from LeadingTrivia/TrailingTrivia
-// into the nearest csharp:* node or array. The subtree with the comment will be
-// wrapped into uast:Group node.
-type opMoveComments struct {
+// opMoveTrivias cuts trivia nodes from LeadingTrivia/TrailingTrivia fields
+// and wraps the node into uast:Group that contains those trivias.
+type opMoveTrivias struct {
 	sub Op
 }
 
-func (op opMoveComments) Kinds() nodes.Kind {
+func (op opMoveTrivias) Kinds() nodes.Kind {
 	return nodes.KindObject
 }
 
-func (op opMoveComments) Check(st *State, n nodes.Node) (bool, error) {
+func (op opMoveTrivias) Check(st *State, n nodes.Node) (bool, error) {
 	obj, ok := n.(nodes.Object)
 	if !ok {
 		return false, nil
@@ -799,10 +810,11 @@ func (op opMoveComments) Check(st *State, n nodes.Node) (bool, error) {
 
 	// move comments out of keywords and tokens into actual AST nodes
 	// TODO(dennwc): handle more cases:
-	//				 - also check if functions have a Group in return type (it's a function comment)
 	//				 - Modifiers?
 	for key, sub := range obj {
-		if !strings.HasSuffix(key, "Token") && !strings.HasSuffix(key, "Keyword") {
+		if key != "ReturnType" &&
+			!strings.HasSuffix(key, "Token") &&
+			!strings.HasSuffix(key, "Keyword") {
 			continue
 		}
 		if uast.TypeOf(sub) != typeGroup {
@@ -878,7 +890,60 @@ func (op opMoveComments) Check(st *State, n nodes.Node) (bool, error) {
 	return op.sub.Check(st, obj)
 }
 
-func (op opMoveComments) Construct(st *State, n nodes.Node) (nodes.Node, error) {
+func (op opMoveTrivias) Construct(st *State, n nodes.Node) (nodes.Node, error) {
+	// TODO(dennwc): implement when we will need a reversal
+	return op.sub.Construct(st, n)
+}
+
+// opMergeGroups find the uast:Group nodes and merges them into a child
+// uast:FunctionGroup, if it exists.
+type opMergeGroups struct {
+	sub Op
+}
+
+func (op opMergeGroups) Kinds() nodes.Kind {
+	return nodes.KindObject
+}
+
+func (op opMergeGroups) Check(st *State, n nodes.Node) (bool, error) {
+	group, ok := n.(nodes.Object)
+	if !ok || uast.TypeOf(group) != typeGroup {
+		return false, nil
+	}
+	arr, ok := group["Nodes"].(nodes.Array)
+	if !ok {
+		return false, errors.New("expected an array in Group.Nodes")
+	}
+	ind := -1
+	for i, sub := range arr {
+		if uast.TypeOf(sub) == typeFuncGroup {
+			ind = i
+			break
+		}
+	}
+	if ind < 0 {
+		return false, nil
+	}
+	leading := arr[:ind]
+	fgroup := arr[ind].(nodes.Object)
+	trailing := arr[ind+1:]
+
+	arr, ok = fgroup["Nodes"].(nodes.Array)
+	if !ok {
+		return false, errors.New("expected an array in Group.Nodes")
+	}
+	out := make(nodes.Array, 0, len(leading)+len(arr)+len(trailing))
+	out = append(out, leading...)
+	out = append(out, arr...)
+	out = append(out, trailing...)
+
+	fgroup = fgroup.CloneObject()
+	fgroup["Nodes"] = out
+
+	return op.sub.Check(st, fgroup)
+}
+
+func (op opMergeGroups) Construct(st *State, n nodes.Node) (nodes.Node, error) {
 	// TODO(dennwc): implement when we will need a reversal
 	return op.sub.Construct(st, n)
 }
