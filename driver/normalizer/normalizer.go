@@ -503,6 +503,23 @@ var Normalizers = []Mapping{
 		},
 	)),
 
+	// Collapse one more AST level if the string token is inside InterpolatedStringText.
+	MapSemantic("InterpolatedStringText", uast.String{}, MapObj(
+		Obj{
+			"TextToken": Obj{
+				uast.KeyType: String(uast.TypeOf(uast.String{})),
+				uast.KeyPos:  Any(),
+				"Format":     String(""),
+				"Value":      Var("val"),
+			},
+			"IsMissing":          Bool(false),
+			"IsStructuredTrivia": Bool(false),
+		},
+		Obj{
+			"Value": Var("val"),
+		},
+	)),
+
 	MapSemantic("TrueLiteralExpression", uast.Bool{}, MapObj(
 		Obj{
 			"Token": Obj{
