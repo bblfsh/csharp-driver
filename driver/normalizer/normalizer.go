@@ -13,7 +13,13 @@ var Preprocess = Transformers([][]Transformer{
 }...)
 
 var Normalize = Transformers([][]Transformer{
-
+	{Mappings(
+		// Move the Leading/TrailingTrivia outside of nodes
+		Map(
+			opMoveComments{Var("group")},
+			Check(Has{uast.KeyType: String(typeGroup)}, Var("group")),
+		),
+	)},
 	{Mappings(Normalizers...)},
 }...)
 
@@ -387,10 +393,7 @@ var Normalizers = []Mapping{
 
 	MapSemantic("IdentifierToken", uast.Identifier{}, MapObj(
 		Obj{
-			// trivia == whitespace; can safely drop it
-			"LeadingTrivia":  Any(),
-			"TrailingTrivia": Any(),
-			"IsMissing":      Bool(false),
+			"IsMissing": Bool(false),
 
 			// we drop this one, because C# allows to declare
 			// a "for" identifier by using "@for" notation
@@ -444,10 +447,6 @@ var Normalizers = []Mapping{
 	// Special: is a keyword, but used as an identifier (Parameter name)
 	MapSemantic("ArgListKeyword", uast.Identifier{}, MapObj(
 		Obj{
-			// trivia == whitespace; can safely drop it
-			"LeadingTrivia":  Any(),
-			"TrailingTrivia": Any(),
-
 			"IsMissing": Bool(false),
 
 			// all token values are the same
@@ -464,10 +463,6 @@ var Normalizers = []Mapping{
 			"Token": Obj{
 				uast.KeyType: String("StringLiteralToken"),
 				uast.KeyPos:  Any(),
-
-				// trivia == whitespace; can safely drop it
-				"LeadingTrivia":  Any(),
-				"TrailingTrivia": Any(),
 
 				"IsMissing": Bool(false),
 
@@ -530,10 +525,6 @@ var Normalizers = []Mapping{
 				uast.KeyType: String("TrueKeyword"),
 				uast.KeyPos:  Any(),
 
-				// trivia == whitespace; can safely drop it
-				"LeadingTrivia":  Any(),
-				"TrailingTrivia": Any(),
-
 				"Text":      String("true"),
 				"Value":     Bool(true),
 				"ValueText": String("true"),
@@ -553,10 +544,6 @@ var Normalizers = []Mapping{
 			"Token": Obj{
 				uast.KeyType: String("FalseKeyword"),
 				uast.KeyPos:  Any(),
-
-				// trivia == whitespace; can safely drop it
-				"LeadingTrivia":  Any(),
-				"TrailingTrivia": Any(),
 
 				"Text":      String("false"),
 				"Value":     Bool(false),
@@ -771,4 +758,63 @@ func (op dropNils) Check(st *State, n nodes.Node) (bool, error) {
 
 func (op dropNils) Construct(st *State, n nodes.Node) (nodes.Node, error) {
 	return op.op.Construct(st, n)
+}
+
+var typeGroup = uast.TypeOf(uast.Group{})
+
+// opMoveComments will move the comment nodes from LeadingTrivia/TrailingTrivia
+// into the nearest csharp:* node or array. The subtree with the comment will be
+// wrapped into uast:Group node.
+type opMoveComments struct {
+	sub Op
+}
+
+func (op opMoveComments) Kinds() nodes.Kind {
+	return nodes.KindObject
+}
+
+func (op opMoveComments) Check(st *State, n nodes.Node) (bool, error) {
+	obj, ok := n.(nodes.Object)
+	if !ok {
+		return false, nil
+	}
+	leading, ok1 := obj["LeadingTrivia"].(nodes.Array)
+	trailing, ok2 := obj["TrailingTrivia"].(nodes.Array)
+	if !ok1 || !ok2 {
+		return false, nil
+	}
+	// we saved the leading and trailing trivias, now wipe them from the node
+	obj = obj.CloneObject()
+	delete(obj, "LeadingTrivia")
+	delete(obj, "TrailingTrivia")
+	// TODO(dennwc): check if we have uast:Groups inside
+	//				 - move trivias to the parent node if it's in *Token or *Keyword fields
+	//				 - move trivias to Memebers, if inside a CompilationUnit
+	//				 - Modifiers?
+
+	if len(leading) == 0 && len(trailing) == 0 {
+		return op.sub.Check(st, obj)
+	}
+
+	// join trivias into the same same array, place the node in between
+	arr := make(nodes.Array, 0, len(leading)+1+len(trailing))
+	arr = append(arr, leading...)
+	arr = append(arr, obj)
+	arr = append(arr, trailing...)
+
+	// array will be wrapped into the uast:Group
+	// TODO(dennwc): it will be cool if we could extract FullSpan position into the Group
+	group, err := uast.ToNode(uast.Group{})
+	if err != nil {
+		return false, err
+	}
+	obj = group.(nodes.Object)
+	obj["Nodes"] = arr
+
+	return op.sub.Check(st, obj)
+}
+
+func (op opMoveComments) Construct(st *State, n nodes.Node) (nodes.Node, error) {
+	// TODO(dennwc): implement when we will need a reversal
+	return op.sub.Construct(st, n)
 }
