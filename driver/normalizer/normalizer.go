@@ -100,6 +100,7 @@ func (op opArrHasKeyword) Construct(st *State, n nodes.Node) (nodes.Node, error)
 	// synthesize the node
 
 	// TODO(dennwc): synthesize the node once we care about reverse transform
+	//				 see https://github.com/bblfsh/sdk/issues/355
 	return n, nil
 }
 
@@ -126,6 +127,7 @@ func (op opArrToChain) Check(st *State, n nodes.Node) (bool, error) {
 	var mods nodes.Array
 
 	// TODO(dennwc): implement when we will need a reversal
+	//				 see https://github.com/bblfsh/sdk/issues/355
 	if ok, err := op.opType.Check(st, n); err != nil || !ok {
 		return ok, err
 	}
@@ -782,6 +784,16 @@ var triviaField = map[string]string{
 	"CompilationUnit": "Members",
 }
 
+// firstWithType returns an index of the first node type of which matches the filter function.
+func firstWithType(arr nodes.Array, fnc func(typ string) bool) int {
+	for i, sub := range arr {
+		if fnc(uast.TypeOf(sub)) {
+			return i
+		}
+	}
+	return -1
+}
+
 // opMoveTrivias cuts trivia nodes from LeadingTrivia/TrailingTrivia fields
 // and wraps the node into uast:Group that contains those trivias.
 type opMoveTrivias struct {
@@ -792,18 +804,38 @@ func (op opMoveTrivias) Kinds() nodes.Kind {
 	return nodes.KindObject
 }
 
+// Check implements the logic to move the trivia out of the node into a Group that will
+// wrap the trivia and the node itself.
+//
+// The function is a bit more complex than it should be because there are some edge cases
+// where instead of wrapping the node we will add trivia to a specific field of the node.
+//
+// There are two general cases here that may overlap.
+//
+// First, some nodes will have a Leading/TrailingTrivia fields. We will remove those fields
+// from the node, and will wrap the node itself into a uast:Group with an array consisting
+// of (leading trivia + node + trailing trivia).
+//
+// There are some edge cases here. For example, we don't want to wrap a CompilationUnit nodes
+// so we will add trivia nodes to it's Members slice (see triviaField map for all such cases).
+//
+// But, we can't stop here because the Group will prevent other annotations to match against
+// the original node. To fix this, we also try to access few known fields and check if they
+// already contain a Group. If it does, we unwrap the node and join its trivia into our
+// leading/trailing slice. This is possible because DSL guarantees that transforms always
+// happen in DFS order, thus all child nodes were already visited by this transform.
 func (op opMoveTrivias) Check(st *State, n nodes.Node) (bool, error) {
 	obj, ok := n.(nodes.Object)
 	if !ok {
 		return false, nil
 	}
-	cloned := false
+	modified := false
 	leading, ok1 := obj["LeadingTrivia"].(nodes.Array)
 	trailing, ok2 := obj["TrailingTrivia"].(nodes.Array)
 	if ok1 || ok2 {
 		// we saved the leading and trailing trivias, now wipe them from the node
 		obj = obj.CloneObject()
-		cloned = true
+		modified = true
 		delete(obj, "LeadingTrivia")
 		delete(obj, "TrailingTrivia")
 	}
@@ -827,32 +859,34 @@ func (op opMoveTrivias) Check(st *State, n nodes.Node) (bool, error) {
 		}
 		// we already joined trivias and the node into a single array,
 		// so we will have to find its index now
-		ind := -1
-		for i, sub := range arr {
-			if !strings.HasSuffix(uast.TypeOf(sub), "Trivia") {
-				ind = i
-				break
-			}
-		}
+		ind := firstWithType(arr, func(typ string) bool {
+			return !strings.HasSuffix(typ, "Trivia")
+		})
+
 		var node nodes.Node
 		if ind < 0 {
 			// cannot determine an index - pretend everything is a leading trivia
-			// TODO(dennwc): find another way if it happens in practice
+			// TODO(dennwc): this should not happen in practice, since leading/trailing
+			//  			 trivias are always attached to a node, and this node should
+			//  			 be somewhere in this slice
+			//  			 but future annotations may drop this node, so we will need
+			//  			 to find a different way of splitting leading and trailing
+			// 				 trivia if it happens in practice
 			leading = append(leading.CloneList(), arr...)
 		} else {
 			node = arr[ind]
 			leading = append(leading.CloneList(), arr[:ind]...)
 			trailing = append(arr[ind+1:len(arr):len(arr)], trailing...)
 		}
-		if !cloned {
+		if !modified {
 			obj = obj.CloneObject()
-			cloned = true
+			modified = true
 		}
 		obj[key] = node
 	}
 
 	if len(leading) == 0 && len(trailing) == 0 {
-		if !cloned {
+		if !modified {
 			return false, nil // unmodified
 		}
 		// removed the trivia fields
@@ -871,32 +905,41 @@ func (op opMoveTrivias) Check(st *State, n nodes.Node) (bool, error) {
 		arr = append(arr, trailing...)
 
 		obj[field] = arr
-	} else {
-		// wrap the node into a uast:Group
-		arr := make(nodes.Array, 0, len(leading)+1+len(trailing))
-		arr = append(arr, leading...)
-		arr = append(arr, obj)
-		arr = append(arr, trailing...)
-
-		// TODO(dennwc): it will be nice if we could extract FullSpan position into the Group
-		group, err := uast.ToNode(uast.Group{})
-		if err != nil {
-			return false, err
-		}
-		obj = group.(nodes.Object)
-		obj["Nodes"] = arr
+		return op.sub.Check(st, obj)
 	}
 
+	// wrap the node into a uast:Group
+	arr := make(nodes.Array, 0, len(leading)+1+len(trailing))
+	arr = append(arr, leading...)
+	arr = append(arr, obj)
+	arr = append(arr, trailing...)
+
+	// TODO(dennwc): it will be nice if we could extract FullSpan position into the Group
+	group, err := uast.ToNode(uast.Group{})
+	if err != nil {
+		return false, err
+	}
+
+	// note that we overwrite a variable - it was the current node
+	// and now it is a Group wrapping the current node
+	obj = group.(nodes.Object)
+	obj["Nodes"] = arr
 	return op.sub.Check(st, obj)
 }
 
 func (op opMoveTrivias) Construct(st *State, n nodes.Node) (nodes.Node, error) {
 	// TODO(dennwc): implement when we will need a reversal
+	//				 see https://github.com/bblfsh/sdk/issues/355
 	return op.sub.Construct(st, n)
 }
 
-// opMergeGroups find the uast:Group nodes and merges them into a child
+// opMergeGroups finds the uast:Group nodes and merges them into a child
 // uast:FunctionGroup, if it exists.
+//
+// This transform is necessary because opMoveTrivias will wrap all nodes that contain trivia
+// into a Group node, and the same will happen with MethodDeclaration nodes. But according
+// to a UAST schema defined in SDK, the comments (trivia) should be directly inside the
+// FunctionGroup node that wraps functions in Semantic mode.
 type opMergeGroups struct {
 	sub Op
 }
@@ -905,6 +948,8 @@ func (op opMergeGroups) Kinds() nodes.Kind {
 	return nodes.KindObject
 }
 
+// Check tests if the current node is uast:Group and if it contains a uast:FunctionGroup
+// node, it will remove the current node and merge other children into the FunctionGroup.
 func (op opMergeGroups) Check(st *State, n nodes.Node) (bool, error) {
 	group, ok := n.(nodes.Object)
 	if !ok || uast.TypeOf(group) != typeGroup {
@@ -914,13 +959,9 @@ func (op opMergeGroups) Check(st *State, n nodes.Node) (bool, error) {
 	if !ok {
 		return false, errors.New("expected an array in Group.Nodes")
 	}
-	ind := -1
-	for i, sub := range arr {
-		if uast.TypeOf(sub) == typeFuncGroup {
-			ind = i
-			break
-		}
-	}
+	ind := firstWithType(arr, func(typ string) bool {
+		return typ == typeFuncGroup
+	})
 	if ind < 0 {
 		return false, nil
 	}
@@ -945,5 +986,6 @@ func (op opMergeGroups) Check(st *State, n nodes.Node) (bool, error) {
 
 func (op opMergeGroups) Construct(st *State, n nodes.Node) (nodes.Node, error) {
 	// TODO(dennwc): implement when we will need a reversal
+	//				 see https://github.com/bblfsh/sdk/issues/355
 	return op.sub.Construct(st, n)
 }
