@@ -158,6 +158,7 @@
                         },
                         Type: { '@type': "uast:FunctionType",
                            Arguments: [],
+                           Returns: ~,
                         },
                      },
                   },

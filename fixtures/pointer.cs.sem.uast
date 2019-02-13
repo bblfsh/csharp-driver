@@ -1963,6 +1963,7 @@
                                  Variadic: false,
                               },
                            ],
+                           Returns: ~,
                         },
                      },
                   },
