@@ -167,22 +167,44 @@ func (op opArrToChain) Construct(st *State, n nodes.Node) (nodes.Node, error) {
 	return typ, nil
 }
 
-func funcDefMap(typ string) Mapping {
-	return MapSemantic(typ, uast.FunctionGroup{}, MapObj(
-		Fields{
-			{Name: "Body", Op: Var("body")},
-			{Name: "Identifier", Op: Var("name")},
-			{Name: "ParameterList", Op: Obj{
-				uast.KeyType:         String("ParameterList"),
-				uast.KeyPos:          Any(),
-				"OpenParenToken":     Any(),
-				"CloseParenToken":    Any(),
-				"IsMissing":          Bool(false),
-				"IsStructuredTrivia": Bool(false),
-				"Parameters":         Var("params"),
-			}},
-			{Name: "ReturnType", Optional: "optReturn", Op: Var("rettype")},
+func funcDefMap(typ string, returns bool, other Obj) Mapping {
+	src := Obj{
+		"Body":       Var("body"),
+		"Identifier": Var("name"),
+		"ParameterList": Obj{
+			uast.KeyType:         String("ParameterList"),
+			uast.KeyPos:          Any(),
+			"OpenParenToken":     Any(),
+			"CloseParenToken":    Any(),
+			"IsMissing":          Bool(false),
+			"IsStructuredTrivia": Bool(false),
+			"Parameters":         Var("params"),
 		},
+		"IsMissing":          Bool(false),
+		"IsStructuredTrivia": Bool(false),
+		"SemicolonToken":     Any(),
+
+		// FIXME(dennwc): driver drops them currently
+		"AttributeLists": Any(),
+		"ExpressionBody": Any(),
+		"Modifiers":      Any(),
+	}
+	for k, v := range other {
+		src[k] = v
+	}
+	dstType := Obj{
+		"Arguments": Var("params"),
+	}
+	if returns {
+		src["ReturnType"] = Var("rettype")
+		dstType["Returns"] = One(
+			UASTType(uast.Argument{}, Obj{
+				"Type": Var("rettype"),
+			}),
+		)
+	}
+	return MapSemantic(typ, uast.FunctionGroup{}, MapObj(
+		src,
 
 		Obj{
 			"Nodes": Arr(
@@ -190,13 +212,7 @@ func funcDefMap(typ string) Mapping {
 					"Name": Var("name"),
 					"Node": UASTType(uast.Function{}, Obj{
 						"Body": Var("body"),
-						"Type": UASTType(uast.FunctionType{}, Fields{
-							{Name: "Arguments", Op: Var("params")},
-							{Name: "Returns", Optional: "optReturn", Op: Arr(
-								UASTType(uast.Argument{}, Obj{
-									"Type": Var("rettype"),
-								}))},
-						}),
+						"Type": UASTType(uast.FunctionType{}, dstType),
 					}),
 				}),
 			),
@@ -570,8 +586,10 @@ var Normalizers = []Mapping{
 		Obj{
 			"Statements": Var("stmts"),
 			// TODO(dennwc): remap to custom positional fields
-			"OpenBraceToken":  Any(),
-			"CloseBraceToken": Any(),
+			"OpenBraceToken":     Any(),
+			"CloseBraceToken":    Any(),
+			"IsMissing":          Bool(false),
+			"IsStructuredTrivia": Bool(false),
 		},
 		Obj{
 			"Statements": Var("stmts"),
@@ -614,8 +632,14 @@ var Normalizers = []Mapping{
 		Obj{
 			"Name": Var("path"),
 			// TODO(dennwc): remap to custom positional fields
-			"SemicolonToken": Any(),
-			"UsingKeyword":   Any(),
+			"SemicolonToken":     Any(),
+			"UsingKeyword":       Any(),
+			"IsMissing":          Bool(false),
+			"IsStructuredTrivia": Bool(false),
+
+			// FIXME(dennwc): driver drops them currently
+			"Alias":         Any(),
+			"StaticKeyword": Any(),
 		},
 		Obj{
 			"Path": Var("path"),
@@ -643,8 +667,15 @@ var Normalizers = []Mapping{
 		CasesObj("case",
 			// common
 			Obj{
-				"Right": Var("right"),
+				"Right":              Var("right"),
+				"Arity":              Int(0),
+				"DotToken":           Any(),
+				"IsMissing":          Bool(false),
+				"IsStructuredTrivia": Bool(false),
+				"IsUnmanaged":        Bool(false),
+				"IsVar":              Bool(false),
 			},
+			// cases
 			Objs{
 				// the last name = identifier
 				{
@@ -733,9 +764,20 @@ var Normalizers = []Mapping{
 		},
 	)),
 
-	funcDefMap("MethodDeclaration"),
-	funcDefMap("ConstructorDeclaration"),
-	funcDefMap("DestructorDeclaration"),
+	funcDefMap("MethodDeclaration", true, Obj{
+		// FIXME(dennwc): driver drops them currently
+		"Arity":                      Any(),
+		"ConstraintClauses":          Any(),
+		"ExplicitInterfaceSpecifier": Any(),
+		"TypeParameterList":          Any(),
+	}),
+	funcDefMap("ConstructorDeclaration", false, Obj{
+		// FIXME(dennwc): driver drops them currently
+		"Initializer": Any(),
+	}),
+	funcDefMap("DestructorDeclaration", false, Obj{
+		"TildeToken": Any(),
+	}),
 
 	// Merge uast:Group with uast:FunctionGroup.
 	Map(

@@ -370,6 +370,7 @@
                                  Variadic: false,
                               },
                            ],
+                           Returns: ~,
                         },
                      },
                   },

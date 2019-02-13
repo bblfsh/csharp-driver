@@ -332,6 +332,12 @@
   version = "v1.14.0"
 
 [[projects]]
+  name = "gopkg.in/bblfsh/client-go.v3"
+  packages = ["."]
+  revision = "f1bb4239c6001f5f0b1f370b7d4a64866464c07b"
+  version = "v3.2.0"
+
+[[projects]]
   name = "gopkg.in/bblfsh/sdk.v1"
   packages = [
     "manifest",
@@ -365,8 +371,8 @@
     "uast/viewer",
     "uast/yaml"
   ]
-  revision = "d506b5408b0afda31d07e9a90343769efbfef837"
-  version = "v2.13.4"
+  revision = "e39a01efecd8a8670471352b3276c17d5e0dd7a8"
+  version = "v2.14.1"
 
 [[projects]]
   name = "gopkg.in/src-d/go-errors.v1"
@@ -383,6 +389,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "1a1638644957a6bb7a516fb8173086bbf172fb3b4e043edac13a31441a129ade"
+  inputs-digest = "1cfbf1856a686169b37a738b0aa3946a520577a7d79e191882e4c0f678a8b44d"
   solver-name = "gps-cdcl"
   solver-version = 1
