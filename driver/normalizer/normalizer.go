@@ -169,7 +169,6 @@ func (op opArrToChain) Construct(st *State, n nodes.Node) (nodes.Node, error) {
 
 func funcDefMap(typ string, returns bool, other Obj) Mapping {
 	src := Obj{
-		"Body":       Var("body"),
 		"Identifier": Var("name"),
 		"ParameterList": Obj{
 			uast.KeyType:         String("ParameterList"),
@@ -190,8 +189,7 @@ func funcDefMap(typ string, returns bool, other Obj) Mapping {
 		),
 
 		// FIXME(dennwc): driver drops them currently
-		"ExpressionBody": Any(),
-		"Modifiers":      Any(),
+		"Modifiers": Any(),
 	}
 	for k, v := range other {
 		src[k] = v
@@ -208,7 +206,38 @@ func funcDefMap(typ string, returns bool, other Obj) Mapping {
 		)
 	}
 	return MapSemantic(typ, uast.FunctionGroup{}, MapObj(
-		src,
+		// Either Body or ExpressionBody will be set.
+		CasesObj("isArrow",
+			src,
+			Objs{
+				// case 1: arrow expression
+				{
+					"Body": Is(nil),
+					"ExpressionBody": Obj{
+						uast.KeyType: String("ArrowExpressionClause"),
+						// will use this positions for Block in Body
+						uast.KeyPos: Var("arrow_pos"),
+						"ArrowToken": Obj{
+							uast.KeyType: String("EqualsGreaterThanToken"),
+							// will use this position for Return in Body
+							uast.KeyPos: Var("arrow_pos_tok"),
+							"IsMissing": Bool(false),
+							"Text":      Any(),
+							"Value":     Any(),
+							"ValueText": Any(),
+						},
+						"IsMissing":          Bool(false),
+						"IsStructuredTrivia": Bool(false),
+						"Expression":         Var("arrow"),
+					},
+				},
+				// case 2: full body
+				{
+					"ExpressionBody": Is(nil),
+					"Body":           Var("body"),
+				},
+			},
+		),
 
 		Obj{
 			"Nodes": Arr(
@@ -220,8 +249,28 @@ func funcDefMap(typ string, returns bool, other Obj) Mapping {
 				UASTType(uast.Alias{}, Obj{
 					"Name": Var("name"),
 					"Node": UASTType(uast.Function{}, Obj{
-						"Body": Var("body"),
 						"Type": UASTType(uast.FunctionType{}, dstType),
+						// If the function was defined with an arrow expression, we will
+						// generate a uast:Block with a since csharp:Return node containing
+						// the expression.
+						"Body": Cases("isArrow",
+							// case 1: arrow expression
+							UASTType(uast.Block{}, Obj{
+								uast.KeyPos: Var("arrow_pos"),
+								"Statements": Arr(
+									Obj{
+										uast.KeyType: String("ReturnStatement"),
+										uast.KeyPos:  Var("arrow_pos_tok"),
+										"Expression": Var("arrow"),
+									},
+								),
+							}),
+							// case 2: full body
+							// TODO(dennwc): this will definitely fail the reverse transform
+							//               make a more specific node check when we need it
+							//               see https://github.com/bblfsh/sdk/issues/355
+							Var("body"),
+						),
 					}),
 				}),
 			),
