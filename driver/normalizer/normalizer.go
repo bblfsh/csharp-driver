@@ -631,19 +631,28 @@ var Normalizers = []Mapping{
 	MapSemantic("UsingDirective", uast.Import{}, MapObj(
 		Obj{
 			"Name": Var("path"),
+
 			// TODO(dennwc): remap to custom positional fields
-			"SemicolonToken":     Any(),
-			"UsingKeyword":       Any(),
+			"SemicolonToken": Any(),
+			"UsingKeyword":   Any(),
+
 			"IsMissing":          Bool(false),
 			"IsStructuredTrivia": Bool(false),
+			"StaticKeyword": If("static",
+				Check(HasType("StaticKeyword"), Any()),
+				Check(HasType("None"), Any()),
+			),
 
 			// FIXME(dennwc): driver drops them currently
-			"Alias":         Any(),
-			"StaticKeyword": Any(),
+			"Alias": Any(),
 		},
 		Obj{
 			"Path": Var("path"),
 			"All":  Bool(true),
+			"Target": If("static",
+				Obj{"static": Bool(true)},
+				Is(nil),
+			),
 		},
 	)),
 
