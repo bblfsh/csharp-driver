@@ -621,10 +621,16 @@ var Normalizers = []Mapping{
 		CommentNode(false, "text", nil),
 	)),
 
-	// Import (aka UsingDirectiveSyntax) is trivial.
+	// Import (aka UsingDirectiveSyntax) is more or less trivial.
 	//
 	// "Name" field is QualifiedIdentifier or Identifier and we remap to
 	// "Path" in Import.
+	//
+	// StaticKeyword indicates if the "using" directive is static.
+	// In this case we Set a import target scope to an object with static = true.
+	//
+	// Alias field may be set as well - we will as usual remap it to
+	// an uast:Alias object in the Import's Path field.
 	//
 	// Also, C# assumes that "using" statement imports all the symbols
 	// from that package, so we also set an "All" field on Import.
@@ -638,18 +644,32 @@ var Normalizers = []Mapping{
 
 			"IsMissing":          Bool(false),
 			"IsStructuredTrivia": Bool(false),
-			"StaticKeyword": If("static",
+			"StaticKeyword": If("isStatic",
 				Check(HasType("StaticKeyword"), Any()),
 				Check(HasType("None"), Any()),
 			),
-
-			// FIXME(dennwc): driver drops them currently
-			"Alias": Any(),
+			"Alias": If("isAlias",
+				Obj{
+					uast.KeyType:         String("NameEquals"),
+					uast.KeyPos:          Any(),
+					"EqualsToken":        Any(),
+					"IsMissing":          Bool(false),
+					"IsStructuredTrivia": Bool(false),
+					"Name":               Var("alias"),
+				},
+				Is(nil),
+			),
 		},
 		Obj{
-			"Path": Var("path"),
-			"All":  Bool(true),
-			"Target": If("static",
+			"Path": If("isAlias",
+				UASTType(uast.Alias{}, Obj{
+					"Name": Var("alias"),
+					"Node": Var("path"),
+				}),
+				Var("path"),
+			),
+			"All": Bool(true),
+			"Target": If("isStatic",
 				Obj{"static": Bool(true)},
 				Is(nil),
 			),
