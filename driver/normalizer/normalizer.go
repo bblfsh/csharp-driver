@@ -794,16 +794,82 @@ var Normalizers = []Mapping{
 	)),
 
 	funcDefMap("MethodDeclaration", true, Obj{
+		// number of parameters - safe to ignore
+		"Arity": Any(),
 		// FIXME(dennwc): driver drops them currently
-		"Arity":                      Any(),
 		"ConstraintClauses":          Any(),
 		"ExplicitInterfaceSpecifier": Any(),
 		"TypeParameterList":          Any(),
 	}),
-	funcDefMap("ConstructorDeclaration", false, Obj{
-		// FIXME(dennwc): driver drops them currently
-		"Initializer": Any(),
-	}),
+	// ConstructorDeclaration is similar to MethodDeclaration, but it may include a
+	// base class initializer that require a special transformation.
+	MapSemantic("ConstructorDeclaration", uast.FunctionGroup{}, MapObj(
+		Obj{
+			// Same as to MethodDeclaration above
+			"Identifier": Var("name"),
+			"ParameterList": Obj{
+				uast.KeyType:         String("ParameterList"),
+				uast.KeyPos:          Any(),
+				"OpenParenToken":     Any(),
+				"CloseParenToken":    Any(),
+				"IsMissing":          Bool(false),
+				"IsStructuredTrivia": Bool(false),
+				"Parameters":         Var("params"),
+			},
+			"IsMissing":          Bool(false),
+			"IsStructuredTrivia": Bool(false),
+			"SemicolonToken":     Any(),
+			"AttributeLists":     Arr(), // TODO(dennwc): any cases when it's not empty?
+
+			// won't be set for a constructor
+			"ExpressionBody": Is(nil),
+
+			// Initializer is an expression to initialize the base class.
+			// Here we consider case if it's exists in the AST node.
+			//
+			// Initializer is basically a function call that will init the base class.
+			// So we will consider it a first statement of a function body.
+			//
+			// For this we dig into Body above to get the list of statements.
+			// If hasBaseInit is set (initializer exists), we will prepend it
+			// to the array of statement in Body.
+			"Initializer": If("hasBaseInit",
+				// case 1: has base initializer
+				Check(HasType("BaseConstructorInitializer"), Var("baseInit")),
+				// case 2: no initializer
+				Is(nil),
+			),
+			"Body": Part("bodyMap", Obj{
+				"Statements": Var("stmts"),
+			}),
+
+			// FIXME(dennwc): driver drops them currently
+			"Modifiers": Any(),
+		},
+		Obj{
+			"Nodes": Arr(
+				UASTType(uast.Alias{}, Obj{
+					"Name": Var("name"),
+					"Node": UASTType(uast.Function{}, Obj{
+						// Restore the function body.
+						//
+						// We will also prepend a base class initializer here, see above.
+						"Body": Part("bodyMap", Obj{
+							"Statements": If("hasBaseInit",
+								// case 1: has base initializer
+								PrependOne(Var("baseInit"), Var("stmts")),
+								// case 2: no initializer
+								Var("stmts"),
+							),
+						}),
+						"Type": UASTType(uast.FunctionType{}, Obj{
+							"Arguments": Var("params"),
+						}),
+					}),
+				}),
+			),
+		},
+	)),
 	funcDefMap("DestructorDeclaration", false, Obj{
 		"TildeToken": Any(),
 	}),
