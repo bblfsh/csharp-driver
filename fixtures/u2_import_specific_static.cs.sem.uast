@@ -114,7 +114,9 @@
                },
             ],
          },
-         Target: ~,
+         Target: {
+            static: true,
+         },
       },
    ],
 }
