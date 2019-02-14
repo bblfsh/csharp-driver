@@ -183,9 +183,13 @@ func funcDefMap(typ string, returns bool, other Obj) Mapping {
 		"IsMissing":          Bool(false),
 		"IsStructuredTrivia": Bool(false),
 		"SemicolonToken":     Any(),
+		"AttributeLists": Cases("caseAttrs",
+			Arr(),
+			Check(OfKind(nodes.KindArray), Var("attr")),
+			Check(OfKind(nodes.KindObject), Var("attr")),
+		),
 
 		// FIXME(dennwc): driver drops them currently
-		"AttributeLists": Any(),
 		"ExpressionBody": Any(),
 		"Modifiers":      Any(),
 	}
@@ -208,6 +212,11 @@ func funcDefMap(typ string, returns bool, other Obj) Mapping {
 
 		Obj{
 			"Nodes": Arr(
+				Cases("caseAttrs",
+					Is(nil),
+					Var("attr"),
+					Arr(Var("attr")),
+				),
 				UASTType(uast.Alias{}, Obj{
 					"Name": Var("name"),
 					"Node": UASTType(uast.Function{}, Obj{
@@ -819,7 +828,11 @@ var Normalizers = []Mapping{
 			"IsMissing":          Bool(false),
 			"IsStructuredTrivia": Bool(false),
 			"SemicolonToken":     Any(),
-			"AttributeLists":     Arr(), // TODO(dennwc): any cases when it's not empty?
+			"AttributeLists": Cases("caseAttrs",
+				Arr(),
+				Check(OfKind(nodes.KindArray), Var("attr")),
+				Check(OfKind(nodes.KindObject), Var("attr")),
+			),
 
 			// won't be set for a constructor
 			"ExpressionBody": Is(nil),
@@ -848,6 +861,11 @@ var Normalizers = []Mapping{
 		},
 		Obj{
 			"Nodes": Arr(
+				Cases("caseAttrs",
+					Is(nil),
+					Var("attr"),
+					Arr(Var("attr")),
+				),
 				UASTType(uast.Alias{}, Obj{
 					"Name": Var("name"),
 					"Node": UASTType(uast.Function{}, Obj{
