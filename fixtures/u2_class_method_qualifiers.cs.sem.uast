@@ -124,7 +124,6 @@
                   },
                },
                Nodes: [
-                  ~,
                   [
                      { '@type': "csharp:AbstractKeyword",
                         '@token': "abstract",
@@ -383,7 +382,6 @@
                   },
                },
                Nodes: [
-                  ~,
                   [
                      { '@type': "csharp:PublicKeyword",
                         '@token': "public",
@@ -505,7 +503,6 @@
                   },
                },
                Nodes: [
-                  ~,
                   [
                      { '@type': "csharp:PrivateKeyword",
                         '@token': "private",
@@ -627,7 +624,6 @@
                   },
                },
                Nodes: [
-                  ~,
                   [
                      { '@type': "csharp:ProtectedKeyword",
                         '@token': "protected",
@@ -749,7 +745,6 @@
                   },
                },
                Nodes: [
-                  ~,
                   [
                      { '@type': "csharp:InternalKeyword",
                         '@token': "internal",
@@ -871,7 +866,6 @@
                   },
                },
                Nodes: [
-                  ~,
                   [
                      { '@type': "csharp:ExternKeyword",
                         '@token': "extern",
@@ -979,7 +973,6 @@
                   },
                },
                Nodes: [
-                  ~,
                   [
                      { '@type': "csharp:OverrideKeyword",
                         '@token': "override",
@@ -1101,7 +1094,6 @@
                   },
                },
                Nodes: [
-                  ~,
                   [
                      { '@type': "csharp:SealedKeyword",
                         '@token': "sealed",
@@ -1223,7 +1215,6 @@
                   },
                },
                Nodes: [
-                  ~,
                   [
                      { '@type': "csharp:UnsafeKeyword",
                         '@token': "unsafe",
@@ -1345,7 +1336,6 @@
                   },
                },
                Nodes: [
-                  ~,
                   [
                      { '@type': "csharp:VirtualKeyword",
                         '@token': "virtual",
@@ -1467,7 +1457,6 @@
                   },
                },
                Nodes: [
-                  ~,
                   [
                      { '@type': "csharp:NewKeyword",
                         '@token': "new",
@@ -1706,7 +1695,6 @@
                   },
                },
                Nodes: [
-                  ~,
                   [
                      { '@type': "csharp:PartialKeyword",
                         '@token': "partial",

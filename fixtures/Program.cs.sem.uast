@@ -1101,7 +1101,6 @@
                         },
                      },
                      Nodes: [
-                        ~,
                         [
                            { '@type': "csharp:StaticKeyword",
                               '@token': "static",
@@ -4591,7 +4590,6 @@
                         },
                      },
                      Nodes: [
-                        ~,
                         [
                            { '@type': "csharp:StaticKeyword",
                               '@token': "static",
@@ -5723,7 +5721,6 @@
                         },
                      },
                      Nodes: [
-                        ~,
                         [
                            { '@type': "csharp:ProtectedKeyword",
                               '@token': "protected",
@@ -9155,7 +9152,6 @@
                         },
                      },
                      Nodes: [
-                        ~,
                         [
                            { '@type': "csharp:PublicKeyword",
                               '@token': "public",
@@ -9407,7 +9403,6 @@
                         },
                      },
                      Nodes: [
-                        ~,
                         [
                            { '@type': "csharp:PublicKeyword",
                               '@token': "public",
@@ -9626,7 +9621,6 @@
                         },
                      },
                      Nodes: [
-                        ~,
                         [
                            { '@type': "csharp:PublicKeyword",
                               '@token': "public",

@@ -1986,7 +1986,6 @@
                   },
                },
                Nodes: [
-                  ~,
                   [
                      { '@type': "csharp:StaticKeyword",
                         '@token': "static",

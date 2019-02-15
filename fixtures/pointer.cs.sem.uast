@@ -124,7 +124,6 @@
                   },
                },
                Nodes: [
-                  ~,
                   [
                      { '@type': "csharp:PublicKeyword",
                         '@token': "public",
@@ -440,7 +439,6 @@
                   },
                },
                Nodes: [
-                  ~,
                   [
                      { '@type': "csharp:UnsafeKeyword",
                         '@token': "unsafe",

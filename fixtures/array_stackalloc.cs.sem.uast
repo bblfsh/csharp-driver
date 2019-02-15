@@ -201,7 +201,6 @@
                   },
                },
                Nodes: [
-                  ~,
                   [
                      { '@type': "csharp:UnsafeKeyword",
                         '@token': "unsafe",

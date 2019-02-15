@@ -167,7 +167,7 @@ func (op opArrToChain) Construct(st *State, n nodes.Node) (nodes.Node, error) {
 	return typ, nil
 }
 
-func funcDefMap(typ string, returns bool, other Obj) Mapping {
+func funcDefMap(typ string, returns bool, other Obj, toGroup ...Op) Mapping {
 	src := Obj{
 		"Identifier": Var("name"),
 		"ParameterList": Obj{
@@ -206,6 +206,45 @@ func funcDefMap(typ string, returns bool, other Obj) Mapping {
 			}),
 		)
 	}
+	funcGroup := []Op{
+		Cases("caseAttrs",
+			Is(nil),
+			Var("attr"),
+			Arr(Var("attr")),
+		),
+		Cases("caseMods",
+			Is(nil),
+			NotEmpty(Var("modifiers")),
+		),
+	}
+	funcGroup = append(funcGroup, toGroup...)
+	funcGroup = append(funcGroup, UASTType(uast.Alias{}, Obj{
+		"Name": Var("name"),
+		"Node": UASTType(uast.Function{}, Obj{
+			"Type": UASTType(uast.FunctionType{}, dstType),
+			// If the function was defined with an arrow expression, we will
+			// generate a uast:Block with a since csharp:Return node containing
+			// the expression.
+			"Body": Cases("isArrow",
+				// case 1: arrow expression
+				UASTType(uast.Block{}, Obj{
+					uast.KeyPos: Var("arrow_pos"),
+					"Statements": Arr(
+						Obj{
+							uast.KeyType: String("ReturnStatement"),
+							uast.KeyPos:  Var("arrow_pos_tok"),
+							"Expression": Var("arrow"),
+						},
+					),
+				}),
+				// case 2: full body
+				// TODO(dennwc): this will definitely fail the reverse transform
+				//               make a more specific node check when we need it
+				//               see https://github.com/bblfsh/sdk/issues/355
+				Var("body"),
+			),
+		}),
+	}))
 	return MapSemantic(typ, uast.FunctionGroup{}, MapObj(
 		// Either Body or ExpressionBody will be set.
 		CasesObj("isArrow",
@@ -241,44 +280,7 @@ func funcDefMap(typ string, returns bool, other Obj) Mapping {
 		),
 
 		Obj{
-			"Nodes": Arr(
-				Cases("caseAttrs",
-					Is(nil),
-					Var("attr"),
-					Arr(Var("attr")),
-				),
-				Cases("caseMods",
-					Is(nil),
-					NotEmpty(Var("modifiers")),
-				),
-				UASTType(uast.Alias{}, Obj{
-					"Name": Var("name"),
-					"Node": UASTType(uast.Function{}, Obj{
-						"Type": UASTType(uast.FunctionType{}, dstType),
-						// If the function was defined with an arrow expression, we will
-						// generate a uast:Block with a since csharp:Return node containing
-						// the expression.
-						"Body": Cases("isArrow",
-							// case 1: arrow expression
-							UASTType(uast.Block{}, Obj{
-								uast.KeyPos: Var("arrow_pos"),
-								"Statements": Arr(
-									Obj{
-										uast.KeyType: String("ReturnStatement"),
-										uast.KeyPos:  Var("arrow_pos_tok"),
-										"Expression": Var("arrow"),
-									},
-								),
-							}),
-							// case 2: full body
-							// TODO(dennwc): this will definitely fail the reverse transform
-							//               make a more specific node check when we need it
-							//               see https://github.com/bblfsh/sdk/issues/355
-							Var("body"),
-						),
-					}),
-				}),
-			),
+			"Nodes": Arr(funcGroup...),
 		},
 	))
 }
@@ -856,14 +858,31 @@ var Normalizers = []Mapping{
 		},
 	)),
 
-	funcDefMap("MethodDeclaration", true, Obj{
-		// number of parameters - safe to ignore
-		"Arity":                      Any(),
-		"ExplicitInterfaceSpecifier": Is(nil),
-		// FIXME(dennwc): driver drops them currently
-		"ConstraintClauses": Any(),
-		"TypeParameterList": Any(),
-	}),
+	funcDefMap("MethodDeclaration", true,
+		Obj{
+			// number of parameters - safe to ignore
+			"Arity":                      Any(),
+			"ExplicitInterfaceSpecifier": Is(nil),
+			"ConstraintClauses": Cases("caseConstraint",
+				Arr(),
+				NotEmpty(Var("constraints")),
+			),
+			"TypeParameterList": Cases("caseTypeParams",
+				Is(nil),
+				Arr(),
+				NotEmpty(Var("typeParams")),
+			),
+		},
+		Cases("caseTypeParams",
+			Is(nil),
+			Is(nil),
+			NotEmpty(Var("typeParams")),
+		),
+		Cases("caseConstraint",
+			Is(nil),
+			NotEmpty(Var("constraints")),
+		),
+	),
 	// ConstructorDeclaration is similar to MethodDeclaration, but it may include a
 	// base class initializer that require a special transformation.
 	MapSemantic("ConstructorDeclaration", uast.FunctionGroup{}, MapObj(
@@ -1226,7 +1245,18 @@ func (op opMergeGroups) checkFuncGroup(st *State, fgroup nodes.Object) (bool, er
 		return false, errors.New("expected an array in FuncGroup.Nodes")
 	}
 	modified := false
-	for i, v := range arr {
+	for i := 0; i < len(arr); i++ {
+		v := arr[i]
+		if v == nil {
+			// remove nil elements
+			if !modified {
+				arr = arr.CloneList()
+				modified = true
+			}
+			arr = append(arr[:i], arr[i+1:]...)
+			i--
+			continue
+		}
 		// secondary arrays the group annotations/modifiers, etc
 		arr2, ok := v.(nodes.Array)
 		if !ok {

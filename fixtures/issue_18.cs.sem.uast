@@ -1037,7 +1037,6 @@
                         },
                      },
                      Nodes: [
-                        ~,
                         [
                            { '@type': "uast:Comment",
                               '@pos': { '@type': "uast:Positions",
@@ -1957,7 +1956,6 @@
                         },
                      },
                      Nodes: [
-                        ~,
                         [
                            { '@type': "uast:Comment",
                               '@pos': { '@type': "uast:Positions",

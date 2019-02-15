@@ -161,7 +161,6 @@
                         },
                      },
                      Nodes: [
-                        ~,
                         [
                            { '@type': "csharp:StaticKeyword",
                               '@token': "static",
@@ -1343,7 +1342,6 @@
                         },
                      },
                      Nodes: [
-                        ~,
                         [
                            { '@type': "csharp:StaticKeyword",
                               '@token': "static",

@@ -143,8 +143,6 @@
                      Tab: "",
                      Text: "Doc comment",
                   },
-                  ~,
-                  ~,
                   { '@type': "uast:Alias",
                      Name: { '@type': "uast:Identifier",
                         '@pos': { '@type': "uast:Positions",

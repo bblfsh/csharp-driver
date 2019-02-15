@@ -124,7 +124,6 @@
                   },
                },
                Nodes: [
-                  ~,
                   [
                      { '@type': "csharp:PartialKeyword",
                         '@token': "partial",
@@ -369,7 +368,6 @@
                   },
                },
                Nodes: [
-                  ~,
                   [
                      { '@type': "csharp:StaticKeyword",
                         '@token': "static",

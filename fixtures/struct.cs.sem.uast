@@ -307,7 +307,6 @@
                   },
                },
                Nodes: [
-                  ~,
                   [
                      { '@type': "csharp:PublicKeyword",
                         '@token': "public",
@@ -870,7 +869,6 @@
                   },
                },
                Nodes: [
-                  ~,
                   [
                      { '@type': "csharp:StaticKeyword",
                         '@token': "static",

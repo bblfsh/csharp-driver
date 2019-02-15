@@ -287,7 +287,6 @@
                   },
                },
                Nodes: [
-                  ~,
                   [
                      { '@type': "csharp:PublicKeyword",
                         '@token': "public",
