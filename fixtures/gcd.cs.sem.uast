@@ -50,7 +50,6 @@
             },
          },
          Nodes: [
-            ~,
             [
                { '@type': "csharp:StaticKeyword",
                   '@token': "static",
@@ -7704,7 +7703,6 @@
             },
          },
          Nodes: [
-            ~,
             [
                { '@type': "uast:Comment",
                   '@pos': { '@type': "uast:Positions",

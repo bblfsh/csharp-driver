@@ -50,7 +50,6 @@
             },
          },
          Nodes: [
-            ~,
             [
                { '@type': "csharp:PublicKeyword",
                   '@token': "public",
@@ -669,7 +668,6 @@
             },
          },
          Nodes: [
-            ~,
             [
                { '@type': "csharp:PrivateKeyword",
                   '@token': "private",
