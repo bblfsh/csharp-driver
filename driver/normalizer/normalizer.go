@@ -187,9 +187,10 @@ func funcDefMap(typ string, returns bool, other Obj) Mapping {
 			Check(OfKind(nodes.KindArray), Var("attr")),
 			Check(OfKind(nodes.KindObject), Var("attr")),
 		),
-
-		// FIXME(dennwc): driver drops them currently
-		"Modifiers": Any(),
+		"Modifiers": Cases("caseMods",
+			Arr(),
+			NotEmpty(Var("modifiers")),
+		),
 	}
 	for k, v := range other {
 		src[k] = v
@@ -245,6 +246,10 @@ func funcDefMap(typ string, returns bool, other Obj) Mapping {
 					Is(nil),
 					Var("attr"),
 					Arr(Var("attr")),
+				),
+				Cases("caseMods",
+					Is(nil),
+					NotEmpty(Var("modifiers")),
 				),
 				UASTType(uast.Alias{}, Obj{
 					"Name": Var("name"),
@@ -853,11 +858,11 @@ var Normalizers = []Mapping{
 
 	funcDefMap("MethodDeclaration", true, Obj{
 		// number of parameters - safe to ignore
-		"Arity": Any(),
+		"Arity":                      Any(),
+		"ExplicitInterfaceSpecifier": Is(nil),
 		// FIXME(dennwc): driver drops them currently
-		"ConstraintClauses":          Any(),
-		"ExplicitInterfaceSpecifier": Any(),
-		"TypeParameterList":          Any(),
+		"ConstraintClauses": Any(),
+		"TypeParameterList": Any(),
 	}),
 	// ConstructorDeclaration is similar to MethodDeclaration, but it may include a
 	// base class initializer that require a special transformation.
@@ -904,9 +909,10 @@ var Normalizers = []Mapping{
 			"Body": Part("bodyMap", Obj{
 				"Statements": Var("stmts"),
 			}),
-
-			// FIXME(dennwc): driver drops them currently
-			"Modifiers": Any(),
+			"Modifiers": Cases("caseMods",
+				Arr(),
+				NotEmpty(Var("modifiers")),
+			),
 		},
 		Obj{
 			"Nodes": Arr(
@@ -914,6 +920,10 @@ var Normalizers = []Mapping{
 					Is(nil),
 					Var("attr"),
 					Arr(Var("attr")),
+				),
+				Cases("caseMods",
+					Is(nil),
+					NotEmpty(Var("modifiers")),
 				),
 				UASTType(uast.Alias{}, Obj{
 					"Name": Var("name"),
@@ -944,7 +954,13 @@ var Normalizers = []Mapping{
 	// Merge uast:Group with uast:FunctionGroup.
 	Map(
 		opMergeGroups{Var("group")},
-		Check(Has{uast.KeyType: String(uast.TypeOf(uast.FunctionGroup{}))}, Var("group")),
+		Check(
+			Has{uast.KeyType: In(
+				nodes.String(typeFuncGroup),
+				nodes.String(typeGroup),
+			)},
+			Var("group"),
+		),
 	),
 }
 
@@ -1152,13 +1168,26 @@ func (op opMergeGroups) Kinds() nodes.Kind {
 	return nodes.KindObject
 }
 
-// Check tests if the current node is uast:Group and if it contains a uast:FunctionGroup
-// node, it will remove the current node and merge other children into the FunctionGroup.
+// Check tests if a current node is uast:Group and uast:FuncGroup and contains group of
+// another kind. It will remove the second group and merge children into current one.
+// uast:FuncGroup is preferred.
 func (op opMergeGroups) Check(st *State, n nodes.Node) (bool, error) {
 	group, ok := n.(nodes.Object)
-	if !ok || uast.TypeOf(group) != typeGroup {
+	if !ok {
 		return false, nil
 	}
+	switch uast.TypeOf(group) {
+	case typeGroup:
+		return op.checkGroup(st, group)
+	case typeFuncGroup:
+		return op.checkFuncGroup(st, group)
+	}
+	return false, nil
+}
+
+// checkGroup tests if the current node is uast:Group and if it contains a uast:FunctionGroup
+// node, it will remove the current node and merge other children into the FunctionGroup.
+func (op opMergeGroups) checkGroup(st *State, group nodes.Object) (bool, error) {
 	arr, ok := group["Nodes"].(nodes.Array)
 	if !ok {
 		return false, errors.New("expected an array in Group.Nodes")
@@ -1185,6 +1214,53 @@ func (op opMergeGroups) Check(st *State, n nodes.Node) (bool, error) {
 	fgroup = fgroup.CloneObject()
 	fgroup["Nodes"] = out
 
+	return op.sub.Check(st, fgroup)
+}
+
+// checkFuncGroup tests if the current node is uast:FuncGroup and if any of its sub-arrays
+// contain a ust:Group, it will be removed and the children will be flattened into a sub-array.
+func (op opMergeGroups) checkFuncGroup(st *State, fgroup nodes.Object) (bool, error) {
+	// primary nodes array in the function group
+	arr, ok := fgroup["Nodes"].(nodes.Array)
+	if !ok {
+		return false, errors.New("expected an array in FuncGroup.Nodes")
+	}
+	modified := false
+	for i, v := range arr {
+		// secondary arrays the group annotations/modifiers, etc
+		arr2, ok := v.(nodes.Array)
+		if !ok {
+			continue
+		}
+		// find a group node there
+		ind := firstWithType(arr2, func(typ string) bool {
+			return typ == typeGroup
+		})
+		if ind < 0 {
+			continue
+		}
+		group := arr2[ind].(nodes.Object)
+		// children array of an inner group
+		arr3, ok := group["Nodes"].(nodes.Array)
+		if !ok {
+			return false, errors.New("expected an array in Group.Nodes")
+		}
+		// flatten inner array into the secondary array
+		out := make(nodes.Array, 0, len(arr2)-1+len(arr3))
+		out = append(out, arr2[:ind]...)
+		out = append(out, arr3...)
+		out = append(out, arr2[ind+1:]...)
+		if !modified {
+			arr = arr.CloneList()
+			modified = true
+		}
+		arr[i] = out
+	}
+	if !modified {
+		return false, nil
+	}
+	fgroup = fgroup.CloneObject()
+	fgroup["Nodes"] = arr
 	return op.sub.Check(st, fgroup)
 }
 
