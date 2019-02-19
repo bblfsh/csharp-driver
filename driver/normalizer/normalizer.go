@@ -167,6 +167,14 @@ func (op opArrToChain) Construct(st *State, n nodes.Node) (nodes.Node, error) {
 	return typ, nil
 }
 
+// funcDefMap creates a common annotation structure for methods with a specified AST type.
+//
+// If returns flag is set, it will also convert the return value of the method, in other
+// cases it will assume that there should be no ReturnType in the native AST node.
+//
+// Other object allows to remap custom fields from the native AST. Other fields can be
+// either asserted to a specific value, or stored to a variable and restored in the
+// FunctionGroup array using toGroup.
 func funcDefMap(typ string, returns bool, other Obj, toGroup ...Op) Mapping {
 	src := Obj{
 		"Identifier": Var("name"),
@@ -222,9 +230,8 @@ func funcDefMap(typ string, returns bool, other Obj, toGroup ...Op) Mapping {
 		"Name": Var("name"),
 		"Node": UASTType(uast.Function{}, Obj{
 			"Type": UASTType(uast.FunctionType{}, dstType),
-			// If the function was defined with an arrow expression, we will
-			// generate a uast:Block with a since csharp:Return node containing
-			// the expression.
+			// If the function was defined with an arrow expression, we will generate
+			// a uast:Block with a csharp:Return node containing the expression.
 			"Body": Cases("isArrow",
 				// case 1: arrow expression
 				UASTType(uast.Block{}, Obj{
@@ -1190,6 +1197,8 @@ func (op opMergeGroups) Kinds() nodes.Kind {
 // Check tests if a current node is uast:Group and uast:FuncGroup and contains group of
 // another kind. It will remove the second group and merge children into current one.
 // uast:FuncGroup is preferred.
+//
+// See https://github.com/bblfsh/sdk/issues/361.
 func (op opMergeGroups) Check(st *State, n nodes.Node) (bool, error) {
 	group, ok := n.(nodes.Object)
 	if !ok {
@@ -1205,7 +1214,8 @@ func (op opMergeGroups) Check(st *State, n nodes.Node) (bool, error) {
 }
 
 // checkGroup tests if the current node is uast:Group and if it contains a uast:FunctionGroup
-// node, it will remove the current node and merge other children into the FunctionGroup.
+// node, it will rebuild the node by removing the current node and merge other children into
+// the FunctionGroup. The changed node will be passed to the sub-operation.
 func (op opMergeGroups) checkGroup(st *State, group nodes.Object) (bool, error) {
 	arr, ok := group["Nodes"].(nodes.Array)
 	if !ok {
@@ -1237,7 +1247,7 @@ func (op opMergeGroups) checkGroup(st *State, group nodes.Object) (bool, error) 
 }
 
 // checkFuncGroup tests if the current node is uast:FuncGroup and if any of its sub-arrays
-// contain a ust:Group, it will be removed and the children will be flattened into a sub-array.
+// contain a uast:Group, it will be removed and the children will be flattened into a sub-array.
 func (op opMergeGroups) checkFuncGroup(st *State, fgroup nodes.Object) (bool, error) {
 	// primary nodes array in the function group
 	arr, ok := fgroup["Nodes"].(nodes.Array)
@@ -1247,8 +1257,10 @@ func (op opMergeGroups) checkFuncGroup(st *State, fgroup nodes.Object) (bool, er
 	modified := false
 	for i := 0; i < len(arr); i++ {
 		v := arr[i]
+		// Since we will run this for every group, let's clean a group
+		// array from nils here. It could be a separate transform, but
+		// it may affect performance, effectively running all checks twice.
 		if v == nil {
-			// remove nil elements
 			if !modified {
 				arr = arr.CloneList()
 				modified = true
