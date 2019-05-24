@@ -2,26 +2,8 @@
 # values in this manifest refer to:
 #   https://github.com/bblfsh/sdk/blob/master/manifest/manifest.go
 
-# human-readable language name
 name = "C#"
-# language identifier
 language = "csharp"
-
-# status describes the current development status of the driver, the valid
-# values for status are: `planning`, `pre-alpha`, `alpha`, `beta`, `stable`,
-# `mature` or `inactive`.
+aliases = ["C#"]
 status = "beta"
 features = ["ast", "uast", "roles"]
-
-# documentation block is use to render the README.md file.
-[documentation]
-description  = """
-"""
-
-[runtime]
-# go_version describes the version being use to build the driver Go code.
-go_version = "1.12"
-
-# native_version describes the version or versions being use to build and
-# execute the native code, you should define at least one. (eg.: "1.8").
-native_version = []
