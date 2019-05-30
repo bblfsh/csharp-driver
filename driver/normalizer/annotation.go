@@ -84,9 +84,9 @@ var Annotations = []Mapping{
 	AnnotateType("PointerType", nil, role.Type, role.Incomplete),
 
 	// Literals and Literal tokens
-	AnnotateType("NumericLiteralToken", nil, role.Value, role.Number, role.Literal),
-	AnnotateType("CharacterLiteralToken", nil, role.Literal, role.Character),
-	AnnotateType("StringLiteralToken", nil, role.Literal, role.String),
+	AnnotateType("NumericLiteralToken", FieldRoles{"Text": {Rename: uast.KeyToken}}, role.Value, role.Number, role.Literal),
+	AnnotateType("CharacterLiteralToken", FieldRoles{"Text": {Rename: uast.KeyToken}}, role.Literal, role.Character),
+	AnnotateType("StringLiteralToken", FieldRoles{"Text": {Rename: uast.KeyToken}}, role.Literal, role.String),
 	AnnotateType("TrueKeyword", FieldRoles{"Value": {Rename: uast.KeyToken}}, role.Boolean, role.Literal),
 	AnnotateType("FalseKeyword", FieldRoles{"Value": {Rename: uast.KeyToken}}, role.Boolean, role.Literal),
 	AnnotateType("NumericLiteralExpression", nil, role.Expression, role.Number, role.Literal),
