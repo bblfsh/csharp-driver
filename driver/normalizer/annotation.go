@@ -27,7 +27,7 @@ var Native = Transformers([][]Transformer{
 //
 // https://godoc.org/github.com/bblfsh/sdk/v3/uast/transformer/positioner
 var PreprocessCode = []CodeTransformer{
-	positioner.FromOffset(),
+	positioner.FromUTF16Offset(),
 	positioner.TokenFromSource{
 		Types: []string{
 			"SingleLineCommentTrivia",

@@ -52,6 +52,7 @@ var Suite = &fixtures.Suite{
 			"SingleLineCommentTrivia",
 			"SingleLineDocumentationCommentTrivia",
 			"StringLiteralExpression",
+			"StringLiteralToken",
 			"TrueLiteralExpression",
 		}},
 	},
