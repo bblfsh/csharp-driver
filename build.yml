@@ -1,6 +1,6 @@
 sdk: '2'
 go-runtime:
-  version: '1.12'
+  version: '1.13'
 native:
   image: 'microsoft/dotnet:2.1-runtime'
   static:
